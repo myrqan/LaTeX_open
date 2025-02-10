@@ -90,10 +90,7 @@
   {op-symbol = \mathrm{D}}
 
 
-\usepackage{hyperref}
-\hypersetup{%
-colorlinks=true,%
-}
+
 
 \numberwithin{equation}{section} %% equation numbering setting
 
@@ -125,9 +122,28 @@ colorlinks=true,%
 \setmainjfont{HiraMinProN-W3}[
 	BoldFont = {Hiragino Sans W4}
 ]
+%\setmainfont{NewComputerModern10-Regular}[
+%	BoldFont = {NewComputermModern10-Bold}
+%	BoldItalicFont = {NewComputerModern10-BoldItalic}
+%]
+\usepackage{tocloft}% table of contents
 
 \usepackage{luatexja-otf}
 \usepackage{utfsym}
+
+\definecolor{mycream}{HTML}{FEFAEA}
+\definecolor{myvio}{HTML}{03155B}
+\definecolor{blue-green}{rgb}{0.0, 0.87, 0.87}
+\definecolor{bluegray}{rgb}{0.4, 0.6, 0.8}
+\definecolor{mint}{rgb}{0.24, 0.71, 0.54}
+\definecolor{dark-mint}{HTML}{3B876B}
+
+\usepackage[luatex,pdfencoding=auto]{hyperref}
+\hypersetup{%
+	colorlinks=true,%
+	linkcolor = dark-mint,%
+	urlcolor = orange,%
+}
 
 %% ====================== %%
 %% titleformat (titlesec) %%
