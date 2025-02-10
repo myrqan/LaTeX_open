@@ -193,25 +193,25 @@ $\bs{x}' = 0$としたとき，$m \geq 1$に対して，$I_m(0) = 0$であるか
     ポテンシャルを球面調和関数を用いた展開で表す：
 
     \begin{gather}
-      \Phi(r, \theta, \varphi) = \sum_{l=0}^\infty \sum_{m=l}^{l} \ab(A_{lm}r^l + B_{lm}r^{-(l+1)}) Y_{lm}(\theta,\varphi)
+      \Phi(r, \theta, \phi) = \sum_{l=0}^\infty \sum_{m=l}^{l} \ab(A_{lm}r^l + B_{lm}r^{-(l+1)}) Y_{lm}(\theta,\phi)
     \end{gather}
     $r=a$の球面上で境界条件から各係数を定める．
     計算の途中で，
     \begin{gather}
-      V(\varphi) = \left\{
+      V(\phi) = \left\{
       \begin{aligned}
-        +V &\qq \text{if}\qq \frac{\pi}{n}\cdot 2j \leq \varphi \leq \frac{\pi}{n}\cdot(2j+1)\\
-        -V &\qq \text{if}\qq \frac{\pi}{n}\cdot (2j+1) \leq \varphi \leq \frac{\pi}{n}\cdot(2j+2)\\
+        +V &\qq \text{if}\qq \frac{\pi}{n}\cdot 2j \leq \phi \leq \frac{\pi}{n}\cdot(2j+1)\\
+        -V &\qq \text{if}\qq \frac{\pi}{n}\cdot (2j+1) \leq \phi \leq \frac{\pi}{n}\cdot(2j+2)\\
       \end{aligned}
     \right. \qq (\text{for}\ j = 0, 1, \cdots, n-1)
     \end{gather}
     を用いて，積分
     \begin{gather}
-      \int_0^{2\pi} \dl{\varphi} V(\varphi) \e^{-\i m\varphi}
+      \int_0^{2\pi} \dl{\phi} V(\phi) \e^{-\i m\phi}
     \end{gather}
     の計算があらわれるが，$m \neq 0$のときを考えると，
     \begin{gather}
-      \int_0^{2\pi} \dl{\varphi} V(\varphi) \e^{-\i m\varphi} = -\frac{\i V}{m}\ab[1 - \exp\ab(-\i \frac{m}{n}\pi)]^2 \sum_{j=0}^{n-1} \exp\ab(-\i\frac{m}{n}2j\pi)
+      \int_0^{2\pi} \dl{\phi} V(\phi) \e^{-\i m\phi} = -\frac{\i V}{m}\ab[1 - \exp\ab(-\i \frac{m}{n}\pi)]^2 \sum_{j=0}^{n-1} \exp\ab(-\i\frac{m}{n}2j\pi)
     \end{gather}
     となる．$m = 0, \pm 2n, \pm 4n, \ldots$のときは$\exp\ab(-\i(m/n)\pi) = 1$となるので，積分はゼロ．
     いま，$m$は整数であるから，残りとして考えるのは$m = \pm n, \pm 3n, \ldots$である．
@@ -221,16 +221,75 @@ $\bs{x}' = 0$としたとき，$m \geq 1$に対して，$I_m(0) = 0$であるか
     \end{gather}
     であるから，これらをまとめて
     \begin{gather}
-      \int_0^{2\pi} \dl{\varphi} V(\varphi) e^{-\i m \varphi} = 
+      \int_0^{2\pi} \dl{\phi} V(\phi) e^{-\i m \phi} = 
         \begin{dcases}
           - \i\frac{4Vn}{m} & \text{if}\qq m = \pm n, \pm 3n, \ldots\\
            \qq 0 &\text{otherwise}
         \end{dcases}
     \end{gather}
     と書ける．
-  \item (a)の結果を用いて具体的に計算を進めていくだけであるが，Jackson §3.3 eq. (3.36)との比較の時には座標軸の取り方に気をつける必要がある．具体的には，$\cos\theta' = \sin\theta \sin \varphi$とすれば良い．
+  \item (a)の結果を用いて具体的に計算を進めていくだけであるが，Jackson §3.3 eq. (3.36)との比較の時には座標軸の取り方に気をつける必要がある．具体的には，$\cos\theta' = \sin\theta \sin \phi$とすれば良い．
     \end{enumerate}
-\end{enumerate}
+  \item Jackson eq. (3.70)の式を$r, a$でそれぞれ微分して，差を考えて$\dl{\Omega'}V(\theta' , \phi')$で積分をすれば良い．
+  \item ポテンシャルが具体的に計算できるので，Jackson eq. (3.70)を用いて，球面調和関数で展開して，和を考えれば良い．この問題は易しい．
+  \item 前問と同じように考えれば良い．
+  \item $\log(\csc\theta) = \log(1/\sin\theta)$をLegendre多項式で展開する．このときに積分
+    \begin{gather}
+      \int \dl{x} \log(1 - x^2) = (1+x)\log(1+x) - (1-x)\log(1-x) - 2x
+    \end{gather}
+    を用いる．普通に$\log$積分をしてしまうと発散してしまうことに注意．この積分は知らないとキビシイかも．
+  \item 円筒座標系でのLaplace方程式
+    \begin{gather}
+      \frac{1}{\rho}\diffp**{\rho}{\ab(\rho \diffp{\Phi}{\rho})} + \frac{1}{\rho^2}\diffp[2]{\Phi}{\phi} + \diffp[2]{\Phi}{z} = 0
+   \end{gather}
+   を$z = 0, L$での境界条件に注意して解けば良い．
+ \item 前問の結果を用いればよい．(b)での極限を考える時は，
+   \begin{gather}
+     I_\nu(z) \sim \frac{1}{\nu !} \ab(\frac{z}{2})^\nu + \order{z^{\nu+1}} \qq \text{if} \qq z \ll 1
+   \end{gather}
+   を用いると良い．また，三角関数の無限和を求める時は，$\exp$の形にして無限級数として和を求めてその実部・虚部を求めると見通しが良い．また，$\log$の虚部は$\arg$で与えられることに注意．
+ \item %3.11
+ \item %3.12
+ \item %3.13
+ \item %3.14
+  線電荷密度を求めて，それを体積電荷密度で書くと
+  \begin{gather}
+    \rho_\mr{c} (\bs{x}) = \frac{3Q}{8\pi d^3} \frac{d^2 - r^2}{r^2} \ab[\delta(\cos\theta - 1) + \delta(\cos\theta + 1)]
+  \end{gather}
+  と表すことができる．Jackson eq. (3.125)のGreen関数を用いて球内部のポテンシャルを求めればよい．$r \gtrless d$で積分の計算が異なるが，丁寧に計算をすれば良い．
+ \item %3.15
+ \item %3.16
+   Besselの微分方程式
+   \begin{gather}
+     \diff[2]{J_\nu(k\rho)}{\rho} + \frac{1}{\rho} \diff{J_\nu(k\rho)}{\rho} + \ab(k^2 - \frac{\nu^2}{\rho^2})J_\nu(k\rho)  = 0
+   \end{gather}
+   から出発して，部分積分，$k, k'$の入れ替えをして差を考えると，
+   \begin{gather}
+     (k^2 - (k')^2) \int_0^\infty \dl{\rho}\rho J_\nu(k\rho)J_\nu(k'\rho) = \eval{\ab[\rho J_\nu(k\rho)\diff{J_\nu(k'\rho)}{\rho} - \rho J_\nu(k'\rho)\diff{J_\nu(k\rho)}{\rho}]}_{\rho=0}^{\rho=\infty}
+   \end{gather}
+   となる．$\rho = \infty$の場合を考える．$\rho = R$として，$R \to \infty$を考えることにする．Bessel関数の漸近形を用いて，
+   \begin{multline}  
+     \eval{\ab[\rho J_\nu(k\rho)\diff{J_\nu(k'\rho)}{\rho} - \rho J_\nu(k'\rho)\diff{J_\nu(k\rho)}{\rho}]}_{\rho = R} \\
+     =\frac{1}{\pi}\frac{1}{\sqrt{kk'}} \ab[\frac{-1}{k+k'}\cos[(k+k')R - \nu \pi] + \frac1{k'-k}\sin\ab[(k'-k)R]]_{R \to \infty}
+   \end{multline}
+   と書き直すことができる．
+
+   デルタ関数は，$\sinc$関数を用いて
+   \begin{gather}
+     \lim_{\epsilon \to 0} \delta_\epsilon(x) = \lim_{\epsilon \to 0} \frac{\sin(x/\epsilon)}{x / \epsilon} \frac{1}{\pi \epsilon} = \delta(x)
+   \end{gather}
+   として近似することができる．
+   \begin{gather}
+     \lim_{R \to \infty} \frac{\cos\ab[(k+k')R - \nu \pi]}{k+k'} \propto \delta_{1/R}\ab((k+k') - \ab(\nu - \frac{1}{2}\frac{\pi}{R})) = 0\\
+     \lim_{R\to \infty}
+   \end{gather}
+
+ \item %3.17
+ \item %3.18
+ \item %3.19
+ \item %3.20
+ \item %3.21
+\end{enumerate} 
 
 \end{document}
 
