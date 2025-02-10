@@ -1,0 +1,236 @@
+%! TeX root = main.tex
+\input{/Users/crutont/Documents/github/LaTeX_open/prb/prb_20250103_a4.tex}
+\pagestyle{fancy}  
+\fancyhead[L]{\rightmark}
+\fancyhead[C]{}  
+\fancyhead[R]{\textbf{\thepage}}  
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\contentsname}{Contents}
+
+\begin{document}  
+\begin{screen}
+  \centering
+  J. D. Jackson, Classical Electrodynamics
+
+  Section 3: Boundary-Value Problems in Electrostatics: II ノート
+\end{screen}
+\begin{flushright}  
+  @crutont
+\end{flushright}
+
+\setcounter{section}{3}
+\tableofcontents
+\hrulefill
+\newpage
+
+\subsection{Laplace Equation in Spherical Coordinates}
+\subsection{Legendre Equation and Legendre Polynomials}
+\subsection{Boundary-Value Problems with Azimuthal Symmetry}
+\subsection{Behavior of Fields in a Conical Hole or Near a Sharp Point}
+\subsection{Associated Legendre Functions and the Spherical Harmonics \texorpdfstring{$Y_{lm}(\theta, \phi)$}{}}
+\subsection{Addition Theorem for Spherical Harmonics}
+\subsection{Laplace Equation in Cylindrical Coordinates; Bessel Functions}
+\subsection{Boundary-Value Problems in Cylindrical Coordinates}
+\subsection{Expansion of Green Functions in Spherical Coordinates}
+\subsection{Solution of Potential Problems with the Spherical Green Function Expansion}
+\subsection{Expansion of Green Functions in Cylindal Coordinates}
+円筒座標系でGreen関数の満たすべき式；
+\begin{gather}
+   \label{eq:Greenfunc_in_cylindar}
+  \gr^2_x G(\bs{x}, \bs{x}') = -\frac{4\pi}{\rho} \delta(\rho - \rho') \delta(\phi - \phi') \delta (z - z')
+\end{gather}
+$\phi$と$z$に関する部分のデルタ関数を
+\begin{gather}
+  \delta(\phi - \phi') = \frac{1}{2\pi} \sum_{m=-\infty}^{\infty} \e^{\i m(\phi - \phi')}\\
+\delta(z - z') = \frac{1}{2\pi} \int_\infty^\infty \dl{k} \e^{\i k(z-z')}  = \frac{1}{\pi} \int_0^\infty \dl{k}\cos\ab[k(z-z')]
+\end{gather}
+として，Green関数が
+\begin{gather}  
+  G(\bs{x}, \bs{x}') = \frac{1}{2\pi^2} \sum_{m=-\infty}^{\infty} \int_0^\infty \dl{k} \e^{\i m(\phi-\phi')} \cos \ab[k(z - z')] g_m(k; \rho, \rho')
+\end{gather}
+として表されるとする．
+
+Green関数の式\eqref{eq:Greenfunc_in_cylindar}に代入して，丁寧に計算をすると，$g_m$の部分についての関係式が得られる；
+\begin{gather}
+  \label{eq:Greenfunc_cylindar_radius}
+  \frac{1}{\rho} \diff**{\rho}{\ab(\rho\diff{g_m}{\rho})} - \ab(k^2 + \frac{m^2}{\rho^2})g_m = -\frac{4\pi}{\rho} \delta (\rho - \rho')
+\end{gather}
+$\rho \neq \rho'$のときは右辺がゼロになり，これはmodified Bessel functionである．一般解は$I_m(k\rho)$と$K_m(k\rho)$の線型結合で表される．
+
+$\psi_1(k\rho)$と$\psi_2(k\rho)$がそれぞれ，$\rho < \rho'$，$\rho > \rho'$での境界条件を満たす，$I_m, K_m$の線型結合で表される（線型独立な）解であるとすると，Green関数の対称性（$\rho$と$\rho'$の入れ替えに関して同じ関数を与えること）より，
+\begin{gather}
+  \label{eq:Greenfunc_cylindar_radius_psi}
+  g_m(k; \rho, \rho') = \psi_1(k\rho_<)\psi_2(k\rho_>)
+\end{gather}
+で表すことができる．
+
+$\rho = \rho'$での接続条件を考えると，
+\begin{gather}  
+  \eval{\diff{g_m}{\rho}}_{\rho = \rho' +0} - \eval{\diff{g_m}{\rho}}_{\rho = \rho' - 0} = - \frac{4\pi}{\rho'}
+\end{gather}
+となる．
+これに，\eqref{eq:Greenfunc_cylindar_radius_psi}を代入すると，
+\begin{gather}
+  k W\ab[\psi_1(k\rho), \psi_2(k\rho)] = -\frac{4\pi}{\rho} \\
+  \label{eq:wronskian_cylindar}
+  \text{i.e.}\qq W\ab[\psi_1(x), \psi_2(x)] = -\frac{4\pi}{x}
+\end{gather}
+となる．ただし，$W\ab[\psi_1, \psi_2]$は$\psi_1$と$\psi_2$のWronskianであり，
+\begin{gather}
+  W\ab[\psi_1, \psi_2] = \psi_1 \psi_2' - \psi_1'\psi_2
+\end{gather}
+で与えられる．
+
+\eqref{eq:Greenfunc_cylindar_radius}はStrum-Liouville型の微分方程式；
+\begin{gather}
+  \diff**{x}{\ab[p(x) \diff{y}{x}]} + g(x) y = 0
+\end{gather}
+である．
+この方程式の線型独立な2つの解のWronskianは$1/p(x)$に比例する形でかけることが知られている．
+このことを認めることにする．\footnote{いつかメモにしたい}
+
+いま，境界面がない自由空間を考える．
+$g_m$は$\rho = 0$で有限かつ$\rho \to \infty$でゼロになるので，（係数を$\psi_1$に取り込むことにすると）$\psi_1(k\rho) = AI_m(k\rho)$および，$\psi_2(k\rho) = K_m(k\rho)$と表される．係数$A$はWronskianの条件から定める．
+
+Wronskianは$1/\rho$に比例しているが，これはどの$\rho$についても成立している．いま，$\rho \gg 1$の極限で考えることにすると，（$\rho \ll 1$の極限で考えても良い）
+modified Bessel functionの漸近形
+\begin{gather}  
+  \begin{dcases}
+    I_m(x) \sim \frac{1}{\sqrt{2\pi x}}\e^x\\
+    K_m(x) \sim \sqrt{\frac{\pi}{2x}}\e^{-x}
+  \end{dcases}
+\end{gather}
+を代入して計算すれば，
+\begin{gather}
+  W \ab[I_m(x), K_m(x)] = -\frac{1}{x}
+\end{gather}
+となる，したがって，\eqref{eq:wronskian_cylindar}と係数を比較することにより，$A = 4\pi$を得る．
+
+さて，自由空間におけるGreen関数は$G(\bs{x}, \bs{x}') = 1 / \ab|\bs{x} - \bs{x}'|$であったから，この結果より，
+\begin{gather}
+  \frac{1}{\ab|\bs{x} - \bs{x}'|} = \frac{2}{\pi} \sum_{m=-\infty}^{\infty} \int_0^\infty \dl{k} \e^{\i m(\phi - \phi')} \cos\ab[k(z - z')] I_m(k\rho_<) K_m(k\rho_>)
+\end{gather}
+これは，
+実関数だけを用いて表すことができて，
+\begin{multline}
+  \frac{1}{\ab|\bs{x} - \bs{x}'|} = \frac{4}{\pi} \int_0^\infty \dl{k} \cos\ab[k(z - z')] \\
+  \times \ab\{\frac{1}{2}I_0(k\rho_<)K_0(k\rho_>) + \sum_{m=1}^\infty \cos\ab[m(\phi - \phi')] I_m(k\rho_<) K_m(k\rho_>)\}
+\end{multline}
+と書くことができる．
+
+$\bs{x}' = 0$としたとき，$m \geq 1$に対して，$I_m(0) = 0$であるから，$m = 0$の項だけが残り，（$I_m(z) \sim (z/2)^m $ if $z \ll 1$である．）
+\begin{gather}
+  \label{eq:cosK0}
+  \frac{1}{\sqrt{\rho^2 + z^2}} = \frac{2}{\pi} \int_0^\infty \dl{k} \cos(kz) K_0(k\rho)
+\end{gather}
+となる．
+また，$\rho^2 \to R^2 = \rho^2 + (\rho')^2 - 2 \rho \rho' \cos(\phi - \phi')$と置き直すと， このとき，$|\bs{x} - \bs{x}'(z'=0)| = \sqrt{R^2 + z^2}$であるから，
+\begin{gather}
+  \frac{1}{\sqrt{R^2 + z^2}} = \frac{4}{\pi} \int_0^\infty \dl{k} \cos(kz) \ab\{ \frac12 I_0(k\rho_<)K_0(k\rho_>) + \sum_{m=1}^{\infty}\cos\ab[m(\phi - \phi')]I_m(k\rho_<) K_m(k\rho_>)\}
+\end{gather}
+これと\eqref{eq:cosK0}を比較して，
+\begin{multline}
+  \label{eq:k0sqrt}
+  K_0\ab(k\sqrt{\rho^2 + (\rho')^2 - 2 \rho \rho'\cos(\phi - \phi')}) \\
+  = I_0(k\rho_<)K_0(k\rho_>) + 2 \sum_{m=1}^{\infty}\cos\ab[m(\phi - \phi')]I_m(k\rho_<) K_m(k\rho_>)
+\end{multline}
+を得る．ここで，$k\to 0$の極限を考える．$z \ll 1$のとき，
+\begin{align}
+  I_m(z) &\sim \frac{1}{\Gamma(m+1)} \ab(\frac{z}{2})^m\\
+  K_m(z) &\sim
+  \begin{dcases}
+    -\log\ab(\frac{z}2) - 0.5772\ldots \qq (m=0)\\
+    \frac{\Gamma(m)}{2}\ab(\frac{2}{z})^m\qq (m\neq 0)
+  \end{dcases}
+\end{align}
+で漸近形が与えられるので，これを\eqref{eq:k0sqrt}に代入して計算をすると，
+\begin{gather}
+  \log\ab(\frac{1}{\rho^2 + (\rho')^2 - 2 \rho \rho' \cos(\phi - \phi')}) = 2\log\ab(\frac{1}{\rho_>}) + 2 \sum_{m=1}^{\infty}\frac{1}{m}\ab(\frac{\rho_<}{\rho_>})^m\cos[m(\phi - \phi')]
+\end{gather}
+これは二次元極座標系におけるGreen関数の表式である．（問題2.17）
+
+%%2025-01-24 書き終え 3.11
+
+\subsection{Eigenfunction Expansions for Green Functions}
+
+\subsection{Mixed Boundary Conditions; Conducting Plane with a Circular Hole}
+
+\subsection{Problems}
+章末問題の手の付け方，略解とかを書きたい．
+\begin{enumerate}[label=\fbox{\textbf{\thesection.\arabic*}}]
+  \item 方位角対称なポテンシャルをLegendre多項式で展開したときの一般形
+    \begin{gather}
+      \label{eq:potential_in_legendre}
+      \Phi(r, \theta) = \sum_{l=0}^\infty (A_l r^l + B_l r^{-(l+1)})P_l(\cos\theta)
+    \end{gather}
+    に代入して境界条件から各係数を決定する．
+    Legendre多項式について成り立つ関係：
+    \begin{gather}
+      P_n(0) = (-1)^{n/2} 2^{-n} \comb{n}{n/2} \qq (n : \text{even})
+    \end{gather}
+    を使えば良い．
+  \item 
+    \begin{enumerate}[(a)]  
+      \item \eqref{eq:potential_in_legendre}
+        のように展開して，表面電荷密度による境界条件を考えることで係数を決定する．Legendre多項式の直交関係式：
+        \begin{gather}
+          \int_0^1 \dl{(\cos\theta)} P_{l'}(\cos\theta) P_l(\cos\theta) = \frac{2}{2l+1} \delta_{ll'}
+        \end{gather}
+        および，Legendre多項式の基本的な式：
+        \begin{gather}
+        P_l(-x) = (-1)^l P_l(x)
+        \end{gather}
+        を用いれば良い．
+      \item $\bs{E} = - \gr \Phi$を用いて原点での電場を計算する．$\hat{\bs{z}} = \cos\theta\hat{\bs{r}} - \sin\theta \hat{\bs{\theta}}$を用いると結果を$\hat{\bs{z}}$のみで表すことができる．
+      \item (2)では$\beta = \pi - \alpha$として$\beta \to 0$の極限を考えるとよい．
+  \end{enumerate}
+  \item この問題は議論の余地がある．
+    ちょっと後回しにする．
+  \item
+    \begin{enumerate}[(a)]  
+      \item  
+    ポテンシャルを球面調和関数を用いた展開で表す：
+
+    \begin{gather}
+      \Phi(r, \theta, \varphi) = \sum_{l=0}^\infty \sum_{m=l}^{l} \ab(A_{lm}r^l + B_{lm}r^{-(l+1)}) Y_{lm}(\theta,\varphi)
+    \end{gather}
+    $r=a$の球面上で境界条件から各係数を定める．
+    計算の途中で，
+    \begin{gather}
+      V(\varphi) = \left\{
+      \begin{aligned}
+        +V &\qq \text{if}\qq \frac{\pi}{n}\cdot 2j \leq \varphi \leq \frac{\pi}{n}\cdot(2j+1)\\
+        -V &\qq \text{if}\qq \frac{\pi}{n}\cdot (2j+1) \leq \varphi \leq \frac{\pi}{n}\cdot(2j+2)\\
+      \end{aligned}
+    \right. \qq (\text{for}\ j = 0, 1, \cdots, n-1)
+    \end{gather}
+    を用いて，積分
+    \begin{gather}
+      \int_0^{2\pi} \dl{\varphi} V(\varphi) \e^{-\i m\varphi}
+    \end{gather}
+    の計算があらわれるが，$m \neq 0$のときを考えると，
+    \begin{gather}
+      \int_0^{2\pi} \dl{\varphi} V(\varphi) \e^{-\i m\varphi} = -\frac{\i V}{m}\ab[1 - \exp\ab(-\i \frac{m}{n}\pi)]^2 \sum_{j=0}^{n-1} \exp\ab(-\i\frac{m}{n}2j\pi)
+    \end{gather}
+    となる．$m = 0, \pm 2n, \pm 4n, \ldots$のときは$\exp\ab(-\i(m/n)\pi) = 1$となるので，積分はゼロ．
+    いま，$m$は整数であるから，残りとして考えるのは$m = \pm n, \pm 3n, \ldots$である．
+    このとき，
+    \begin{gather}
+      \exp\ab(-\i \frac{m}{n}2j \pi) = 1
+    \end{gather}
+    であるから，これらをまとめて
+    \begin{gather}
+      \int_0^{2\pi} \dl{\varphi} V(\varphi) e^{-\i m \varphi} = 
+        \begin{dcases}
+          - \i\frac{4Vn}{m} & \text{if}\qq m = \pm n, \pm 3n, \ldots\\
+           \qq 0 &\text{otherwise}
+        \end{dcases}
+    \end{gather}
+    と書ける．
+  \item (a)の結果を用いて具体的に計算を進めていくだけであるが，Jackson §3.3 eq. (3.36)との比較の時には座標軸の取り方に気をつける必要がある．具体的には，$\cos\theta' = \sin\theta \sin \varphi$とすれば良い．
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
+

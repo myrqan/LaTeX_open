@@ -1,0 +1,184 @@
+%% kind : preamble file
+%% tex type : beamer / LuaLaTeX
+%% created 2024.10.24
+%% modified 2025.01.03
+%% make beamer ver. 2025.01.09
+%% font en : CMU
+%% font ja : Hiragino Sans W2 / W4
+%% using physics2 pkg, backgroundcolor = True/cream
+%% using theme : metropolis
+
+\documentclass[unicode, 10pt]{beamer}
+
+\usetheme[
+  block=fill,%
+  progressbar=foot,%
+  numbering=fraction, %
+  sectionpage = simple %
+  ]{metropolis}
+\definecolor{mycream}{HTML}{FEFAEA}
+\definecolor{myvio}{HTML}{05208C}
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{2pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{2pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{2pt}
+\makeatother
+\setbeamercolor{normal text}{fg = myvio, bg = mycream}
+
+\usefonttheme{serif}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{tikz}
+
+\usepackage{ascmac} % boxnote, itembox, mask, screen, shadebox
+\usepackage{comment}
+% \usepackage{empheq}
+\usepackage[shortlabels, inline]{enumitem}
+\usepackage{fancybox} % doublebox, ovalbox, fbox, sbox
+\usepackage{fancyhdr}
+    %%\pagestyle{fancy}
+    %%\[r, l, c]head{hoge}
+    %%\[r, l, c]foot{hoge}
+\usepackage{multicol}
+
+
+\usepackage{here}
+%\usepackage{lastpage}
+\usepackage{listings, jvlisting} % code insert // jvlisting→jlistingに移行すべきとも
+    %%\lstset{}以下でコードの出力方法について指定
+
+\usepackage{stmaryrd} % 特殊記号類
+\usepackage[listings]{tcolorbox}
+%\usepackage{titlesec} % change title format
+     %% example %% 
+
+     %%\titleformat{\section}[display]{\bfseries\gtfamily}{}{10pt}{%
+     %%\begin{tcolorbox}[%
+     %%    enhanced,%
+     %%    colback=white,colbacktitle=white,colframe=black,coltitle=black,%
+     %%    boxrule=1.5pt,sharp corners,%
+     %%    borderline={1.5pt}{3pt}{black},%
+     %%    ]%
+     %%    \centering Section \thesection \\
+     %%    \LARGE #1%
+     %%\end{tcolorbox}%
+     %%}
+     %%\titleformat{\section}[block]{
+     %%   \normalfont\bfseries\filcenter
+     %%   }{\fbox{\itshape\thesection}}{1em}{}
+     %%\titleformat{\section}[hang]{\large\bfseries}
+     %%  {\colorbox{blue!20}{\thesection}}{10.5pt}{}%
+     %%  [\color{blue!20}{\titlerule}]
+
+%% color setting
+     %% \definecolor{mycream}{HTML}{FEFAEA}
+     %% \definecolor{myvio}{HTML}{05208C}
+
+     %% \titleformat{\section}[hang]{\large\bfseries}
+     %% {\colorbox{myvio}{\color{mycream}\thesection}}{1\zw}{}%
+     %% [{\titlerule[0.5pt]}]
+    
+     %% \usepackage{pagecolor}
+	 %% \pagecolor{mycream}
+	 %% \color{myvio}
+
+
+
+\usepackage{ulem} %% uline, uuline, uwave, sout, xout
+\usepackage{url} %% url
+\usepackage{verbatim} %%\verb|hoge| or verbatim env. option[*] : space visible
+\usepackage{wrapfig}
+\usepackage{xcolor}
+%\usepackage{luatexja-ruby}
+
+%\usepackage{minipage}
+\usepackage{varwidth} %% minipageより自然な幅?
+
+\usepackage{siunitx}
+\usepackage{physics2}
+  \usephysicsmodule{ab}
+  %\usephysicsmodule{ab.braket} %% conflict w/ braket
+  \usephysicsmodule{braket}
+  \usephysicsmodule{diagmat}
+  \usephysicsmodule{doubleprod}
+  \usephysicsmodule{xmat}
+
+\usepackage[ISO]{diffcoeff}
+  \difdef {f, s} {D}
+  {op-symbol = \mathrm{D}}
+
+
+\usepackage{hyperref}
+\hypersetup{%
+colorlinks=true,%
+}
+
+\numberwithin{equation}{section} %% equation numbering setting
+
+%% ============ %%
+%% font setting %%
+%% ============ %%
+%% series 1
+%%\usepackage[no-math, deluxe, expert]{luatexja-preset}
+%%\setmainfont[Ligatures=TeX]{EB Garamond Regular}[
+%%  BoldFont = {EB Garamond Bold},
+%%  ItalicFont = {EB Garamond Italic},
+%%  BoldItalicFont = {EB Garamond Bold Italic}
+%%  ]
+%%\usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
+%%\setmathfont{Garamond-Math.otf}%[StylisticSet={7,9}]
+%%\setmainjfont{TsukuhouMincho Regular}[
+%%  BoldFont = {Zen Old Mincho Bold}
+%%  ]
+%%\setsansjfont{Hiragino Sans GB W3}
+
+
+%% series 2
+\usepackage[no-math,deluxe,expert]{luatexja-preset}
+\setmainjfont{Hiragino Sans W2}[
+  BoldFont = {Hiragino Sans W4}
+]
+
+\usepackage{luatexja-otf}
+\usepackage{utfsym}
+
+%% ====================== %%
+%% titleformat (titlesec) %%
+%% ====================== %%
+
+%\titleformat*{\section}{\large\bfseries\sffamily}
+%\titleformat*{\subsection}{\large\bfseries\sffamily}
+%\titleformat*{\subsubsection}{\normalsize\bfseries\sffamily}
+
+%\titleformat*{\section}{\normalsize\bfseries}
+%\titleformat*{\subsection}{\normalsize\bfseries}
+%\titleformat*{\subsubsection}{\normalsize\bfseries}
+%%
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesection.\arabic{subsection}.\arabic{subsubsection}}
+
+%\titlespacing{\section}{0pt}{7pt}{5pt}[4cm]
+%\titlespacing{\subsection}{0pt}{5pt}{5pt}
+%\titlespacing{\subsubsection}{0pt}{3pt}{5pt}
+
+
+%\newtheorem{fact}[dfn]{Fact}
+
+%% ============= %%
+%% tcbuselibrary %%
+%% ============= %%
+  \tcbuselibrary{most}
+  \tcbset{colback=white,colframe=blue!75!black}
+
+
+
+
+%% =============================== %%
+%% import renewcommand, newcommand %%
+%% =============================== %%
+
+%% main.tex のファイルからの相対パスを示すか，絶対パスを示す
+\input{/Users/crutont/Documents/latex/prb/renew_newcmd.tex}
+%\input{../prb/renew_newcmd.tex}
+
