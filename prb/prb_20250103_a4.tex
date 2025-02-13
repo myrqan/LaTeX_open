@@ -119,13 +119,33 @@
 %\setmainjfont{Hiragino Sans W2}[
 %  BoldFont = {Hiragino Sans W4}
 %]
+
+\setmathfont{TeX Gyre Schola Math}
+
+\setmathfont{TeX Gyre Pagella Math}[
+  range = up/{greek, Greek}
+]
+\setmathfont{TeX Gyre Pagella Math}[
+  range = it/{greek, Greek}
+]
+\setmathfont{TeX Gyre Pagella Math}[
+  range = bfup/{greek, Greek}
+]
+\setmathfont{TeX Gyre Pagella Math}[
+  range = bfit/{greek, Greek}
+]
+
+\setmainfont{TeX Gyre Schola}
+
 \setmainjfont{HiraMinProN-W3}[
 	BoldFont = {Hiragino Sans W4}
 ]
+
 %\setmainfont{NewComputerModern10-Regular}[
 %	BoldFont = {NewComputermModern10-Bold}
 %	BoldItalicFont = {NewComputerModern10-BoldItalic}
 %]
+
 \usepackage{tocloft}% table of contents
 
 \usepackage{luatexja-otf}
@@ -223,6 +243,18 @@
   colframe=red!80!white, 
   %colback=white
 }{thm}
+\tcbset{
+  proofbox/.style={
+    enhanced,
+    frame hidden,
+    borderline={0.3pt}{3pt}{black,dashed},
+    %fontupper = \fontsize{9pt}{8pt}\selectfont,
+    %before upper = {\everymath{\scriptstyle}},
+    colback = white,
+    arc = 0mm,
+    outer arc = 0mm
+  }
+}
 
 
 
