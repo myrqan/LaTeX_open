@@ -1,6 +1,44 @@
+%% ========== %%
+%%  Tcolorbox %%
+%% ========== %%
+\tcbset{
+  dashedbox/.style={
+    breakable,
+    enhanced,
+    frame hidden,
+    borderline={0.3pt}{0pt}{blue!50!white,dashed},
+    %fontupper = \fontsize{9pt}{8pt}\selectfont,
+    %before upper = {\everymath{\scriptstyle}},
+    colback = white,
+    arc = 0mm,
+    outer arc = 0mm,
+    boxsep = 0.5pt,
+    leftrule=-6pt,
+    rightrule=-6pt
+  }
+}
+\tcbset{
+  leftsolid/.style={
+    breakable,
+    enhanced,
+    colback = white,
+    frame hidden,
+    %arc = 0mm,
+    %outer arc = 0mm,
+    boxsep = 0.5pt,
+    leftrule=4pt,
+    rightrule=-6pt,
+    borderline north={0.3pt}{0pt}{orange!30!white},
+    borderline east={0.3pt}{0pt}{orange!30!white},
+    borderline south={0.3pt}{0pt}{orange!30!white},
+    borderline west={10pt}{0pt}{orange!10!white}
+  }
+}
+
 %% ================ %%
 %% renewcmd, newcmd %%
 %% ================ %%
+
 
 %\renewcommand{\baselinestretch}{0.85}
 \renewcommand{\headrulewidth}{0pt} %% headerの線の太さ．0ptで線無し
@@ -56,11 +94,15 @@
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\sinc}{sinc}
 
-\renewcommand{\i}{\,\mathrm{i}}
-\newcommand{\e}{\,\mathrm{e}}
+\renewcommand{\i}{\mathrm{i}}
+\newcommand{\e}{\mathrm{e}}
+
 
 \difdef { l } { dn } { style = d^ }
 \difdef{l}{}{outer-Rdelim = \,}
+
+\renewcommand{\contentsname}{Contents}
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{fancy}}}
 
 %\renewcommand{\cftchapfont}{\normalsize}
 

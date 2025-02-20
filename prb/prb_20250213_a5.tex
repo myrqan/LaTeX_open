@@ -156,7 +156,8 @@
 %]
 
 \setmainjfont{HiraMinProN-W3}[
-	BoldFont = {Hiragino Sans W4}
+	BoldFont = {Hiragino Sans W4},
+	Scale = 0.85
 ]
 
 \usepackage{tocloft}% table of contents
@@ -256,19 +257,6 @@
   colframe=red!80!white, 
   %colback=white
 }{thm}
-\tcbset{
-  proofbox/.style={
-    breakable,
-    enhanced,
-    frame hidden,
-    borderline={0.3pt}{3pt}{black,dashed},
-    %fontupper = \fontsize{9pt}{8pt}\selectfont,
-    %before upper = {\everymath{\scriptstyle}},
-    colback = white,
-    arc = 0mm,
-    outer arc = 0mm
-  }
-}
 
 
 
@@ -277,6 +265,6 @@
 %% =============================== %%
 
 %% main.tex のファイルからの相対パスを示すか，絶対パスを示す
-\input{/Users/crutont/Documents/github/LaTeX_open/prb/renew_newcmd.tex}
+\input{/Users/crutont/Documents/github/LaTeX/prb/renew_newcmd.tex}
 %\input{../prb/renew_newcmd.tex}
 
