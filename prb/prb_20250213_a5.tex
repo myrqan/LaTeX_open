@@ -3,10 +3,9 @@
 %% created 2024.10.24
 %% modified 2025.01.03
 %% paper size : A5
-%% font en : CMU
-%% font ja : Hiragino Sans W2 / W4
-%% HiraMinProN-w3
-%% using physics2 pkg, backgroundcolor = True/cream
+%% font en : cormorantgaranod & garamond-math.otf
+%% font ja : Harano-Aji Mincho light / Bold
+%% using physics2 pkg, backgroundcolor = False/cream
 
 \documentclass[a5paper, 9pt]{ltjsarticle}
 
@@ -23,50 +22,59 @@
 \usepackage[shortlabels, inline]{enumitem}
 \usepackage{fancybox} % doublebox, ovalbox, fbox, sbox
 \usepackage{fancyhdr}
-    %%\pagestyle{fancy}
-    %%\[r, l, c]head{hoge}
-    %%\[r, l, c]foot{hoge}
+  %%\pagestyle{fancy}
+  %%\[r, l, c]head{hoge}
+  %%\[r, l, c]foot{hoge}
 
 
 \usepackage{here}
 \usepackage{lastpage}
 \usepackage{listings, jvlisting} % code insert // jvlisting→jlistingに移行すべきとも
-    %%\lstset{}以下でコードの出力方法について指定
+  %%\lstset{}以下でコードの出力方法について指定
 
 \usepackage{stmaryrd} % 特殊記号類
 \usepackage[listings]{tcolorbox}
 \usepackage{titlesec} % change title format
-     %% example %% 
-
-     %%\titleformat{\section}[display]{\bfseries\gtfamily}{}{10pt}{%
-     %%\begin{tcolorbox}[%
-     %%    enhanced,%
-     %%    colback=white,colbacktitle=white,colframe=black,coltitle=black,%
-     %%    boxrule=1.5pt,sharp corners,%
-     %%    borderline={1.5pt}{3pt}{black},%
-     %%    ]%
-     %%    \centering Section \thesection \\
-     %%    \LARGE #1%
-     %%\end{tcolorbox}%
-     %%}
-     %%\titleformat{\section}[block]{
-     %%   \normalfont\bfseries\filcenter
-     %%   }{\fbox{\itshape\thesection}}{1em}{}
-     %%\titleformat{\section}[hang]{\large\bfseries}
-     %%  {\colorbox{blue!20}{\thesection}}{10.5pt}{}%
-     %%  [\color{blue!20}{\titlerule}]
+   %% example %% 
+   \titleformat{\section}
+{}
+{\uline{\thesection.\enspace}}
+{-0.15em}
+{\uline}
+   \titleformat{\subsection}
+{}
+{\uline{\thesubsection.\enspace}}
+{-0.15em}
+{\uline}
+   %%\titleformat{\section}[display]{\bfseries\gtfamily}{}{10pt}{%
+   %%\begin{tcolorbox}[%
+   %%    enhanced,%
+   %%    colback=white,colbacktitle=white,colframe=black,coltitle=black,%
+   %%    boxrule=1.5pt,sharp corners,%
+   %%    borderline={1.5pt}{3pt}{black},%
+   %%    ]%
+   %%    \centering Section \thesection \\
+   %%    \LARGE #1%
+   %%\end{tcolorbox}%
+   %%}
+   %%\titleformat{\section}[block]{
+   %%   \normalfont\bfseries\filcenter
+   %%   }{\fbox{\itshape\thesection}}{1em}{}
+   %%\titleformat{\section}[hang]{\large\bfseries}
+   %%  {\colorbox{blue!20}{\thesection}}{10.5pt}{}%
+   %%  [\color{blue!20}{\titlerule}]
 
 %% color setting
-     %% \definecolor{mycream}{HTML}{FEFAEA}
-     %% \definecolor{myvio}{HTML}{05208C}
+   %% \definecolor{mycream}{HTML}{FEFAEA}
+   %% \definecolor{myvio}{HTML}{05208C}
 
-     %% \titleformat{\section}[hang]{\large\bfseries}
-     %% {\colorbox{myvio}{\color{mycream}\thesection}}{1\zw}{}%
-     %% [{\titlerule[0.5pt]}]
-    
-     %% \usepackage{pagecolor}
-	 %% \pagecolor{mycream}
-	 %% \color{myvio}
+   %% \titleformat{\section}[hang]{\large\bfseries}
+   %% {\colorbox{myvio}{\color{mycream}\thesection}}{1\zw}{}%
+   %% [{\titlerule[0.5pt]}]
+  
+   %% \usepackage{pagecolor}
+ %% \pagecolor{mycream}
+ %% \color{myvio}
 
 
 
@@ -82,16 +90,16 @@
 
 \usepackage{siunitx}
 \usepackage{physics2}
-  \usephysicsmodule{ab}
-  %\usephysicsmodule{ab.braket} %% conflict w/ braket
-  \usephysicsmodule{braket}
-  \usephysicsmodule{diagmat}
-  \usephysicsmodule{doubleprod}
-  \usephysicsmodule{xmat}
+\usephysicsmodule{ab}
+%\usephysicsmodule{ab.braket} %% conflict w/ braket
+\usephysicsmodule{braket}
+\usephysicsmodule{diagmat}
+\usephysicsmodule{doubleprod}
+\usephysicsmodule{xmat}
 
 \usepackage[ISO]{diffcoeff}
-  \difdef {f, s} {D}
-  {op-symbol = \mathrm{D}}
+\difdef {f, s} {D}
+{op-symbol = \mathrm{D}}
 
 
 
@@ -125,8 +133,18 @@
 %]
 
 
-\setmathfont{NewComputerModernMath}
-\setmainfont{NewComputerModern10}
+%\setmathfont{NewComputerModernMath}
+%\setmainfont{NewComputerModern10}
+
+\usepackage{CormorantGaramond}
+\setmathfont{Garamond-Math.otf}
+
+%\setmainjfont{HiraMinProN-W3}[
+%\setmainjfont{Hiragino Sans W2}[
+\setmainjfont{Harano Aji Mincho Light}[
+	BoldFont = {Harano Aji Mincho Bold},
+	Scale = 0.85
+]
 
 %\setmathfont[version=old]{Old Standard}
 
@@ -155,10 +173,7 @@
 %	BoldItalicFont = {NewComputerModern10-BoldItalic}
 %]
 
-\setmainjfont{HiraMinProN-W3}[
-	BoldFont = {Hiragino Sans W4},
-	Scale = 0.85
-]
+
 
 \usepackage{tocloft}% table of contents
 
@@ -257,6 +272,8 @@
   colframe=red!80!white, 
   %colback=white
 }{thm}
+
+%%
 
 
 
