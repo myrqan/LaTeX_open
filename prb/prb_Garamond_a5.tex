@@ -1,0 +1,140 @@
+%% prb :: version 2
+%% japanese font :: IPA Mincho
+%% english font :: Garamond
+%% type :: LuaLaTeX
+
+\documentclass[a5paper,9pt]{ltjsarticle}
+
+\usepackage{geometry}
+  \geometry{margin=1cm, top=1.5cm}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{tikz}
+
+\usepackage{ascmac} % boxnote, itembox, mask, screen, shadebox
+\usepackage{comment}
+\usepackage{empheq}
+\usepackage[shortlabels, inline]{enumitem}
+\usepackage{fancybox} % doublebox, ovalbox, fbox, sbox
+\usepackage{fancyhdr}
+
+\usepackage{here}
+\usepackage{lastpage}
+\usepackage{listings, jvlisting}
+
+\usepackage{stmaryrd} % special symbols
+\usepackage[listings]{tcolorbox}
+\usepackage{titlesec}
+
+\usepackage{ulem} %% uline, uuline, uwave, sout, xout
+\usepackage{url} %% url
+\usepackage{verbatim} %%\verb|hoge| or verbatim env. option[*] : space visible
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{varwidth}
+
+\usepackage{siunitx}
+\usepackage{physics2}
+\usephysicsmodule{ab}
+\usephysicsmodule{braket}
+\usephysicsmodule{diagmat}
+\usephysicsmodule{doubleprod}
+\usephysicsmodule{xmat}
+
+\usepackage[ISO]{diffcoeff} %% detail setting in renew_newcmd_ver2.tex
+\usepackage[math-style=TeX]{unicode-math}
+\unimathsetup{math-style=TeX}
+\setmathfont{latinmodern-math.otf}%default
+\setmathfont{xcharter-math.otf}[range=\symbb]%blackboard bold
+\usepackage{mathtools}
+\usepackage[no-math,deluxe,expert]{luatexja-preset}
+
+\usepackage[luatex,pdfencoding=auto]{hyperref}
+\hypersetup{%
+	colorlinks = true,%
+	%linkcolor = dark-mint,%
+	linkcolor = blue,%
+	urlcolor = orange,%
+}
+
+
+%% font settings
+
+\usepackage{CormorantGaramond}
+\setmathfont{Garamond-Math.otf}
+
+\setmainjfont{Harano Aji Mincho}[%
+	BoldFont = {Harano Aji Mincho Bold},%
+	Scale = 0.85%
+]
+
+\numberwithin{equation}{section}
+
+%% TITLEFORMAT SETTING
+\titleformat{\section}[block]{\filleft\large\fontspec{Cormorant Garamond Medium}}{\fontspec{Cormorant Garamond Bold}\uline{\LARGE\bfseries\thesection.\hspace{.5em}}}{0em}{\uline}
+\titleformat{\subsection}{\normalsize\fontspec{Cormorant Garamond Medium}}{\fontspec{Cormorant Garamond Bold}\uline{\large\bfseries\thesubsection.\hspace{.5em}}}{0em}{\uline}
+\titleformat{\subsubsection}{\normalsize\fontspec{Cormorant Garamond Medium}}{\fontspec{Cormorant Garamond Bold}\bfseries\thesubsubsection.\hspace{.5em}}{0em}{}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\titlespacing{\subsection}{0pt}{5pt}{5pt}
+\titlespacing{\subsubsection}{0pt}{3pt}{5pt}
+
+
+%% THEOREMSTYLE
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}[section]
+\newtheorem{prop}[dfn]{Proposition}
+\newtheorem{lem}[dfn]{Lemma}
+\newtheorem{thm}[dfn]{Theorem}
+\newtheorem{cor}[dfn]{Corollary}
+\newtheorem{rem}[dfn]{Remark}
+\newtheorem{fact}[dfn]{Fact}
+% TCBUSELIBRARY
+\tcbuselibrary{most}
+\tcbset{colback=white,colframe=blue!75!black}
+\newtcbtheorem[number within = section]{example}{Example}{
+    enhanced,
+    %colback = white
+    colframe = blue!50!white,
+    %fonttitle=\bfseries,
+    breakable = true
+  }{thm}
+  %enhanced, breakable=true, colframe=blue!75!black, colback=blue!5!white, title={Exemple}, arc = 0mm}
+  %{colback=green!5,colframe=green!35black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within = section]{exercise}{Exercise}{
+  enhanced, 
+  breakable=true,
+  colframe=yellow!25!green
+  %colback=white
+  }{thm}
+
+\newtcbtheorem[use counter from=example]{theorem}{Theorem}{
+  enhanced, 
+  breakable=true, 
+  colframe=green!30!blue
+  %colback=white
+  }{thm}
+
+\newtcbtheorem[use counter from=example]{proposition}{Proposition}{
+  enhanced, 
+  breakable=true, 
+  colframe=orange!75!black,
+  %colback=white
+  }{thm}
+
+\newtcbtheorem[use counter from=example]{definition}{Definition}{
+  enhanced, 
+  breakable=true, 
+  colframe=magenta!30!green,
+  %colback=white
+}{thm}
+\newtcbtheorem[use counter from=example]{remark}{Remark}{
+  enhanced,
+  breakable=true, 
+  colframe=red!80!white, 
+  %colback=white
+}{thm}
+
+
+\input{/Users/crutont/Documents/github/LaTeX_open/prb/renew_newcmd_ver2.tex}

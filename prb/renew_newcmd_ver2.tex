@@ -1,0 +1,104 @@
+%% TCBSET INPUT
+
+\input{/Users/crutont/Documents/github/LaTeX_open/prb/tcbset.tex}
+
+%% ================ %%
+%% renewcmd, newcmd %%
+%% ================ %%
+
+
+%\renewcommand{\baselinestretch}{0.85}
+\renewcommand{\headrulewidth}{0.3pt} %% thickness of line (btwn header andy body)．0pt = no line
+\renewcommand{\figurename}{Fig.\,}
+\renewcommand{\tablename}{Table\,}
+
+
+
+\newcommand{\mctext}[1]{\mbox{\textcircled{\scriptsize{#1}}}}
+\newcommand{\ctext}[1]{\textcircled{\scriptsize{#1}}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\comb}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\newcommand{\hs}{\hspace}
+\newcommand{\qq}{\hspace{1em}}
+\newcommand{\qqtext}[1]{\hspace{1em}\text{#1}\hspace{0.5em}}
+\newcommand{\vs}{\vspace}
+\newcommand{\emphvs}{\vspace{1em}\notag\\}
+\newcommand{\ora}{\overrightarrow}
+\newcommand{\oramr}[1]{\overrightarrow{\mathrm{#1}}}
+\newcommand{\ol}{\overline}
+\newcommand{\tri}{\triangle}
+\newcommand{\mr}{\mathrm}
+\newcommand{\mb}{\mathbb}
+\newcommand{\mrvec}[1]{\overrightarrow{\mathrm{#1}}}
+\newcommand{\itvec}{\overrightarrow}
+%\newcommand{\bs}{\boldsymbol}
+\newcommand{\bs}{\symbfit}%%symbfでdefine
+\newcommand{\bsup}{\symbfup}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\Lra}{\Longrightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\La}{\Leftarrow}
+\newcommand{\lla}{\longleftarrow}
+\newcommand{\Lla}{\Longleftarrow}
+\newcommand{\lr}{\leftrightarrow}
+\newcommand{\llr}{\longleftrightarrow}
+\newcommand{\Llr}{\Longleftrightarrow}
+\newcommand{\mqty}[1]{\begin{matrix}#1\end{matrix}}
+\newcommand{\avg}[1]{\left\langle{#1}\right\rangle}
+
+\newcommand{\eval}[1]{\left.#1\right|}
+\newcommand{\order}[1]{\mathcal{O}\ab(#1)}
+\newcommand{\gr}{\nabla}
+\newcommand{\di}{\nabla\cdot}
+\newcommand{\ro}{\nabla\times}
+\newcommand{\nb}{\nabla}
+
+
+
+\renewcommand{\i}{\symup{i}}
+\newcommand{\e}{\symup{e}}
+\newcommand{\R}{\symbb{R}}
+\newcommand{\N}{\symbb{N}}
+\newcommand{\C}{\symbb{C}}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\de}{\delta}
+\newcommand{\eps}{\varepsilon}
+%\newcommand{\th}{\theta}
+
+
+%% MATH OP.
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sinc}{sinc}
+
+
+%% COLOR DEFINITION
+
+\definecolor{mycream}{HTML}{FEFAEA}
+\definecolor{myvio}{HTML}{03155B}
+\definecolor{blue-green}{rgb}{0.0, 0.87, 0.87}
+\definecolor{bluegray}{rgb}{0.4, 0.6, 0.8}
+\definecolor{mint}{rgb}{0.24, 0.71, 0.54}
+\definecolor{dark-mint}{HTML}{3B876B}
+
+%% DIFFCOEFF PKG SETTING
+
+\difdef { l } { dn } { style = d^ }
+\difdef { l } {} {outer-Rdelim = \,}
+\difdef {f, s} {D}{op-symbol = \mathrm{D}}
+
+
+
+\renewcommand{\contentsname}{Contents}
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{fancy}}}
+
+%\renewcommand{\cftchapfont}{\normalsize}
+

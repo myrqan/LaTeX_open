@@ -8,7 +8,7 @@
 %% using physics2 pkg, backgroundcolor = False/cream
 
 \documentclass[a5paper, 9pt]{ltjsarticle}
-
+%\documentclass{ltjsarticle}
 %\usepackage[showframe]{geometry}
 \usepackage{geometry}
 \geometry{margin=1cm, top=1.5cm}
@@ -35,43 +35,11 @@
 \usepackage{stmaryrd} % 特殊記号類
 \usepackage[listings]{tcolorbox}
 \usepackage{titlesec} % change title format
-   %% example %% 
-   \titleformat{\section}
-{}
-{\uline{\thesection.\enspace}}
-{-0.15em}
-{\uline}
-   \titleformat{\subsection}
-{}
-{\uline{\thesubsection.\enspace}}
-{-0.15em}
-{\uline}
-   %%\titleformat{\section}[display]{\bfseries\gtfamily}{}{10pt}{%
-   %%\begin{tcolorbox}[%
-   %%    enhanced,%
-   %%    colback=white,colbacktitle=white,colframe=black,coltitle=black,%
-   %%    boxrule=1.5pt,sharp corners,%
-   %%    borderline={1.5pt}{3pt}{black},%
-   %%    ]%
-   %%    \centering Section \thesection \\
-   %%    \LARGE #1%
-   %%\end{tcolorbox}%
-   %%}
-   %%\titleformat{\section}[block]{
-   %%   \normalfont\bfseries\filcenter
-   %%   }{\fbox{\itshape\thesection}}{1em}{}
-   %%\titleformat{\section}[hang]{\large\bfseries}
-   %%  {\colorbox{blue!20}{\thesection}}{10.5pt}{}%
-   %%  [\color{blue!20}{\titlerule}]
-
 %% color setting
    %% \definecolor{mycream}{HTML}{FEFAEA}
    %% \definecolor{myvio}{HTML}{05208C}
 
-   %% \titleformat{\section}[hang]{\large\bfseries}
-   %% {\colorbox{myvio}{\color{mycream}\thesection}}{1\zw}{}%
-   %% [{\titlerule[0.5pt]}]
-  
+
    %% \usepackage{pagecolor}
  %% \pagecolor{mycream}
  %% \color{myvio}
@@ -141,7 +109,8 @@
 
 %\setmainjfont{HiraMinProN-W3}[
 %\setmainjfont{Hiragino Sans W2}[
-\setmainjfont{Harano Aji Mincho Light}[
+%\setmainjfont{Harano Aji Mincho Light}[
+\setmainjfont{Harano Aji Mincho}[
 	BoldFont = {Harano Aji Mincho Bold},
 	Scale = 0.85
 ]
@@ -190,29 +159,78 @@
 \usepackage[luatex,pdfencoding=auto]{hyperref}
 \hypersetup{%
 	colorlinks=true,%
-	linkcolor = dark-mint,%
+	%linkcolor = dark-mint,%
+	linkcolor=blue,%
 	urlcolor = orange,%
 }
 
 %% ====================== %%
 %% titleformat (titlesec) %%
 %% ====================== %%
+   %% example %% 
+   %\titleformat{\section}%
+	% {}%
+	%{\uline{\thesection.\enspace}}%
+	%{-0.15em}%
+	%{\uline}%
+   
+   %\titleformat{\subsection}%
+	%{}%
+	%{\uline{\thesubsection.\enspace}}%
+	%{-0.15em}%
+	%{\uline}%
+	
+   %%\titleformat{\section}[display]{\bfseries\gtfamily}{}{10pt}{%
+   %%\begin{tcolorbox}[%
+   %%    enhanced,%
+   %%    colback=white,colbacktitle=white,colframe=black,coltitle=black,%
+   %%    boxrule=1.5pt,sharp corners,%
+   %%    borderline={1.5pt}{3pt}{black},%
+   %%    ]%
+   %%    \centering Section \thesection \\
+   %%    \LARGE #1%
+   %%\end{tcolorbox}%
+   %%}
+   %%\titleformat{\section}[block]{
+   %%   \normalfont\bfseries\filcenter
+   %%   }{\fbox{\itshape\thesection}}{1em}{}
+   %%\titleformat{\section}[hang]{\large\bfseries}
+   %%  {\colorbox{blue!20}{\thesection}}{10.5pt}{}%
+   %%  [\color{blue!20}{\titlerule}]
+   
+   
+   %% \titleformat{\section}[hang]{\large\bfseries}
+   %% {\colorbox{myvio}{\color{mycream}\thesection}}{1\zw}{}%
+   %% [{\titlerule[0.5pt]}]
+  
+
+
 
 %\titleformat*{\section}{\large\bfseries\sffamily}
 %\titleformat*{\subsection}{\large\bfseries\sffamily}
 %\titleformat*{\subsubsection}{\normalsize\bfseries\sffamily}
 
-\titleformat*{\section}{\normalsize\bfseries}
-\titleformat*{\subsection}{\normalsize\bfseries}
-\titleformat*{\subsubsection}{\normalsize\bfseries}
+%\titleformat{\section}[frame]{\normalfont}{\enspace\filright\thesection\enspace}{1\zw}{\filcenter}
+
+\titleformat{\section}[block]{\filleft\large\itshape}{\LARGE\bfseries\thesection.}{.5em}{}
+\titleformat{\subsection}{\normalsize\itshape}{\uline{\large\bfseries\thesubsection\hspace{.5em}}}{0em}{\uline}
+
+%\titleformat*{\section}{\normalsize\bfseries}
+%\titleformat*{\subsection}{\normalsize\bfseries}
+%\titleformat*{\subsubsection}{\normalsize\bfseries}
 %%
 \renewcommand{\thesection}{\arabic{section}}
-\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-\renewcommand{\thesubsubsection}{\thesection.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\fontspec[Scale=0.8]{Futura Medium}\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 
-\titlespacing{\section}{0pt}{7pt}{5pt}[4cm]
+%\titlespacing{\section}{0pt}{7pt}{5pt}[4cm]
 \titlespacing{\subsection}{0pt}{5pt}{5pt}
 \titlespacing{\subsubsection}{0pt}{3pt}{5pt}
+
+
+%%====================================%%
+%%%%%% end of setting title format %%%%%
+%%====================================%%
 
 \theoremstyle{definition}
 \newtheorem{dfn}{Definition}[section]
@@ -281,7 +299,7 @@
 %% import renewcommand, newcommand %%
 %% =============================== %%
 
-%% main.tex のファイルからの相対パスを示すか，絶対パスを示す
+%% relative path OR absolute path
 \input{/Users/crutont/Documents/github/LaTeX/prb/renew_newcmd.tex}
 %\input{../prb/renew_newcmd.tex}
 

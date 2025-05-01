@@ -1,0 +1,53 @@
+%% ========== %%
+%%  Tcolorbox %%
+%% ========== %%
+\tcbset{
+  dashedbox/.style={
+    breakable,
+    enhanced,
+    frame hidden,
+    borderline={0.3pt}{0pt}{blue!50!white,dashed},
+    %fontupper = \fontsize{9pt}{8pt}\selectfont,
+    %before upper = {\everymath{\scriptstyle}},
+    colback = white,
+    arc = 0mm,
+    outer arc = 0mm,
+    boxsep = 0.5pt,
+    leftrule=-6pt,
+    rightrule=-6pt
+  }
+}
+\tcbset{
+  leftsolid/.style={
+    breakable,
+    enhanced,
+    colback = white,
+    frame hidden,
+    %arc = 0mm,
+    %outer arc = 0mm,
+    boxsep = 0.5pt,
+    leftrule=4pt,
+    rightrule=-6pt,
+    borderline north={0.3pt}{0pt}{orange!30!white},
+    borderline east={0.3pt}{0pt}{orange!30!white},
+    borderline south={0.3pt}{0pt}{orange!30!white},
+    borderline west={10pt}{0pt}{orange!10!white}
+  }
+}
+\tcbset{
+  leftsolid2/.style={
+    breakable,
+    enhanced,
+    colback = white,
+    frame hidden,
+    %arc = 0mm,
+    %outer arc = 0mm,
+    boxsep = 0.5pt,
+    leftrule=4pt,
+    rightrule=-6pt,
+    borderline north={0.3pt}{0pt}{blue!30!white},
+    borderline east={0.3pt}{0pt}{blue!30!white},
+    borderline south={0.3pt}{0pt}{blue!30!white},
+    borderline west={10pt}{0pt}{blue!10!white}
+  }
+}
