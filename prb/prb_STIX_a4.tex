@@ -1,6 +1,6 @@
 %% prb :: version 2
-%% japanese font :: IPA Mincho
-%% english font :: ComputerModern
+%% japanese font :: Toppan Bunkyu Min
+%% english font :: STIX
 %% type :: LuaLaTeX
 
 \documentclass[a4paper]{ltjsarticle}
@@ -98,8 +98,13 @@
 %SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 
 %\setmathfont{NewCMMath-Regular.otf}
-
-
+\setmathfont{STIXTwoMath.otf}
+\setmainfont{STIXTwoText-Regular}[
+    Extension=.otf,
+    BoldFont=STIXTwoText-Bold,
+    ItalicFont=STIXTwoText-Italic,
+    BoldItalicFont=STIXTwoText-BoldItalic
+]
 
 \numberwithin{equation}{section}
 
