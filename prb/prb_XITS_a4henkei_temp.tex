@@ -1,0 +1,125 @@
+%% preamble for using:
+%% - jlreq class
+%% - a4paper, 8pt
+%% - two column, landscape
+%% - fleqn (for math display)
+%% -----------------------------------
+
+\documentclass[%
+  %paper=a4paper,%
+  %paper=letterpaper,%
+  paper={210mm,257mm},
+  fontsize=10pt,%
+  jafontscale=0.875,%
+  %landscape,%
+  %twocolumn,%
+  fleqn,%
+  sidenote_length=4.0cm
+]{jlreq}
+
+\usepackage{geometry}
+  \geometry{margin=1.5cm,left=1.5cm,right=5.5cm}
+\usepackage{graphicx}
+
+\usepackage[no-math,deluxe,expert,hiragino-pron]{luatexja-preset}
+
+
+%% ---------------------------------
+%% FOR MATHEMATIC EQUATIONS
+%% ---------------------------------
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{stmaryrd}
+\usepackage{siunitx}
+\usepackage{physics2}
+  \usephysicsmodule{ab}
+  \usephysicsmodule{braket}
+  \usephysicsmodule{diagmat}
+  \usephysicsmodule{doubleprod}
+  \usephysicsmodule{xmat}
+
+\usepackage{mathtools}
+\usepackage[ISO]{diffcoeff}
+\usepackage[%
+  math-style=TeX,%
+  warnings-off={mathtools-colon,mathtools-overbracket}%
+]{unicode-math}
+\usepackage{tikz}
+%% -----------------------------------
+
+\usepackage{ascmac}
+\usepackage{comment}
+\usepackage{empheq}
+\usepackage[shortlabels,inline]{enumitem}
+\usepackage{fancybox,fancyhdr}
+\usepackage{float}
+\usepackage{lastpage}
+\usepackage[listings]{tcolorbox}
+%\usepackage{titlesec}
+\usepackage{ulem}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{wrapstuff}
+\usepackage{varwidth}
+\usepackage[x11names]{xcolor}
+
+
+\usepackage{fontspec}
+\setmonofont{Inconsolatazi4} %% CHANGE DEFAULT TTFONT
+
+\usepackage{listings,jvlisting}
+  \lstset{
+  basicstyle={\ttfamily\gtfamily},%
+  identifierstyle={\ttfamily},%
+  %commentstyle={\smallitshape},%
+  keywordstyle={\ttfamily\bfseries},%
+  %ndkeywordstyle={\small},%
+  %stringstyle={\ttfamily},%
+  frame={tblr},%
+  breaklines=true,%
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0\zw,%
+  xleftmargin=5ex,%
+  xrightmargin=3ex,%
+  numberstyle={\ttfamily\scriptsize},%
+  numbersep=3ex,%
+  lineskip=-1.ex,%
+  backgroundcolor=\color{black!5!white},
+  fontadjust=true
+}
+
+\setmainfont{XITS}
+\setmathfont{XITS Math}
+
+\usepackage[luatex,pdfencoding=auto]{hyperref}
+  \hypersetup{%
+    colorlinks = true,%
+    %linkcolor = DeepSkyBlue1,%
+    linkcolor = black,%
+    urlcolor = orange,%
+    citecolor = Green,%
+  }
+
+\jlreqsetup{itemization_beforeafter_space=0pt}
+\jlreqsetup{itemization_labelsep=1ex}
+\jlreqsetup{caption_font=\small}
+\jlreqsetup{caption_label_font=\small}
+\renewcommand{\labelitemi}{$\vysmwhtcircle$}
+
+\ModifyHeading{section}{%
+  font={\large\bfseries\gtfamily\sffamily},%
+  after_space=0.7\baselineskip%
+}
+\ModifyHeading{subsection}{%
+  font={\large\bfseries\gtfamily\sffamily},%
+  after_space=0.7\baselineskip%
+}
+\ModifyHeading{subsubsection}{%
+  font={\normalsize\bfseries\gtfamily\sffamily}%
+}
+
+
+%\setlength{\columnseprule}{0.2pt}
+\renewcommand{\headrulewidth}{0pt}
+
+\numberwithin{equation}{section}

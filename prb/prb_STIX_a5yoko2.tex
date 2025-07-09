@@ -1,0 +1,201 @@
+%% prb :: version 2
+%% japanese font :: Zen Old Mincho Regular / Medium
+%% english font :: STIX
+%% type :: LuaLaTeX
+
+\documentclass[a5paper,9pt,landscape,twocolumn,fleqn]{ltjsarticle}
+
+\usepackage{geometry}
+  \geometry{margin=0.5cm,top=1cm}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{tikz}
+
+\usepackage{ascmac} % boxnote, itembox, mask, screen, shadebox
+\usepackage{comment}
+\usepackage{empheq}
+\usepackage[shortlabels, inline]{enumitem}
+\usepackage{fancybox} % doublebox, ovalbox, fbox, sbox
+\usepackage{fancyhdr}
+
+\usepackage{here}
+\usepackage{lastpage}
+\usepackage{listings, jvlisting}
+
+\usepackage{stmaryrd} % special symbols
+\usepackage[listings]{tcolorbox}
+\usepackage{titlesec}
+
+\usepackage{ulem} %% uline, uuline, uwave, sout, xout
+\usepackage{url} %% url
+\usepackage{verbatim} %%\verb|hoge| or verbatim env. option[*] : space visible
+\usepackage{wrapfig}
+\usepackage[svgnames]{xcolor}
+\usepackage{varwidth}
+\usepackage{wrapstuff}
+
+\usepackage{siunitx}
+\usepackage{physics2}
+\usephysicsmodule{ab}
+\usephysicsmodule{braket}
+\usephysicsmodule{diagmat}
+\usephysicsmodule{doubleprod}
+\usephysicsmodule{xmat}
+
+\usepackage[ISO]{diffcoeff} %% detail setting in renew_newcmd_ver2.tex
+\usepackage[math-style=TeX]{unicode-math}
+\unimathsetup{math-style=TeX}
+\setmathfont{latinmodern-math.otf}%default
+\setmathfont{xcharter-math.otf}[range=\symbb]%blackboard bold
+%\setmathfont{XCharter Math}
+%\setmainfont{XCharter}
+%\setsansfont{Cabin}[Scale=MatchLowercase]
+%\setmonofont{Inconsolatazi4}[Scale=MatchLowercase]
+
+\usepackage{mathtools}
+\usepackage[no-math,deluxe,expert]{luatexja-preset}
+
+\usepackage[luatex,pdfencoding=auto]{hyperref}
+\hypersetup{%
+	colorlinks = true,%
+	linkcolor = dark-mint,%
+	%linkcolor = blue,%
+	urlcolor = orange,%
+	citecolor = Green,%
+}
+
+
+%% font settings
+
+%\usepackage{CormorantGaramond}
+%\setmathfont{Garamond-Math.otf}
+
+%\setmainjfont{Harano Aji Mincho}[%
+%	BoldFont = {Harano Aji Gothic Bold},
+%	%BoldFont = {Harano Aji Mincho Bold},%
+%	Scale = 0.87%
+%]
+%\setmainjfont{Toppan Bunkyu Mincho Regular}[
+%	Scale=0.90
+%]
+\setmainjfont{Zen Old Mincho Regular}[
+BoldFont = {Zen Old Mincho Medium},
+Scale=0.9
+]
+
+%\setmainfont[%
+%ItalicFont=NewCM10-Italic.otf,%
+%BoldFont=NewCM10-Bold.otf,%
+%BoldItalicFont=NewCM10-BoldItalic.otf,%
+%SmallCapsFeatures={Numbers=OldStyle}]{NewCM10-Regular.otf}
+%\setmathfont{Theano Modern Regular}[range={"0030-"0039}]
+
+%\setmainfont[%
+%ItalicFont=NewCM10-Italic.otf,%
+%BoldFont=NewCM10-Bold.otf,%
+%BoldItalicFont=NewCM10-BoldItalic.otf,%
+%SmallCapsFeatures={Numbers=OldStyle}]{NewCM10-Regular.otf}
+
+%\setsansfont[%
+%ItalicFont=NewCMSans10-Oblique.otf,%
+%BoldFont=NewCMSans10-Bold.otf,%
+%BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+%SmallCapsFeatures={Numbers=OldStyle}]{NewCMSans10-Regular.otf}
+
+%\setmonofont[ItalicFont=NewCMMono10-Italic.otf,%
+%BoldFont=NewCMMono10-Bold.otf,%
+%BoldItalicFont=NewCMMono10-BoldOblique.otf,%
+%SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
+
+%\setmathfont{NewCMMath-Regular.otf}
+\setmathfont{STIXTwoMath.otf}
+\setmainfont{STIXTwoText-Regular}[
+    Extension=.otf,
+    BoldFont=STIXTwoText-Bold,
+    ItalicFont=STIXTwoText-Italic,
+    BoldItalicFont=STIXTwoText-BoldItalic
+]
+
+\numberwithin{equation}{section}
+
+%% TITLEFORMAT SETTING
+%\titleformat{\section}[block]{\filleft\large}{\uline{\LARGE\thesection.\hspace{.5em}}}{0em}{\uline}
+%\titleformat{\subsection}{\normalsize}{\uline{\large\bfseries\thesubsection.\hspace{.5em}}}{0em}{\uline}
+%\titleformat{\subsubsection}{\normalsize}{\uline{\bfseries\thesubsubsection.}\hspace{.5em}}{0em}{}
+
+%\titleformat{\section}[block]{\filleft\large}{\uline{\LARGE\thesection.\hspace{.5em}}}{0em}{\uline}
+\titleformat{\section}[block]{\large}{\uline{\LARGE\thesection.\hspace{.5em}}}{0em}{\uline}
+\titleformat{\subsection}{\normalsize}{\uline{\Large\thesubsection.\hspace{.5em}}}{0em}{\uline}
+\titleformat{\subsubsection}{\normalsize}{\uline{\large\thesubsubsection.}\hspace{.5em}}{0em}{}
+\titleformat{\paragraph}{\normalfont\normalsize}{\theparagraph.}{1em}{}
+
+
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+%\renewcommand{\thesubsubsection}{\fontspec[Scale=0.8]{Futura Medium}\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\titlespacing{\subsection}{0pt}{5pt}{5pt}
+\titlespacing{\subsubsection}{0pt}{3pt}{5pt}
+%\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\paragraph}{0pt}{3pt}{5pt}
+
+%% THEOREMSTYLE
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}[section]
+\newtheorem{prop}[dfn]{Proposition}
+\newtheorem{lem}[dfn]{Lemma}
+\newtheorem{thm}[dfn]{Theorem}
+\newtheorem{cor}[dfn]{Corollary}
+\newtheorem{rem}[dfn]{Remark}
+\newtheorem{fact}[dfn]{Fact}
+% TCBUSELIBRARY
+\tcbuselibrary{most}
+\tcbset{colback=white,colframe=blue!75!black}
+\newtcbtheorem[number within = section]{example}{Example}{
+    enhanced,
+    %colback = white
+    colframe = blue!50!white,
+    %fonttitle=\bfseries,
+    breakable = true
+  }{thm}
+  %enhanced, breakable=true, colframe=blue!75!black, colback=blue!5!white, title={Exemple}, arc = 0mm}
+  %{colback=green!5,colframe=green!35black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within = section]{exercise}{Exercise}{
+  enhanced, 
+  breakable=true,
+  colframe=yellow!25!green
+  %colback=white
+  }{thm}
+
+\newtcbtheorem[use counter from=example]{theorem}{Theorem}{
+  enhanced, 
+  breakable=true, 
+  colframe=green!30!blue
+  %colback=white
+  }{thm}
+
+\newtcbtheorem[use counter from=example]{proposition}{Proposition}{
+  enhanced, 
+  breakable=true, 
+  colframe=orange!75!black,
+  %colback=white
+  }{thm}
+
+\newtcbtheorem[use counter from=example]{definition}{Definition}{
+  enhanced, 
+  breakable=true, 
+  colframe=magenta!30!green,
+  %colback=white
+}{thm}
+\newtcbtheorem[use counter from=example]{remark}{Remark}{
+  enhanced,
+  breakable=true, 
+  colframe=red!80!white, 
+  %colback=white
+}{thm}
+
+
+\input{/Users/crutont/Documents/github/LaTeX_open/prb/renew_newcmd_ver2.tex}
+
+\setlength{\columnseprule}{0.3pt}

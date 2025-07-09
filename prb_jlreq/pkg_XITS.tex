@@ -1,0 +1,94 @@
+%%%
+%%% package import
+%%% make : Jul 9, 2025
+
+
+% adjust in main_prb file(s)
+%\usepackage{geometry}
+%  \geometry{margin=2cm}
+
+\usepackage{graphicx}
+
+\usepackage[no-math,deluxe,expert,hiragino-pron]{luatexja-preset}
+
+
+%% ---------------------------------
+%% FOR MATHEMATIC EQUATIONS
+%% ---------------------------------
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{stmaryrd}
+\usepackage{siunitx}
+\usepackage{physics2}
+  \usephysicsmodule{ab}
+  \usephysicsmodule{braket}
+  \usephysicsmodule{diagmat}
+  \usephysicsmodule{doubleprod}
+  \usephysicsmodule{xmat}
+
+\usepackage{mathtools}
+\usepackage[ISO]{diffcoeff}
+\usepackage[%
+  math-style=TeX,%
+  warnings-off={mathtools-colon,mathtools-overbracket}%
+]{unicode-math}
+\usepackage{tikz}
+%% -----------------------------------
+
+\usepackage{ascmac}
+\usepackage{comment}
+\usepackage{empheq}
+\usepackage[shortlabels,inline]{enumitem}
+\usepackage{fancybox,fancyhdr}
+\usepackage{float}
+\usepackage{lastpage}
+\usepackage[listings]{tcolorbox}
+%\usepackage{titlesec}
+\usepackage{ulem}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{wrapstuff}
+\usepackage{varwidth}
+\usepackage{color}
+\usepackage[x11names]{xcolor}
+
+
+\usepackage{fontspec}
+\setmonofont{Inconsolatazi4} %% CHANGE DEFAULT TTFONT
+
+\usepackage{listings,jvlisting}
+  \lstset{
+  basicstyle={\ttfamily\gtfamily},%
+  identifierstyle={\ttfamily},%
+  %commentstyle={\smallitshape},%
+  keywordstyle={\ttfamily\bfseries},%
+  %ndkeywordstyle={\small},%
+  %stringstyle={\ttfamily},%
+  frame={tblr},%
+  breaklines=true,%
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0\zw,%
+  xleftmargin=5ex,%
+  xrightmargin=3ex,%
+  numberstyle={\ttfamily\scriptsize},%
+  numbersep=3ex,%
+  lineskip=-1.ex,%
+  backgroundcolor=\color{black!5!white},
+  fontadjust=true
+}
+
+\usepackage[luatex,pdfencoding=auto]{hyperref}
+  \hypersetup{%
+    colorlinks = true,%
+    %linkcolor = DeepSkyBlue1,%
+    linkcolor = black,%
+    urlcolor = orange,%
+    citecolor = Green,%
+}
+
+
+%%% CHANGE MATH FONT
+
+\setmainfont{XITS}
+\setmathfont{XITS Math}
+
