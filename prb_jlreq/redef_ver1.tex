@@ -18,13 +18,15 @@
 \newcommand{\oramr}[1]{\overrightarrow{\mathrm{#1}}}
 \newcommand{\ol}{\overline}
 \newcommand{\tri}{\triangle}
-\newcommand{\mr}{\mathrm}
-\newcommand{\mb}{\mathbb}
+\newcommand{\mr}{\symup}
+\newcommand{\mb}{\symbf}
 \newcommand{\mrvec}[1]{\overrightarrow{\mathrm{#1}}}
 \newcommand{\itvec}{\overrightarrow}
 %\newcommand{\bs}{\boldsymbol}
 \newcommand{\bs}{\symbfit}%%symbfでdefine
 \newcommand{\bsup}{\symbfup}
+\newcommand{\bb}{\symbb}
+\newcommand{\scr}{\symscr}
 
 \newcommand{\ra}{\rightarrow}
 \newcommand{\Ra}{\Rightarrow}
@@ -57,6 +59,7 @@
 \newcommand{\R}{\symbb{R}}
 \newcommand{\N}{\symbb{N}}
 \newcommand{\C}{\symbb{C}}
+\newcommand{\Z}{\symbb{Z}}
 \newcommand{\al}{\alpha}
 \newcommand{\be}{\beta}
 \newcommand{\ga}{\gamma}
@@ -72,6 +75,7 @@
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator*{\Res}{Res}
 
 
 %% COLOR DEFINITION
@@ -93,3 +97,5 @@
 
 \renewcommand{\contentsname}{Contents}
 \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{fancy}}}
+
+\input{/Users/crutont/Documents/github/LaTeX_open/prb_jlreq/tcbset.tex}

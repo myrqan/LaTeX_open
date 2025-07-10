@@ -1,31 +1,21 @@
 %! TeX root = main.tex  
-\input{/Users/crutont/Documents/github/LaTeX_open/prb/prb_20250103_a4.tex}
+\input{/Users/crutont/Documents/github/LaTeX_open/prb_jlreq/b5_one.tex}%
 
 \pagestyle{fancy}  
-\fancyhead[L]{\textsc{\leftmark}}
+\fancyhead[L]{\leftmark}
 \fancyhead[C]{}  
 \fancyhead[R]{\textbf{\thepage}}  
 \fancyfoot{}
 
-%\definecolor{mycream}{HTML}{FEFAEA}
-%\definecolor{myvio}{HTML}{03155B}
-
-%\usepackage{pagecolor}
-%\pagecolor{mycream}
-%\color{myvio}
-
-
-\renewcommand{\contentsname}{Contents}
-\renewcommand{\headrulewidth}{0.1pt}
+%\renewcommand{\contentsname}{Contents}
+%\renewcommand{\headrulewidth}{0.1pt}
 
 \begin{document}
 \begin{screen}
   \centering
+  \Large
   物理数学に関するちょっとしたまとめ
 \end{screen}
-\begin{flushright}
-  \href{https://github.com/crutont0121}{@crutont0121}
-\end{flushright}
 \tableofcontents
 \hrulefill
 \clearpage
@@ -58,7 +48,7 @@
 
 つぎに，周期が$2T$として，$\ab[-T, T\,]$で定義される$f(x)$の場合について考えるが，これは$n \to (\pi n)/T$として考えれば良い．係数を求めるための積分の区間は$-T\to T$とする．
 \begin{gather}  
-  f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \ab(a_n\cos\ab(\frac{\pi n}{T}x) + b_n \sin\ab(\frac{\pi n}{T}x))
+  f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \ab[a_n\cos\ab(\frac{\pi n}{T}x) + b_n \sin\ab(\frac{\pi n}{T}x)]
 \end{gather}
 \begin{gather}
   \begin{dcases}
@@ -70,11 +60,11 @@
 \subsection{半区間でのFourier展開}
 $[0, L]$で定義された関数$f(x)$をFourier級数展開することを考える．
 \subsubsection{奇関数として拡張する場合}
-\begin{figure}[H]
+\begin{wrapfigure}{r}{0.3\linewidth}
   \centering
-  \includegraphics[width=0.4\linewidth]{fig/odd_func.pdf}  
+  \includegraphics[width=\linewidth]{fig/odd_func.pdf}  
   \caption{奇関数の例}
-\end{figure}
+\end{wrapfigure}
 $f(x)$を奇関数として$[-L, L]$で定義したものを$g(x)$とする．
 \begin{gather}  
   g(x) = 
@@ -88,18 +78,18 @@ $f(x)$を奇関数として$[-L, L]$で定義したものを$g(x)$とする．
 \begin{gather}
   g(x) = \sum_{n=1}^\infty b_n \sin\ab(\frac{\pi n}{L}x)
 \end{gather}
+ただし，
 \begin{align}  
   b_n &= \frac{2}{L} \int_0^L \dl{x} g(x)\sin\ab(\frac{\pi n}{L}x)\\
       &= \frac{2}{L}\int_0^L \dl{x}f(x) \sin\ab(\frac{\pi n}{L} x)
 \end{align}
 と表すことができる．
-
 \subsubsection{偶関数として拡張する場合}
-\begin{figure}[H]
+\begin{wrapfigure}{r}{0.3\linewidth}
   \centering
-  \includegraphics[width=0.4\linewidth]{fig/even_func.pdf}  
+  \includegraphics[width=\linewidth]{fig/even_func.pdf}  
   \caption{偶関数の例}
-\end{figure}
+\end{wrapfigure}
 $f(x)$を偶関数として$[-L, L]$で定義したものを$g(x)$とする．
 \begin{gather}  
   g(x) = 
@@ -112,8 +102,9 @@ $g(x)$をFourier展開すると，
 \begin{gather}
   g(x) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\ab(\frac{\pi n}{L}x)
 \end{gather}
+ただし，
 \begin{align}  
-  b_n &= \frac{2}{L} \int_0^L \dl{x} g(x) \cos\ab(\frac{\pi n}{L} x)\\
+  a_n &= \frac{2}{L} \int_0^L \dl{x} g(x) \cos\ab(\frac{\pi n}{L} x)\\
       &= \frac{2}{L} \int_0^L \dl{x} f(x) \cos\ab(\frac{\pi n}{L} x)
 \end{align}
 と表すことができる．
