@@ -1,8 +1,9 @@
 
-%\renewcommand{\headrulewidth}{0.3pt} %% thickness of line (btwn header andy body)．0pt = no line
+%\renewcommand{\headrulewidth}{0.3pt} %% thickness of line (btwn header and body)．0pt = no line
 \renewcommand{\figurename}{Fig.\,}
 \renewcommand{\tablename}{Table\,}
-
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\proofname}{Proof.}
 
 
 \newcommand{\mctext}[1]{\mbox{\textcircled{\scriptsize{#1}}}}
@@ -86,6 +87,7 @@
 \definecolor{bluegray}{rgb}{0.4, 0.6, 0.8}
 \definecolor{mint}{rgb}{0.24, 0.71, 0.54}
 \definecolor{dark-mint}{HTML}{3B876B}
+\renewcommand{\CancelColor}{\color{green!80!black}}
 
 %% DIFFCOEFF PKG SETTING
 
@@ -95,7 +97,11 @@
 
 
 
-\renewcommand{\contentsname}{Contents}
+\renewcommand{\refname}{References\renewcommand{\refname}{References}}
+\renewcommand{\qedsymbol}{$\blackinwhitesquare$}
 \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{fancy}}}
+\setlength{\columnseprule}{0.2pt}
+\numberwithin{equation}{section}
+
 
 \input{/Users/crutont/Documents/github/LaTeX_open/prb_jlreq/tcbset.tex}

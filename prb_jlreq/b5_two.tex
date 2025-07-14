@@ -1,11 +1,11 @@
 %% preamble for using:
 %% - jlreq class
-%% - b5paper, 8pt
+%% - b5paper, 9pt
 %% -----------------------------------
 
 \documentclass[%
   paper=b5paper,%
-  fontsize=10pt,%
+  fontsize=9pt,%
   jafontscale=0.875,%
   %landscape,%
   twocolumn,%
@@ -14,30 +14,10 @@
 ]{jlreq}
 
 \usepackage{geometry}
-  \geometry{margin=1cm,bottom=1.5cm}
+  \geometry{margin=2cm}
 
 \input{/Users/crutont/Documents/github/LaTeX_open/prb_jlreq/pkg_XITS.tex}
 
-\jlreqsetup{itemization_beforeafter_space=0pt}
-\jlreqsetup{itemization_labelsep=1ex}
-\jlreqsetup{caption_font=\small}
-\jlreqsetup{caption_label_font=\small}
-
-\ModifyHeading{section}{%
-  font={\large\bfseries\gtfamily\sffamily},%
-  after_space=0.7\baselineskip%
-}
-\ModifyHeading{subsection}{%
-  font={\large\bfseries\gtfamily\sffamily},%
-  after_space=0.7\baselineskip%
-}
-\ModifyHeading{subsubsection}{%
-  font={\normalsize\bfseries\gtfamily\sffamily}%
-}
-
-
-
-\setlength{\columnseprule}{0.2pt}
-\numberwithin{equation}{section}
+\input{/Users/crutont/Documents/github/LaTeX_open/prb_jlreq/jlreq_common.tex}
 
 \input{/Users/crutont/Documents/github/LaTeX_open/prb_jlreq/redef_ver1.tex}

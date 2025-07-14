@@ -21,16 +21,24 @@
   solidbox/.style={
     breakable,
     enhanced,
-    frame hidden,
+    %frame hidden,
     borderline={0.3pt}{0pt}{green!50!black},
     %fontupper = \fontsize{9pt}{8pt}\selectfont,
     %before upper = {\everymath{\scriptstyle}},
     colback = white,
+    colframe={green!10!white},
+    coltitle=black,
     arc = 0mm,
     outer arc = 2mm,
     boxsep = 0.5pt,
-    leftrule=-6pt,
-    rightrule=-6pt
+    leftrule=0.1pt,
+    rightrule=0.1pt,
+    toprule=0.1pt,
+    titlerule=0pt,
+    bottomrule=0.1pt,
+    boxsep=3pt,
+    toptitle=0pt,
+    bottomtitle=0pt,
   }
 }
 \tcbset{
