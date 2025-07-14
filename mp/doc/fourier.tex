@@ -1,0 +1,91 @@
+\section{Fourier半区間展開について}
+\subsection{一般のFourier展開}
+区間$\ab[-\pi, \pi]$で（区分的に）連続な関数$f(x)$のFourier級数展開を考える．
+のちに，これを一般化して，$\ab[-T, T\,]$で定義される関数$f(x)$についての級数展開も考える．
+\begin{gather}  
+  f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \ab(a_n\cos(nx) + b_n\sin(nx))
+\end{gather}
+ただし，係数$a_n, b_n$は
+\begin{gather}
+  \begin{dcases}
+    a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} \dl{x} f(x) \cos (nx) \qq\text{for}\qq n = 0, 1, 2, \ldots\\
+    b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} \dl{x} f(x) \sin (nx) \qq\text{for}\qq n = 1, 2, 3, \ldots\\
+  \end{dcases}
+\end{gather}
+で与えられる．
+
+特別な場合として，$f(x)$が偶関数のときは$n = 1, 2, 3, \ldots$に対して$b_n = 0$であり，
+\begin{gather}
+  a_n = \frac{2}{\pi} \int_0^\pi \dl{x} f(x) \cos(nx) \qq n = 0, 1, 2, \ldots
+\end{gather}
+また，$f(x)$が奇関数のときは，$n = 0, 1, 2, \ldots$に対して，$a_n = 0$であり，
+\begin{gather}
+  b_n = \frac{2}{\pi} \int_0^\pi \dl{x} f(x) \sin(nx) \qq n = 1, 2, 3, \ldots
+\end{gather}
+と書ける．
+
+つぎに，周期が$2T$として，$\ab[-T, T\,]$で定義される$f(x)$の場合について考えるが，これは$n \to (\pi n)/T$として考えれば良い．係数を求めるための積分の区間は$-T\to T$とする．
+\begin{gather}  
+  f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \ab[a_n\cos\ab(\frac{\pi n}{T}x) + b_n \sin\ab(\frac{\pi n}{T}x)]
+\end{gather}
+\begin{gather}
+  \begin{dcases}
+    a_n = \frac{1}{T} \int_{-T}^T \dl{x} f(x) \cos\ab(\frac{\pi n}{T}x)\\
+    b_n = \frac{1}{T} \int_{-T}^T \dl{x} f(x) \sin\ab(\frac{\pi n}{T}x)
+  \end{dcases}
+\end{gather}
+
+\subsection{半区間でのFourier展開}
+$[0, L]$で定義された関数$f(x)$をFourier級数展開することを考える．
+\begin{figure}[htbp]%  
+  \centering%  
+  \begin{minipage}{0.47\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig/odd_func.pdf}%  
+    \caption{奇関数の例}
+  \end{minipage}
+  \begin{minipage}{0.47\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig/even_func.pdf}%  
+    \caption{偶関数の例}
+  \end{minipage}
+\end{figure}%
+\subsubsection{奇関数として拡張する場合}
+$f(x)$を奇関数として$[-L, L]$で定義したものを$g(x)$とする．
+\begin{gather}  
+  g(x) = 
+  \begin{dcases}
+    f(x) & (0 < x < L)\\
+    -f(-x) & (-L<x<0)
+  \end{dcases}
+\end{gather}
+のように区間$[-L, 0]$について拡張してやれば良い．
+このようにして定義される$g(x)$を周期$2L$でFourier級数展開することで，
+\begin{gather}
+  g(x) = \sum_{n=1}^\infty b_n \sin\ab(\frac{\pi n}{L}x)
+\end{gather}
+ただし，
+\begin{align}  
+  b_n &= \frac{2}{L} \int_0^L \dl{x} g(x)\sin\ab(\frac{\pi n}{L}x)\\
+      &= \frac{2}{L}\int_0^L \dl{x}f(x) \sin\ab(\frac{\pi n}{L} x)
+\end{align}
+と表すことができる．
+\subsubsection{偶関数として拡張する場合}
+$f(x)$を偶関数として$[-L, L]$で定義したものを$g(x)$とする．
+\begin{gather}  
+  g(x) = 
+  \begin{dcases}
+    f(x) & (0 < x < L)\\
+    f(-x) & (-L<x<0)
+  \end{dcases}
+\end{gather}
+$g(x)$をFourier展開すると，
+\begin{gather}
+  g(x) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\ab(\frac{\pi n}{L}x)
+\end{gather}
+ただし，
+\begin{align}  
+  a_n &= \frac{2}{L} \int_0^L \dl{x} g(x) \cos\ab(\frac{\pi n}{L} x)\\
+      &= \frac{2}{L} \int_0^L \dl{x} f(x) \cos\ab(\frac{\pi n}{L} x)
+\end{align}
+と表すことができる．

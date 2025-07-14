@@ -1,0 +1,91 @@
+\section{Bessel関数}
+\subsection{Bessel関数，Neumann関数の導入}
+Besselの微分方程式
+\begin{gather}
+  \label{eq:bessel_diffeq}
+  \diff[2]{u(z)}{z} + \frac{1}{z} \diff{u(z)}{z} + \ab(1 - \frac{\nu^2}{z^2}) u(z) = 0
+\end{gather}
+を考える．いま，確定特異点$z = 0$周りの解をFrobeniusの方法で級数の形で解（のひとつ）を求めると，
+\begin{gather}
+  u(z) = J_\nu(z) \equiv \sum_{m=0}^{\infty} \frac{(-1)^m}{m! \Gamma(\nu+m+1)} \ab(\frac{z}{2})^{\nu+2m}
+\end{gather}
+を得る．これを，次数$\nu$のBesselの関数または第一種円筒関数(Bessel functions of the first kind)という．$\nu$を$-\nu$に置き換えても，同じBesselの微分方程式\eqref{eq:bessel_diffeq}を与えるから
+\begin{gather}
+  u(z) = J_{-\nu}(z) = \sum_{m=0}^{\infty} \frac{(-1)^m}{m! \Gamma(-\nu+m+1)} \ab(\frac{z}{2})^{-n+2m}
+\end{gather}
+も解（のひとつ）である．$\nu$が0以上の整数でない時は$J_\nu$と$J_{-\nu}$は線型独立な解であるから，一般解はこれらの線型結合で表すことができる．しかし，いま，$\nu$を0以上の整数とすると，
+\begin{gather}
+  J_{-n}(z) = (-1)^n J_n(z)
+\end{gather}
+なる関係が成り立ち，もはや$J_n$と$J_{-n}$は独立ではないので，$J_\nu$に線型独立な解を探す必要がある．このような解として
+\begin{gather}
+Y_\nu(z) = \frac{\cos(\nu \pi) J_\nu(z) - J_{-\nu}(z)}{\sin(\nu \pi)}
+\end{gather}
+を採用する．これを次数$\nu$の第二種円筒関数(Bessel functions of the second kind)またはNeumannの関数という．
+
+従って，Besselの微分方程式\eqref{eq:bessel_diffeq}の一般解は線型独立な特解$J_\nu$と$Y_\nu$（とくに，$\nu \not \in \mb{Z}_{\geq 0}$のときは$J_{-n}$でもよい）の線形結合で表すことができる．
+
+\subsection{Bessel関数の母関数表示}
+Bessel関数の母関数が
+\begin{gather}
+  g(x, t) \equiv \exp\ab[\frac{z}{2}\ab(t - \frac{1}{t})] =  \sum_{n=-\infty}^{\infty} J_n(z) t^n
+\end{gather}
+で表されることを示す．
+\begin{proof}
+  $g(x, t)$を$t$についてLaurent展開して，
+  \begin{gather}
+    \exp\ab[\frac{z}{2}\ab(t-\frac{1}{t})] = \sum_{n=-\infty}^{\infty}A_nt^n
+  \end{gather}
+  のように表されるとする．このとき，留数定理より
+  \begin{gather}
+    A_n = \frac{1}{2\pi i} \oint_C \exp\ab[\frac{z}{2}\ab(t - \frac{1}{t})] \frac{\dl{t}}{t^{n+1}}
+  \end{gather}
+  である．ただし，積分曲線は原点を中心とする円であるとした．
+
+  $t = 2u / z$と積分変数を変換し，さらにTaylor展開をすると，
+  \begin{align}
+    A_n &= \frac{1}{2\pi i }\sum_{m=0}^{\infty} \frac{(-1)^m}{m!} \ab(\frac{z}{2})^{2m+n} \sum_{s=0}^{\infty} \frac{1}{s!} \oint_C \frac{1}{u^{n+m-s+1}} \dl{u} \notag\\
+        &= \sum_{m=0}^{\infty} \frac{(-1)^m}{m!} \ab(\frac{z}{2})^{2m+n} \sum_{s=0}^{\infty} \frac{1}{s!} \delta_{n+m, s} \notag\\
+        &= \sum_{m=0}^{\infty} \frac{(-1)^m}{m! (n+m)!}\ab(\frac{z}{2})^{2m+n}
+  \end{align}
+  従って，$A_n = J_n$となるので，母関数表示を得ることができた．
+\end{proof}
+
+\subsection{円筒関数の基本関係}
+第1種Bessel関数
+\begin{gather}
+  J_\nu(z) = \sum_{m=0}^{\infty} \frac{(-1)^m}{m! \Gamma(m+\nu+1)}\ab(\frac{z}{2})^{\nu+2m}
+\end{gather}
+に対して，簡単な計算により
+\begin{gather}
+  \label{eq:bessel}
+  \left.
+    \begin{aligned}
+      2J_\nu'(z) &= J_{\nu-1}(z) - J_{\nu+1}(z) \\
+      \frac{2\nu}{z}J_\nu(z) &= J_{\nu-1}(z) + J_{\nu+1}(z)
+    \end{aligned}
+  \right\}
+\end{gather}
+が得られる．
+\eqref{eq:bessel}を一般化して，$J$を$\nu, z$の関数と見て$f(z, \nu)$と表すことにして，
+\begin{gather}  
+  \left.
+  \begin{aligned}
+    f(z, \nu-1) + f(z, \nu+1) &= \frac{2\nu}{z}f(z, \nu)\\
+    f(x, \nu-1) - f(z, \nu+1) &= 2\diffp**{z}{f(z, \nu)}
+  \end{aligned}
+  \right\}
+\end{gather}
+を満たす$f$を変数$z$，次数$\nu$の円筒関数と言うこともある．
+
+また，\eqref{eq:bessel}を組み合わせることで
+\begin{gather}
+  \left.
+    \begin{aligned}
+      \diff**{z}{\ab[z^\nu J_\nu(z)]} & = z^\nu J_{\nu-1}(z)\\
+      \diff**{z}{\ab[z^{-\nu} J_{\nu}(z)]} & = -z^{-\nu} J_{\nu+1}(z)
+    \end{aligned}
+  \right\}
+\end{gather}
+が得られる．
+
