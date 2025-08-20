@@ -9,11 +9,20 @@
 \renewcommand{\headrulewidth}{0.1pt}
 \renewcommand{\contentsname}{Contents}
 
-\begin{document}  
-\setcounter{section}{3}
-\subsection*{Problems (Section 3)}
-\addcontentsline{toc}{subsection}{\numberline{}Problems}
-\markboth{}{Problems}
+\begin{document}
+\tableofcontents
+\vspace{10em}
+\hrulefill\\
 
-\input{src/section3_hint.tex}
+
+\setcounter{section}{2}
+\section{Problems (Section 3)}
+%\addcontentsline{toc}{section}{\numberline{}Problems (Section 3)}
+%\markboth{}{Problems}
+
+\subsection{Hints}
+%\addcontentsline{toc}{subsection}{\numberline{}Hints (Section 3)}
+
+
+\input{doc/section3_hint.tex}
 \end{document}
