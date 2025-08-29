@@ -13,7 +13,7 @@
 \newcommand{\comb}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
 \newcommand{\hs}{\hspace}
 \newcommand{\qq}{\hspace{1em}}
-\newcommand{\qqtext}[1]{\hspace{1em}\text{#1}\hspace{0.5em}}
+\newcommand{\qqtext}[1]{\hspace{1em}\text{#1}\hspace{1em}}
 \newcommand{\vs}{\vspace}
 \newcommand{\emphvs}{\vspace{1em}\notag\\}
 \newcommand{\ora}{\overrightarrow}
@@ -93,6 +93,9 @@
 %% DIFFCOEFF PKG SETTING
 
 \difdef { l } { dn } { style = d^ }
+\NewDocumentCommand \dn { m m } { \dl.dn.[#1]{#2} }
+\difdef{l}{p}{op-symbol=\partial}
+\NewDocumentCommand \dlp {} { \dl.p. }
 \difdef { l } {} {outer-Rdelim = \,}
 \difdef {f, s} {D}{op-symbol = \mathrm{D}}
 
