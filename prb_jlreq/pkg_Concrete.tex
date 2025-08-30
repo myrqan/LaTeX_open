@@ -63,7 +63,7 @@
 
 \usepackage{fontspec}
 \setmonofont{Inconsolatazi4} %% CHANGE DEFAULT TTFONT
-
+\setsansfont{Rosario}
 \usepackage{listings,jvlisting}
   \lstset{
   basicstyle={\ttfamily\gtfamily},%
@@ -101,4 +101,13 @@
 
 %\setmainfont{XITS}
 %\setmathfont{XITS Math}
+\setsansjfont{HaranoAjiGothic}
+
+
+\makeatletter
+% \em コマンドの動作を再定義
+\DeclareRobustCommand{\em}{%
+    \gtfamily\sffamily\bfseries
+}
+\makeatother
 
