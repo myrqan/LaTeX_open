@@ -38,7 +38,7 @@
         \end{gather}%
         である．境界条件は$r=a$の球面上で考えれば良い．$\phi$の値でポテンシャルを場合分
         けして考えると見通しが良い．
-      \item (a)の結果を用いて具体的な計算をするだけ．本文\S3.3中式(3.36)との比較のときには，
+      \item (a)の結果を用いて具体的な計算をするだけ．本文\S3.3中の式(3.36)との比較のときには，
         座標軸の取り方に注意をする必要がある．
         具体的には$\cos\theta' = \sin\theta \sin\phi$である．
     \end{enumerate}%
@@ -62,17 +62,92 @@
     \begin{gather}%
       I_\nu(z) \sim \frac{1}{\nu !}\ab(\frac{z}{2})^\nu + \order{z^{\nu+1}} \qqtext{for} z \ll 1
     \end{gather}%
-     を用いるとよい．三角関数の無限和は$\exp$での無限級数として考えると見通しが良い．
-   \item あとで
-   \item Bessel関数に関する公式
-     \begin{gather}%
-       \int_0^\infty \dl{x} \e^{-\alpha x} J_0(bx) = \frac{1}{\sqrt{\alpha^2 + b^2}}\\
-       \int_0^\infty \dl{x} \e^{-\alpha x} \ab[J_0(bx)]^2 = \frac{2}{\pi \sqrt{\alpha^2 + 4b^2}} 
-       K\ab(\frac{2b}{\sqrt{\alpha^2 + 4b^2}})
-     \end{gather}%
-     が知られている．ここで，$K(k)$は第一種完全楕円積分
-     \begin{gather}%  
-       K(k) = \int_0^{\pi/2} \frac{\dl{\theta}}{\sqrt{1-k^2\sin^2\theta}}
-     \end{gather}%
-     である．
+    を用いるとよい．三角関数の無限和は$\exp$での無限級数として考えると見通しが良い．
+  \item あとで
+  \item Bessel関数に関する公式
+    \begin{gather}%
+      \int_0^\infty \dl{x} \e^{-\alpha x} J_0(bx) = \frac{1}{\sqrt{\alpha^2 + b^2}}\\
+      \int_0^\infty \dl{x} \e^{-\alpha x} \ab[J_0(bx)]^2 = \frac{2}{\pi \sqrt{\alpha^2 + 4b^2}} 
+      K\ab(\frac{2b}{\sqrt{\alpha^2 + 4b^2}})
+    \end{gather}%
+    が知られている．ここで，$K(k)$は第一種完全楕円積分
+    \begin{gather}%  
+      K(k) = \int_0^{\pi/2} \frac{\dl{\theta}}{\sqrt{1-k^2\sin^2\theta}}
+    \end{gather}%
+    である．
+  \item Legendre多項式の積分について
+    \begin{gather}%
+      \int_0^1 \dl{x} P_l(x) =
+      \begin{dcases}%
+        1 \qqtext{if} l = 0\\
+        \frac{(-1)^k(2k-1)!!}{2^{k+1} (k+1)!} \qqtext{if} l = 2k+1;\, k=0,1,\ldots\\
+        0 \qqtext{if}l = 2k;\, k = 1, 2, \ldots
+      \end{dcases}
+    \end{gather}
+    がわかる．
+  \item 線電荷密度を求めてそれを体積電荷密度として書けば良い．
+  \item あとで
+  \item 
+    \begin{enumerate}[(a)]%  
+      \item  デルタ関数は
+        \begin{gather}%
+          \lim_{\eps\to 0} \delta_\eps(x) = \lim_{\eps \to 0} \frac{\sin(x/\eps)}{x/\eps} \frac{1}{\pi \eps} = \delta(x)
+        \end{gather}%
+        とかける．
+      \item 基本的には本文\S 3.11の議論と同様にすれば良い．
+      \item (b)の結果を用いる．
+      \item Besselの積分表示
+        \begin{align}%
+          J_n(x) &= \frac{1}{\pi} \int_0^\pi \dl{\theta} \cos(n\theta -x\sin\theta)\\
+          &= \frac{1}{2\pi}\int_0^{2\pi}\dl{\theta}\cos(n \theta - x \sin\theta)
+        \end{align}%
+        およびHansenの積分表示
+        \begin{gather}%
+          J_n(x) = \frac{1}{\i^n\pi}  \int_0^\pi \e^{\i x\cos\theta}\cos(n \theta)
+        \end{gather}%
+        がある．
+    \end{enumerate}%
+  \item 
+    \begin{enumerate}[(a)]%  
+      \item  
+        Fourier展開，あるいはFourier半区間展開により
+        \begin{gather}%
+          \delta(\phi - \phi ') =
+          \frac{1}{2\pi} \sum_{m=-\infty}^\infty \e^{\i m(\phi - \phi')}\\
+          \delta(z- z') = 
+          \frac{2}{L} \sum_{n=1}^\infty\sin\ab(\frac{n\pi z}{L})\sin\ab(\frac{n\pi z'}{L})
+        \end{gather}%
+        がわかる．
+      \item 問題3.16(a)の結果を用いて$\rho, \phi$方向について展開をした後，$z$方向について
+        Green関数の満たすべき条件を考える．
+    \end{enumerate}
+  \item 
+    \begin{enumerate}[(a)]%  
+      \item  円筒関数系でのLaplace方程式を境界条件
+        \begin{gather}%
+          \begin{dcases}%
+            \Phi = 0\qqtext{on} z = 0\\
+            \Phi = V\theta(a-\rho) \qqtext{on} z = L
+          \end{dcases}%
+        \end{gather}%
+        で解く．ただし$\theta(\cdot)$はHeavisideの階段関数．
+      \item Bessel関数，sinh関数を級数展開して，最低次の寄与を計算する．
+      \item (b)と同様に考える．
+    \end{enumerate}%
+  \item 
+    \cite{gradshteyn2014}の式(6.666)より
+    \begin{multline}%  
+      \int_0^\infty \dl{x} x^{\nu +1} \frac{\sinh(\alpha x)}{\sinh(\pi x)} J_\nu(\beta x)
+      = \frac{2}{\pi}\sum_{n=1}^\infty (-1)^{n-1} n^{\nu+1}\sin(n\alpha) K_\nu(n\beta)\\
+      \qqtext{for} |\Re(\alpha)| < 1,\, \Re(\nu) > -1
+    \end{multline}%
+    が成り立つ．
+  \item 問題3.17で考えたGreen関数を用いることができる．
+  \item 問題1.18(b)の結果を用いる．
+    また，\cite{gradshteyn2014}式(6.554)より
+    \begin{gather}%
+      \int_0^1  \dl{x} \frac{x}{\sqrt{1-x^2}} J_0(xy) = \frac{\sin y}{y} \qqtext{for} y > 0
+    \end{gather}%
+    である．
+  \item 
 \end{enumerate}
