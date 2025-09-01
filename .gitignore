@@ -1,5 +1,7 @@
 *.DS_Store
-
+.venv/
+.ipynb_checkpoints/
+*.svg
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

@@ -5,11 +5,6 @@
       \Phi(r,\theta) = \sum_{l=0}^\infty \ab(A_l r^l + B_l r^{-(l+1)}) P_l\ab(\cos\theta)
     \end{gather}%
     に代入して，境界条件から各係数$A_l ,B_l$を決定する．
-    また，偶数次のLegendre多項式について，
-    \begin{gather}%
-      P_n(0) = (-1)^{n/2} 2^{-n} \comb{n}{n/2}
-    \end{gather}
-    が成り立つ．
   \item 
     \begin{enumerate}[(a)]%  
       \item  
@@ -17,7 +12,8 @@
         境界条件を考えれば良い．
         また，Legendre多項式の直交関係式
         \begin{gather}%
-          \int_0^1 \dl{x} P_{l'}\ab(x) P_l\ab(x) = \frac{2}{2l+1} \delta_{l'l}
+          \label{eq:legendre_ortho}
+          \int_{-1}^1 \dl{x} P_{l'}\ab(x) P_l\ab(x) = \frac{2}{2l+1} \delta_{l'l}
         \end{gather}%
         および負の引数をとる場合の式
         \begin{gather}%
@@ -84,7 +80,7 @@
         0 \qqtext{if}l = 2k;\, k = 1, 2, \ldots
       \end{dcases}
     \end{gather}
-    がわかる．
+    が知られている．
   \item 線電荷密度を求めてそれを体積電荷密度として書けば良い．
   \item あとで
   \item 
@@ -149,5 +145,6 @@
       \int_0^1  \dl{x} \frac{x}{\sqrt{1-x^2}} J_0(xy) = \frac{\sin y}{y} \qqtext{for} y > 0
     \end{gather}%
     である．
+  \item あとで
   \item 
 \end{enumerate}

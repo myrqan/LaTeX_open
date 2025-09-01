@@ -2,22 +2,26 @@
 
 \pagestyle{fancy}%  
 \fancyhead[L]{\textsc{\rightmark}}%  
-\fancyhead[C]{}%  
+\fancyhead[C]{J. D. Jackson, Classical Electrodynamics (Section 3)}%  
 \fancyhead[R]{\thepage}
 \fancyfoot{}%  
 \renewcommand{\contentsname}{Contents}%
+\newcommand{\toi}[1]{\noindent\fbox{\large\color{blue}{#1}}}
+\newcommand{\itemlabel}[1]{\noindent\uline{#1}}
 
 \begin{document}
 %\tableofcontents
 %\clearpage
+\bibliography{biblio}
+\hrulefill\\
 \setcounter{section}{2}
 \section{Problems (Section 3)}
 \subsection{Hints}
 \input{hint.tex}
 
+\clearpage
 \subsection{Answers}
 \input{ans.tex}
 
-\bibliography{biblio}
 
 \end{document}
