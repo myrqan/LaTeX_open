@@ -1,27 +1,42 @@
 \input{/Users/crutont/Documents/github/LaTeX_open/prb_jlreq/a4_concrete_2col.tex}
 
+\usepackage[color]{showkeys}
+\usepackage{afterpage}
 \pagestyle{fancy}%  
 \fancyhead[L]{\textsc{\rightmark}}%  
 \fancyhead[C]{J. D. Jackson, Classical Electrodynamics (Section 3)}%  
 \fancyhead[R]{\thepage}
 \fancyfoot{}%  
 \renewcommand{\contentsname}{Contents}%
-\newcommand{\toi}[1]{\noindent\fbox{\large\color{blue}{#1}}}
+\newcommand{\toi}[1]{\noindent\fbox{\large\color{blue}{#1}}\\\nopagebreak}
 \newcommand{\itemlabel}[1]{\noindent\uline{#1}}
 
 \begin{document}
 %\tableofcontents
 %\clearpage
+\nocite{*}
 \bibliography{biblio}
 \hrulefill\\
+
+\begin{flushright}%
+  最終更新日: \today
+\end{flushright}%
+
+
 \setcounter{section}{2}
 \section{Problems (Section 3)}
+
 \subsection{Hints}
 \input{hint.tex}
 
 \clearpage
+\subsection{Formulas}
+\input{math.tex}
+
+\clearpage
 \subsection{Answers}
 \input{ans.tex}
+
 
 
 \end{document}

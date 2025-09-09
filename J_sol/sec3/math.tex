@@ -1,0 +1,101 @@
+\subsubsection{Legendre多項式に関するもの}
+
+\begin{itemize}
+  \item 母関数表示
+    \begin{gather}%
+      \frac{1}{\sqrt{1-2xt+t^2}} = \sum_{n=0}^\infty P_n(x) t^n
+    \end{gather}%
+  \item 直交関係
+    \begin{gather}%
+      \label{eq:legendre_orthogonal}
+      \int_{-1}^1 \dl{x} P_{l'}(x) P_l(x) = \frac{2}{2l+1} \delta_{l'l}
+    \end{gather}%
+  \item $[0,1]$区間での積分
+    \begin{gather}%
+      \int_0^1 \dl{x} P_l(x) =
+      \begin{dcases}%
+        1 \qqtext{if} l = 0\\
+        \frac{(-1)^k(2k-1)!!}{2^{k+1} (k+1)!} \qqtext{if} l = 2k+1;\, k = 0,1,\ldots\\
+        0 \qqtext{if} l = 2k;\, k = 1, 2, \ldots
+      \end{dcases}%
+    \end{gather}%
+  \item 漸化関係
+    \begin{gather}%
+      \label{eq:legedre_zenka1}
+      \diff{P_{l+1}(x)}{x} - \diff{P_{l-1}(x)}{x} = (2l+1) P_l(x)
+    \end{gather}%
+\end{itemize}
+
+\subsubsection{associated Legendre多項式に関するもの}
+\begin{itemize}%  
+  \item 最初の数項の具体的な表式
+    \begin{align*}%  
+      &\hs{1em}P_0^0(x) = 1\\
+      &\begin{dcases}
+        P_{1}^{-1}(x) = \frac{1}{2}\ab(1-x^2)^{1/2}\\
+        P_1^0 (x) = x\\
+        P_1^1 (x) = -\ab(1-x^2)^{1/2}\\
+      \end{dcases}\\
+      &\begin{dcases}
+        P_2^{-2} (x) = \frac{1}{8}(1-x^2)\\
+        P_2^{-1}(x) = \frac{1}{2}x(1-x^2)^{1/2}\\
+        P_2^0(x) = \frac{1}{2}(3x^2-1)\\
+        P_2^1(x) = -3x(1-x^2)^{1/2}\\
+        P_2^2(x) = 2(1-x^2)
+      \end{dcases}\\
+      &\begin{dcases}%
+        P_3^{-3}(x) = \frac{1}{48} (1-x^2)^{3/2}\\
+        P_3^{-2}(x) = \frac{1}{8}x(1-x^2)\\
+        P_3^{-1}(x) = -\frac{1}{8}(1-5x^2)(1-x^2)^{1/2}\\
+        P_3^0(x) = \frac{1}{2}x(5x^2-3)\\
+        P_3^1(x) = \frac{3}{2}(1-5x^2)(1-x^2)^{1/2}\\
+        P_3^2(x) = 15x(1-x^2)\\
+        P_3^3(x) = -15(1-x^2)^{3/2}
+      \end{dcases}%
+    \end{align*}
+\end{itemize}%
+
+\subsubsection{Bessel関数に関するもの}
+\begin{itemize}%  
+  \item Besselの積分表示
+    \begin{align}
+      J_n(x) &= \frac{1}{\pi} \int_0^\pi \dl{\theta \cos(n\theta - x \sin\theta)}
+    \end{align}%
+  \item Hansenの積分表示
+    \begin{gather}%
+      J_n(x) = \frac{1}{\i^n \pi} \int_0^\pi \dl{\theta} \e^{\i x\cos\theta} \cos(n\theta)
+    \end{gather}%
+  \item Bessel関数を含む積分
+    \begin{gather}%  
+      \int_0^\infty \dl{x} \e^{-\alpha x} J_0(bx) = \frac{1}{\sqrt{\alpha^2 + b^2}}\\
+      \int_0^\infty \e^{\alpha x} \ab[J_0(bx)]^2 =
+      \frac{2}{\pi\sqrt{\alpha^2 + 4b^2}} K\ab(\frac{2b}{\sqrt{\alpha^2 + 4b^2}}) 
+    \end{gather}%
+    ここで，$K(k)$は第一種完全楕円積分
+    \begin{gather}%
+      K(k) = \int_0^{\pi/2} \frac{\dl{\theta}}{\sqrt{1-k^2\sin^2\theta}}
+    \end{gather}%
+\end{itemize}%
+
+\subsubsection{積分公式}
+\begin{gather}%
+  \label{eq:3.676}
+  \int_0^{\pi/2} \frac{\sin(x) \dl{x}}{\sqrt{1+p^2\sin^2(x)}} 
+  = \frac{1}{p}\arctan(p)\\
+  \label{eq:2.736}
+  \int \dl{x} \log \ab|x^2 - a^2|  = x \log\ab|x^2-a^2| - 2x + a \log \ab|\frac{x+a}{x-a}|\\
+\end{gather}
+
+\subsubsection{級数展開}
+\begin{gather}%
+  \label{eq:1.643}
+  \arctan(x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{2k+1} \qqtext{for} x^2 \leq 1
+\end{gather}%
+
+\subsubsection{その他}
+\begin{itemize}%  
+  \item Diracのデルタ関数
+    \begin{gather}%
+      \delta(x) = \lim_{\eps \to 0} \frac{1}{\pi \eps}\sin\ab(\frac{x}{\eps})
+    \end{gather}%
+\end{itemize}%

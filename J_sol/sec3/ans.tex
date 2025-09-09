@@ -34,7 +34,7 @@
   \text{(L.H.S.)} = \int_{1}^{-1} \sum_{l=0}^\infty\ab(A_l a^l + B_l a^{-(l+1)})
   P_l(x) P_{l'}(x) \dl{x}
 \end{gather}
-であり，Legendre多項式に関する直交関係\eqref{eq:legendre_ortho}より，（$l,l'$を入れ替えて）
+であり，Legendre多項式に関する直交関係\eqref{eq:legendre_orthogonal}より，（$l,l'$を入れ替えて）
 \begin{gather}%
   \label{eq:prob3-1_a}
   A_l a^l + B_l a^{-(l+1)} = \frac{V(2l+1)}{2} \int_0^1 \dl{x} P_l(x)
@@ -117,244 +117,457 @@ $a \to 0$の極限では
 それぞれの場合について，ポテンシャルを描く
 と図\ref{fig:3-1_lima}，\ref{fig:3-1_limb}，\ref{fig:3-1_all}のようになる\footnote{
   描画のときに使用したコードは\texttt{.ipynb}形式で保存してある．
-}．
-\begin{figure*}[htbp]%  
-  \centering%  
-  \begin{minipage}{0.30\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{py/3-1_lima.png}%  
-    \caption{$a \to 0$としたとき}%  
-    \label{fig:3-1_lima}%  
-  \end{minipage}
-  \begin{minipage}{0.30\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{py/3-1_limb.png}%  
-    \caption{$b\to\infty$としたとき}%  
-    \label{fig:3-1_limb}%  
-  \end{minipage}
-  \begin{minipage}{0.30\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{py/3-1_all.png}
-    \caption{一般の場合についてのポテンシャル}
-    \label{fig:3-1_all}
-  \end{minipage}
-\end{figure*}%
+  }．
+  \begin{figure*}[htbp]%  
+    \centering%  
+    \begin{minipage}{0.30\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{py/3-1_lima.png}%  
+      \caption{$a \to 0$としたとき}%  
+      \label{fig:3-1_lima}%  
+    \end{minipage}
+    \begin{minipage}{0.30\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{py/3-1_limb.png}%  
+      \caption{$b\to\infty$としたとき}%  
+      \label{fig:3-1_limb}%  
+    \end{minipage}
+    \begin{minipage}{0.30\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{py/3-1_all.png}
+      \caption{一般の場合についてのポテンシャル}
+      \label{fig:3-1_all}
+    \end{minipage}
+  \end{figure*}%
 
 
-\hrulefill\\
-%--- 問3.2 ---%
-\toi{3.2}
-\begin{wrapfigure}[10]{r}{0.35\linewidth}
-  \centering%  
-  \includegraphics[width=\linewidth]{fig/Jackson3-2.pdf}%  
-\end{wrapfigure}%
-極角$\theta$が$\theta < \alpha$を満たす部分には電荷が存在せず，その他の部分には
-一様な電荷密度$\sigma_{\mr{c}} = Q /(4\pi R^2)$が存在するような球を考える．
+  \hrulefill\\
+  %--- 問3.2 ---%
+  \toi{3.2}
+  \begin{wrapfigure}[10]{r}{0.35\linewidth}
+    \centering%  
+    \includegraphics[width=\linewidth]{fig/Jackson3-2.pdf}%  
+  \end{wrapfigure}%
+  極角$\theta$が$\theta < \alpha$を満たす部分には電荷が存在せず，その他の部分には
+  一様な電荷密度$\sigma_{\mr{c}} = Q /(4\pi R^2)$が存在するような球を考える．
 
 \itemlabel{(a)}
-ポテンシャルをLegendre多項式で展開して
-\begin{gather}%
-  \Phi(r,\theta) = \sum_{l=0}^\infty \ab(A_l r^l + B_l r^{-(l+1)}) P_l(\cos\theta)
-\end{gather}%
-とする．
-球の内部で$r\to 0$としたときに発散しない条件より$l = 0, 1, \ldots$について$B_l = 0$
-また，球の外部については$r \to \infty$としたときにポテンシャルがゼロに漸近するとして，
-$l = 0, 1, \ldots$について$A_l = 0$である．
-したがって，球の内外でのポテンシャル$\Phi_{\text{in}}$および$\Phi_{\text{out}}$は
-\begin{gather}%
-  \Phi_{\text{in}}(r,\theta) = \sum_{l} A_l r^l P_l(\cos\theta),\\
-  \Phi_{\text{out}}(r,\theta) = \sum_{l} B_l r^{-(l+1)} P_l(\cos\theta)
-\end{gather}%
-とかける．
-ポテンシャルは$r= R$の球面上で連続であるから，
-\begin{gather}%
-  \sum_l A_l R^l P_l(\cos\theta) = \sum_l B_l R^{-(l+1)}P_l(\cos\theta)
-\end{gather}%
-であり，$\ab\{P_l\}_{l=0,1,2,\ldots}$が直交関数系をなすことより
-$B_l = A_l R^{2l+1}$である．
+  ポテンシャルをLegendre多項式で展開して
+  \begin{gather}%
+    \Phi(r,\theta) = \sum_{l=0}^\infty \ab(A_l r^l + B_l r^{-(l+1)}) P_l(\cos\theta)
+  \end{gather}%
+  とする．
+  球の内部で$r\to 0$としたときに発散しない条件より$l = 0, 1, \ldots$について$B_l = 0$
+  また，球の外部については$r \to \infty$としたときにポテンシャルがゼロに漸近するとして，
+  $l = 0, 1, \ldots$について$A_l = 0$である．
+  したがって，球の内外でのポテンシャル$\Phi_{\text{in}}$および$\Phi_{\text{out}}$は
+  \begin{gather}%
+    \Phi_{\text{in}}(r,\theta) = \sum_{l} A_l r^l P_l(\cos\theta),\\
+    \Phi_{\text{out}}(r,\theta) = \sum_{l} B_l r^{-(l+1)} P_l(\cos\theta)
+  \end{gather}%
+  とかける．
+  ポテンシャルは$r= R$の球面上で連続であるから，
+  \begin{gather}%
+    \sum_l A_l R^l P_l(\cos\theta) = \sum_l B_l R^{-(l+1)}P_l(\cos\theta)
+  \end{gather}%
+  であり，$\ab\{P_l\}_{l=0,1,2,\ldots}$が直交関数系をなすことより
+  $B_l = A_l R^{2l+1}$である．
 
-また，電場の接続条件は
-\begin{gather}%
-  \sigma = \eps_0 \ab[\eval{\diffp{\Phi_{\text{in}}}{r}}_{r=R} -
-  \eval{\diffp{\Phi_{\text{out}}}{r}}_{r=R}] 
-  =
-  \begin{dcases}%
-    \frac{Q}{4\pi R^2} \qqtext{if} \theta \geq \alpha\\
-    0 \qqtext{if} 0 \leq \theta < \alpha
-  \end{dcases}%
-\end{gather}%
-である．
-\begin{gather}%
-  \eval{\diffp{\Phi_{\text{in}}}{r}}_{r=R}
-  - \eval{\diffp{\Phi_{\text{out}}}{r}}_{r=R} 
-  = \sum_{l=0}^\infty A_l \ab(2l+1) R^{l-1} P_l(\cos\theta)
-\end{gather}%
-に注意すると，$\dl{(\cos\theta)}P_{l'}(\cos\theta)$をかけて$\cos\theta =1$から
-$\cos\theta = -1$で積分をすると，
-直交関係より以下が得られる（$l,l'$の入れ替えを行った）；
-\begin{gather}%
-  A_l = \frac{Q}{8\pi \eps_0}\frac{1}{R^{l+1}} \int_{-1}^{\cos\alpha} \dl{x} P_l(x).
-\end{gather}%
-Legendre多項式に関する漸化式
-\begin{gather}%
-  \diff{P_{l+1}}{x} - \diff{P_{l-1}}{x} = (2l+1)P_l
-\end{gather}%
-より，
-\begin{gather}%
-  \int_{-1}^{\cos\alpha} \dl{x} P_l(x) 
-  = \frac{1}{2l+1}\ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)]
-\end{gather}%
-である（$P_{l+1}(-1) - P_{l-1}(-1) = 0$であることに注意せよ）．
-したがって，
-\begin{gather}%
-  A_l = \frac{Q}{8\pi \eps_0} \frac{1}{2l+1} \ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)]\frac{1}{R^{l+1}}
-\end{gather}%
-であり，球内部のポテンシャルは
-\begin{gather}%
-  \Phi_{\text{in}}(r,\theta) = \frac{Q}{8\pi \eps_0} \sum_{l=0}^\infty \frac{1}{2l+1}
-  \ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)] \frac{r^l}{R^{l+1}} P_l(\cos\theta)
-\end{gather}%
-と表される．
-また，球外部のポテンシャルについては，
-\begin{gather}%  
-  \Phi_{\text{out}}(r,\theta) = \frac{Q}{8\pi \eps_0} \sum_{l=0}^\infty \frac{1}{2l+1}
-  \ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)] \frac{R^l}{r^{l+1}} P_l(\cos\theta)
-\end{gather}%
-と表される．
+  また，電場の接続条件は
+  \begin{gather}%
+    \sigma = \eps_0 \ab[\eval{\diffp{\Phi_{\text{in}}}{r}}_{r=R} -
+    \eval{\diffp{\Phi_{\text{out}}}{r}}_{r=R}] 
+    =
+    \begin{dcases}%
+      \frac{Q}{4\pi R^2} \qqtext{if} \theta \geq \alpha\\
+      0 \qqtext{if} 0 \leq \theta < \alpha
+    \end{dcases}%
+  \end{gather}%
+  である．
+  \begin{gather}%
+    \eval{\diffp{\Phi_{\text{in}}}{r}}_{r=R}
+    - \eval{\diffp{\Phi_{\text{out}}}{r}}_{r=R} 
+    = \sum_{l=0}^\infty A_l \ab(2l+1) R^{l-1} P_l(\cos\theta)
+  \end{gather}%
+  に注意すると，$\dl{(\cos\theta)}P_{l'}(\cos\theta)$をかけて$\cos\theta =1$から
+  $\cos\theta = -1$で積分をすると，
+  直交関係より以下が得られる（$l,l'$の入れ替えを行った）；
+  \begin{gather}%
+    A_l = \frac{Q}{8\pi \eps_0}\frac{1}{R^{l+1}} \int_{-1}^{\cos\alpha} \dl{x} P_l(x).
+  \end{gather}%
+  Legendre多項式に関する漸化式\eqref{eq:legedre_zenka1}
+  より，
+  \begin{gather}%
+    \int_{-1}^{\cos\alpha} \dl{x} P_l(x) 
+    = \frac{1}{2l+1}\ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)]
+  \end{gather}%
+  である（$P_{l+1}(-1) - P_{l-1}(-1) = 0$であることに注意せよ）．
+  したがって，
+  \begin{gather}%
+    A_l = \frac{Q}{8\pi \eps_0} \frac{1}{2l+1} \ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)]\frac{1}{R^{l+1}}
+  \end{gather}%
+  であり，球内部のポテンシャルは
+  \begin{gather}%
+    \Phi_{\text{in}}(r,\theta) = \frac{Q}{8\pi \eps_0} \sum_{l=0}^\infty \frac{1}{2l+1}
+    \ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)] \frac{r^l}{R^{l+1}} P_l(\cos\theta)
+  \end{gather}%
+  と表される．
+  また，球外部のポテンシャルについては，
+  \begin{gather}%  
+    \Phi_{\text{out}}(r,\theta) = \frac{Q}{8\pi \eps_0} \sum_{l=0}^\infty \frac{1}{2l+1}
+    \ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)] \frac{R^l}{r^{l+1}} P_l(\cos\theta)
+  \end{gather}%
+  と表される．
 
 \itemlabel{(b)}
-電場は$\bs{E} = -\gr \Phi$で与えられるので，
-\begin{align}%  
-  E_r &= -\diffp{\Phi}{r} \notag\\
-  &= -\frac{Q}{8\pi \eps_0}\sum_{l=1}^\infty
-  \frac{l}{2l+1}\ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)] 
-  \frac{r^{l-1}}{R^{l+1}} P_l(\cos\theta)\\
-  E_\theta &= -\frac{1}{r}\diffp{\Phi}{\theta} \notag\\
-  &= -\frac{1}{r}\frac{Q}{8\pi\eps_0} 
-  \sum_{l=0}^\infty \frac{1}{2l+1} \ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)]\frac{r^l}{R^{l+1}} \diff{P_l(\cos\theta)}{\theta}
-\end{align}%
-である．
-原点では$r = 0$として考えると，$E_r, E_\theta$ともに$l=1$の項だけが残るので，
-$P_2(\cos\alpha) - P_0(\cos\alpha) = -(3/2)\sin^2\al$であることなどに注意すると，
-\begin{align}%
-  \bs{E}(r=0) &= \frac{Q}{16\pi\eps_0}\frac{1}{R^2}\sin^2\alpha \ab[\cos\theta \hat{\bs{r}} - \sin\theta \hat{\bs{\theta}}] \notag\\
-  &= \frac{Q}{16\pi \eps_0} \frac{1}{R^2}\sin^2\al \hat{\bs{z}}
-\end{align}%
-となる．
+  電場は$\bs{E} = -\gr \Phi$で与えられるので，
+  \begin{align}%  
+    E_r &= -\diffp{\Phi}{r} \notag\\
+    &= -\frac{Q}{8\pi \eps_0}\sum_{l=1}^\infty
+    \frac{l}{2l+1}\ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)] 
+    \frac{r^{l-1}}{R^{l+1}} P_l(\cos\theta)\\
+    E_\theta &= -\frac{1}{r}\diffp{\Phi}{\theta} \notag\\
+    &= -\frac{1}{r}\frac{Q}{8\pi\eps_0} 
+    \sum_{l=0}^\infty \frac{1}{2l+1} \ab[P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)]\frac{r^l}{R^{l+1}} \diff{P_l(\cos\theta)}{\theta}
+  \end{align}%
+  である．
+  原点では$r = 0$として考えると，$E_r, E_\theta$ともに$l=1$の項だけが残るので，
+  $P_2(\cos\alpha) - P_0(\cos\alpha) = -(3/2)\sin^2\al$であることなどに注意すると，
+  \begin{align}%
+    \bs{E}(r=0) &= \frac{Q}{16\pi\eps_0}\frac{1}{R^2}\sin^2\alpha \ab[\cos\theta \hat{\bs{r}} - \sin\theta \hat{\bs{\theta}}] \notag\\
+    &= \frac{Q}{16\pi \eps_0} \frac{1}{R^2}\sin^2\al \hat{\bs{z}}
+  \end{align}%
+  となる．
 
 \itemlabel{(c-1-a)}
-$\al \to 0$の極限を考える．
+  $\al \to 0$の極限を考える．
 
-$\cos\al \sim 1 - \al^2 / 2$であるから，$P_l(\cos\al) \sim P_l(1) - (\al^2/2)P_l'(1)$として
-Taylor展開できる．
-$l = 0$のときは
-\begin{gather}%
-  P_1(\cos\al) - P_{-1}(\cos\al) = \cos\al + 1 \sim 2 - \frac{\al^2}{2}
-\end{gather}%
-$l \geq 1$のときは
-\begin{align}%
-  P_{l+1}(\cos\al) - P_{l-1}(\cos\al) 
-  &\sim -\frac{\al^2}{2}\ab(P_{l+1}'(1) - P_{l-1}'(1))\notag\\
-  &= -\frac{\al^2}{2}\ab(2l+1) P_l(1) = -\frac{2l+1}{2}\al^2
-\end{align}%
-と近似されるので，
-\begin{align}%
-  \Phi_{\text{in}} &\sim 
-  \frac{Q}{4\pi \eps_0} \ab[\frac{1}{R} 
-  - \frac{\al^2}{4}\sum_{l=0}^\infty \frac{r^l}{R^{l+1}}P_l(\cos\theta)]\notag\\
-  &= \frac{Q}{4\pi\eps_0}\ab[
-    \frac{1}{R} - \frac{\al^2}{4} \frac{1}{\ab|\bs{x} - R\hat{\bs{z}}|}
-  ]
-\end{align}%
-とかける．
-また，球外部のポテンシャルは
-\begin{align}%
-  \Phi_{\text{out}} &\sim \frac{Q}{4\pi\eps_0}\ab[
-    \frac{1}{r} - \frac{\al^2}{4} \sum_{l=0}^\infty \frac{R^l}{r^{l+1}}P_l(\cos\theta)
-  ]\notag\\
-  &= \frac{Q}{4\pi\eps_0} \ab[
-    \frac{1}{r} - \frac{\al^2}{4} \frac{1}{\ab|\bs{x} - R\hat{\bs{z}}|}
-  ]
-\end{align}%
-であるから，球内外のポテンシャルは
-\begin{gather}%
-  \Phi \sim \frac{Q}{4\pi\eps_0} \ab[\frac{1}{r_>} - \frac{\al^2}{4}\frac{1}{\ab|\bs{x} - R \hat{\bs{z}}|}]
-\end{gather}%
-と統一的に書くことができる．ただし，$r_>$は$r$と$R$のうち大きい方である．
+  $\cos\al \sim 1 - \al^2 / 2$であるから，$P_l(\cos\al) \sim P_l(1) - (\al^2/2)P_l'(1)$として
+  Taylor展開できる．
+  $l = 0$のときは
+  \begin{gather}%
+    P_1(\cos\al) - P_{-1}(\cos\al) = \cos\al + 1 \sim 2 - \frac{\al^2}{2}
+  \end{gather}%
+  $l \geq 1$のときは
+  \begin{align}%
+    P_{l+1}(\cos\al) - P_{l-1}(\cos\al) 
+    &\sim -\frac{\al^2}{2}\ab(P_{l+1}'(1) - P_{l-1}'(1))\notag\\
+    &= -\frac{\al^2}{2}\ab(2l+1) P_l(1) = -\frac{2l+1}{2}\al^2
+  \end{align}%
+  と近似されるので，
+  \begin{align}%
+    \Phi_{\text{in}} &\sim 
+    \frac{Q}{4\pi \eps_0} \ab[\frac{1}{R} 
+    - \frac{\al^2}{4}\sum_{l=0}^\infty \frac{r^l}{R^{l+1}}P_l(\cos\theta)]\notag\\
+    &= \frac{Q}{4\pi\eps_0}\ab[
+      \frac{1}{R} - \frac{\al^2}{4} \frac{1}{\ab|\bs{x} - R\hat{\bs{z}}|}
+    ]
+  \end{align}%
+  とかける．
+  また，球外部のポテンシャルは
+  \begin{align}%
+    \Phi_{\text{out}} &\sim \frac{Q}{4\pi\eps_0}\ab[
+      \frac{1}{r} - \frac{\al^2}{4} \sum_{l=0}^\infty \frac{R^l}{r^{l+1}}P_l(\cos\theta)
+    ]\notag\\
+    &= \frac{Q}{4\pi\eps_0} \ab[
+      \frac{1}{r} - \frac{\al^2}{4} \frac{1}{\ab|\bs{x} - R\hat{\bs{z}}|}
+    ]
+  \end{align}%
+  であるから，球内外のポテンシャルは
+  \begin{gather}%
+    \Phi \sim \frac{Q}{4\pi\eps_0} \ab[\frac{1}{r_>} - \frac{\al^2}{4}\frac{1}{\ab|\bs{x} - R \hat{\bs{z}}|}]
+  \end{gather}%
+  と統一的に書くことができる．ただし，$r_>$は$r$と$R$のうち大きい方である．
 
 \itemlabel{(c-1-b)}
-中心における電場の極限は$\sin\al \sim \al$に注意して
-\begin{gather}%
-  \bs{E}(r = 0) \sim \frac{Q}{16\pi \eps_0}\frac{\al^2}{R^2} \hat{\bs{z}}
-\end{gather}%
-である．
+  中心における電場の極限は$\sin\al \sim \al$に注意して
+  \begin{gather}%
+    \bs{E}(r = 0) \sim \frac{Q}{16\pi \eps_0}\frac{\al^2}{R^2} \hat{\bs{z}}
+  \end{gather}%
+  である．
 
 \itemlabel{(c-2-a)}
-$\al \to \pi$の極限を考えるが，簡単のため$\beta \equiv \pi - \al \to 0$の極限を考える．
-\begin{gather}%
-  \cos\al = \cos(\pi -\be) \sim -1 + \frac{\be^2}{2}
-\end{gather}%
-に注意すると，(c-1)と同様にして，
-\begin{gather}%
-  P_{l+1}(\cos\al) - P_{l-1}(\cos\al) \sim (-1)^l \frac{2l+1}{2} \be^2
-  \qqtext{for} l = 0, 1, \ldots
-\end{gather}%
-と表せる．したがって，
-\begin{align}%
-  \Phi_{\text{in}} &\sim \frac{Q}{8\pi\eps_0} \be^2
-  \frac{1}{2} \sum_{l=0}^\infty (-1)^l \frac{r^l}{R^{l+1}} P_l(\cos\theta)\notag\\
-  &= \frac{Q}{16\pi\eps_0}\beta^2 \sum_{l=0}^\infty \frac{r^l}{R^{l+1}} P_l(-\cos\theta)\notag\\
-  &= \frac{Q}{16\pi\eps_0} \beta^2 \frac{1}{\ab|\bs{x} + R \hat{\bs{z}}|}
-\end{align}%
-である．球外のポテンシャルも同様に計算することができて，
-\begin{gather}%
-  \Phi_{\text{out}} \sim \frac{Q}{16\pi\eps_0} \beta^2 \frac{1}{\ab|\bs{x} + R \hat{\bs{z}}|}
-\end{gather}%
-となる（同じ結果を与える）．
+  $\al \to \pi$の極限を考えるが，簡単のため$\beta \equiv \pi - \al \to 0$の極限を考える．
+  \begin{gather}%
+    \cos\al = \cos(\pi -\be) \sim -1 + \frac{\be^2}{2}
+  \end{gather}%
+  に注意すると，(c-1)と同様にして，
+  \begin{gather}%
+    P_{l+1}(\cos\al) - P_{l-1}(\cos\al) \sim (-1)^l \frac{2l+1}{2} \be^2
+    \qqtext{for} l = 0, 1, \ldots
+  \end{gather}%
+  と表せる．したがって，
+  \begin{align}%
+    \Phi_{\text{in}} &\sim \frac{Q}{8\pi\eps_0} \be^2
+    \frac{1}{2} \sum_{l=0}^\infty (-1)^l \frac{r^l}{R^{l+1}} P_l(\cos\theta)\notag\\
+    &= \frac{Q}{16\pi\eps_0}\beta^2 \sum_{l=0}^\infty \frac{r^l}{R^{l+1}} P_l(-\cos\theta)\notag\\
+    &= \frac{Q}{16\pi\eps_0} \beta^2 \frac{1}{\ab|\bs{x} + R \hat{\bs{z}}|}
+  \end{align}%
+  である．球外のポテンシャルも同様に計算することができて，
+  \begin{gather}%
+    \Phi_{\text{out}} \sim \frac{Q}{16\pi\eps_0} \beta^2 \frac{1}{\ab|\bs{x} + R \hat{\bs{z}}|}
+  \end{gather}%
+  となる（同じ結果を与える）．
 
 \itemlabel{(c-2-b)}
-原点での電場は$\sin\al =\sin\be \sim \be$に注意して，
-\begin{gather}%  
-  \bs{E}(r=0) \sim \frac{Q}{16\pi\eps_0} \frac{\be^2}{R^2} \hat{\bs{z}}
-\end{gather}%
-と計算される．
+  原点での電場は$\sin\al =\sin\be \sim \be$に注意して，
+  \begin{gather}%  
+    \bs{E}(r=0) \sim \frac{Q}{16\pi\eps_0} \frac{\be^2}{R^2} \hat{\bs{z}}
+  \end{gather}%
+  と計算される．
 
-\begin{tcolorbox}[dashedbox]%  
-  (c-1)での結果について，これは，半径$R$の球表面に総電荷$Q$が分布しており，極角$\al$の部分には
-  それに加えて，表面電荷密度$-\sigma = -Q/(4\pi R^2)$が分布している状況と一致している．
-  具体的に計算をすると，まず総電荷$Q$が一様に分布しているとき，球内部のポテンシャルは
-  簡単な計算により
+  \begin{tcolorbox}[dashedbox]%  
+    (c-1)での結果について，これは，半径$R$の球表面に総電荷$Q$が分布しており，極角$\al$の部分には
+    それに加えて，表面電荷密度$-\sigma = -Q/(4\pi R^2)$が分布している状況と一致している．
+    具体的に計算をすると，まず総電荷$Q$が一様に分布しているとき，球内部のポテンシャルは
+    簡単な計算により
+    \begin{gather}%
+      \Phi_{\text{in}}^{(1)} = \frac{Q}{4\pi\eps_0} \frac{1}{R}
+    \end{gather}%
+    であることがわかる．次に，極角$\al$の範囲については，$\al$が十分に小さいとき，
+    この部分に存在する電荷は
+    \begin{align}%
+      \int \dl{\Omega}R^2(-\sigma) &= -2\pi R^2\sigma \int_0^\al \dl{\theta} \sin\theta\notag\\
+      &= -2\pi R^2\sigma \ab(1-\cos\al) \notag\\
+      &\sim -2\pi R^2 \sigma \frac{\al^2}{2} = -\frac{\al^2}{4}Q
+    \end{align}%
+    である．$\al$が十分に小さいとして，この電荷を点電荷とみなすことにすると
+    これが作るポテンシャルは
+    \begin{gather}%
+      \Phi_{\text{in}}^{(2)} = -\frac{Q}{4\pi\eps_0} \frac{\al^2/4}{\ab|\bs{x}-R\hat{\bs{z}}|}
+    \end{gather}%
+    となり，$\Phi_{\text{in}}^{(1)} + \Phi_{\text{in}}^{(2)}$が(c-1-a)の
+    答えになっていることが確かめられる．$\Phi_{\text{out}}$については$\Phi^{(1)}$の$1/R$を$1/r$
+    として考えれば良く，この結果も整合的である．
+  \end{tcolorbox}
+  (a)で考えたポテンシャルを図示すると図\ref{fig:3-2_normal}のようになる．
+  \begin{figure}[htbp]%  
+    \centering%  
+    \includegraphics[width=0.8\linewidth]{py/3-2_normal.png}%  
+    \caption{$\alpha = \pi/4$としてポテンシャルを描いた様子．
+    ポテンシャルの単位は$Q/(4\pi\eps_0)$としており，球（図中の灰色の実線）
+    の半径を$R = 1$としている．
+    }%  
+    \label{fig:3-2_normal}%  
+  \end{figure}%
+
+  \hrulefill\\
+  \toi{3.3}
+  \itemlabel{(a)}
+  空間内の電荷分布は
   \begin{gather}%
-    \Phi_{\text{in}}^{(1)} = \frac{Q}{4\pi\eps_0} \frac{1}{R}
+    \rho_{\mr{c}}(\bs{x}) = \frac{a}{\sqrt{R^2-\rho^2}} H(R-\rho) \delta(z)
   \end{gather}%
-  であることがわかる．次に，極角$\al$の範囲については，$\al$が十分に小さいとき，
-  この部分に存在する電荷は
+  ［ただし$H(\cdot)$はHeavisideのstep functionである］とかけるので，$a$を決定する．
+  原点でのポテンシャルは
+  \begin{gather}%
+    V(0) = \frac{1}{4\pi \eps_0} \int \frac{1}{\rho'}\rho_{\mr{c}}(\bs{x'}) 
+    \rho'\dl{\rho'} \dl{\phi'} \dl{z'}
+    = \frac{\pi a}{4\eps_0}
+  \end{gather}%
+  と表されるので，$V(0) = V$として，電荷分布は
+  \begin{gather}%
+    \rho_{\mr{c}}(\bs{x}) = \frac{4\eps_0 V}{\pi} \frac{1}{\sqrt{R^2 - \rho^2}} 
+    H(R-\rho) \delta(z)
+  \end{gather}%
+  である．
+  これより，$z$軸上でのポテンシャルを計算することができて，
   \begin{align}%
-    \int \dl{\Omega}R^2(-\sigma) &= -2\pi R^2\sigma \int_0^\al \dl{\theta} \sin\theta\notag\\
-    &= -2\pi R^2\sigma \ab(1-\cos\al) \notag\\
-    &\sim -2\pi R^2 \sigma \frac{\al^2}{2} = -\frac{\al^2}{4}Q
+    \Phi(z) &= \frac{1}{4\pi \eps_0} \int 
+    \frac{\rho_{\mr{c}}(\bs{x'})}{\sqrt{(\rho')^2+z^2}} 
+    \rho' \dl{\rho',\phi',z'}\notag\\
+    &=\frac{2V}{\pi} \int_0^R \frac{\rho' \dl{\rho'}}
+    {\sqrt{
+      ((\rho')^2+z^2) (R^2-(\rho')^2)
+    }}\notag\\
+    &= \frac{2V}{\pi} \int_0^{\pi/2} 
+    \frac{R\sin\theta\dl{\theta}}{\sqrt{z^2 + R^2\sin\theta}}\notag\\
+    &= \frac{2V}{\pi} \arctan\ab(\frac{R}{|z|})
   \end{align}%
-  である．$\al$が十分に小さいとして，この電荷を点電荷とみなすことにすると
-  これが作るポテンシャルは
+  と表すことができる［式\eqref{eq:3.676}を利用］．
+
+  $R / |z| \leq 1$とすると，
   \begin{gather}%
-    \Phi_{\text{in}}^{(2)} = -\frac{Q}{4\pi\eps_0} \frac{\al^2/4}{\ab|\bs{x}-R\hat{\bs{z}}|}
+    \Phi(z) = \frac{2V}{\pi} \sum_{k=0}^\infty \frac{(-1)^k}{2k+1} \ab(\frac{R}{|z|})^{2k+1}
   \end{gather}%
-  となり，$\Phi_{\text{in}}^{(1)} + \Phi_{\text{in}}^{(2)}$が(c-1-a)の
-  答えになっていることが確かめられる．$\Phi_{\text{out}}$については$\Phi^{(1)}$の$1/R$を$1/r$
-  として考えれば良く，この結果も整合的である．
-\end{tcolorbox}
-(a)で考えたポテンシャルを図示すると図\ref{fig:3-2_normal}のようになる．
-\begin{figure}[H]%  
-  \centering%  
-  \includegraphics[width=0.8\linewidth]{py/3-2_normal.png}%  
-  \caption{$\alpha = \pi/4$としてポテンシャルを描いた様子．
-  ポテンシャルの単位は$Q/(4\pi\eps_0)$としており，球（図中の灰色の実線）
-  の半径を$R = 1$としている．
-  }%  
-  \label{fig:3-2_normal}%  
-\end{figure}%
+  として級数展開することができるので，$R / r \leq 1$かつ$z \geq 0$のdisk上部では
+  \begin{gather}%
+    \Phi(\bs{x}) = 
+    \frac{2V}{\pi}\sum_{l=0}^\infty \frac{(-1)^l}{2l+1} \ab(\frac{R}{r})^{2l+1}
+    P_{2l}(\cos\theta)
+  \end{gather}%
+  と表される．$z \leq 0$のdisk%
+  \footnote{diskとdiscは技術的な文脈では使い分けがあるらしい．
+  discはCDやDVDなどの光学式メディアを指し，diskはフロッピーディスクやハードディスク
+  などを指すらしい．}
+  下部では$z=0$面に関してポテンシャルが対称である
+  として，
+  \begin{align}%  
+    \Phi(\bs{x}) & = \frac{2V}{\pi}\sum_{l=0}^\infty \frac{(-1)^l}{2l+1} \ab(\frac{R}{r})^{2l+1}
+    P_{2l}(\cos(\pi-\theta))\\
+    &= 
+    \frac{2V}{\pi}\sum_{l=0}^\infty \frac{(-1)^l}{2l+1} \ab(\frac{R}{r})^{2l+1}
+    P_{2l}(\cos\theta)
+  \end{align}%
+  となる．
+
+\itemlabel{(b)}
+  一方$R / |z| \geq 1$とすると，
+  $\arctan(x) + \arctan(1/x) = \pi/2$に注意して，
+  \begin{align}%
+    \Phi(z) &= \frac{2V}{\pi}\ab[\frac{\pi}{2}-\arctan\ab(\frac{|z|}{R})]\notag\\
+    &= V - \frac{2V}{\pi} \sum_{l=0}^\infty \frac{(-1)^l}{2l+1}\ab(\frac{|z|}{R})^{2l+1}
+  \end{align}%
+  であるから，
+  $z \gtrless 0$では
+  \begin{align}%
+    \Phi(\bs{x}) &=
+    \begin{dcases}
+      V - \frac{2V}{\pi} \sum_{l=0}^\infty \frac{(-1)^l}{2l+1} \ab(\frac rR)^{2l+1} P_{2l+1}(\cos\theta)\\
+      V - \frac{2V}{\pi} \sum_{l=0}^\infty \frac{(-1)^l}{2l+1} \ab(\frac rR)^{2l+1} P_{2l+1}(\cos(\pi-\theta))
+    \end{dcases}\notag\\
+    &= V \mp \frac{2V}{\pi}
+    \sum_{l=0}^\infty \frac{(-1)^l}{2l+1} \ab(\frac rR)^{2l+1} P_{2l+1}(\cos\theta)
+  \end{align}
+  となる．
+
+\itemlabel{(c)}
+  導体上の全電荷は
+  \begin{gather}%
+    Q \equiv \int_0^R 2\pi \rho \dl{\rho} 
+    \frac{4\eps_0 V}{\pi} \frac{1}{\sqrt{R^2  -\rho^2}} = 8\eps_0 VR
+  \end{gather}%
+  であるから，capacitanceは$C = Q/V = 8\eps_0 R$
+  である．
+  \begin{figure}[H]%  
+    \centering%  
+    \includegraphics[width=0.8\linewidth]{py/3-3_normal_w_circle.png}%  
+    \caption{$V=1.0$，$R = 1.0$として等ポテンシャル面を描画した図；
+    ポテンシャルが$V$に保たれているdiskは$z$軸上の$-1 < x <1$の範囲である．
+    また，図中の黄色破線は$r = R$となる球面を表しており，この面を境にして
+    ポテンシャルの表式が変化している．}%  
+    \label{fig:3-3_normal_w_circle}%  
+  \end{figure}%
 
 \hrulefill\\
-\toi{3.3}
+\afterpage{\clearpage}
+%---- problem 3.4 ---%
+\toi{3.4}
+\begin{wrapfigure}[12]{r}{0.3\linewidth} 
+  \centering
+  \includegraphics[width=\linewidth]{fig/Jackson3-4_1.pdf}\\
+  \includegraphics[width=\linewidth]{fig/Jackson3-4_2.pdf}
+\end{wrapfigure}%
+\itemlabel{(a)}
+  球内部でのポテンシャルは，原点での特異性に気をつけると，
+  \begin{gather}%  
+    \label{eq:3-4_eq1}
+    \Phi(r,\theta,\phi) = \sum_{l=0}^\infty \sum_{m=-l}^{l} A_{lm}r^l Y_{lm}(\theta,\phi)
+  \end{gather}%
+  と書くことができる．
+  境界条件は，
+  \begin{multline}%
+    \Phi(r=a,\theta,\phi) \equiv V(\phi)\\=
+    \begin{dcases}%
+      +V \qqtext{if} \frac{\pi}{n} \cdot 2j \leq \phi \leq \frac{\pi}{n}\cdot(2j+1)\\
+      -V \qqtext{if} \frac{\pi}{n}\cdot(2j+1) \leq \phi \leq \frac{\pi}{n}\cdot (2j+2)
+    \end{dcases}\\%
+    \qqtext{for} j = 0, 1, \ldots, n-1
+  \end{multline}%
+  である．
+  \begin{gather}%
+    V(\phi) = \sum_{l} \sum_{m} A_{lm} a^l Y_{lm{(\theta,\phi)}}
+  \end{gather}%
+  に対して，両辺に$Y^*_{l'm'}(\theta,\phi)$をかけて，
+  $\dl{\Omega} = \sin\theta\dl{\theta,\phi}$で積分を実行すると，
+  球面調和関数の直交性より
+  \begin{align}%
+    A_{lm} &= \frac{1}{a^l} \int V(\phi) Y^*_{lm}(\theta,\phi) \dl{\Omega}\notag\\
+    &= \frac{1}{a^l} \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}\int_0^\pi
+    P_{l}^m(\cos\theta)\sin\theta\dl{\theta} \int_0^{2\pi} V(\phi) \e^{-\i m\phi}\dl{\phi}
+  \end{align}%
+  である．$\phi$での積分について，
+  \begin{multline}
+    \int_0^{2\pi} V(\phi) \e^{-\i m\phi} \dl{\phi} = V \sum_{j=0}^{n-1} \ab[
+      \int_{\frac{\pi}{n}2j}^{\frac{\pi}{n}(2j+1)} \e^{-\i m\phi}\dl{\phi}
+       - \int_{\frac{\pi}{n}(2j+1)}^{\frac{\pi}{n}(2j+2)} \e^{-\i m\phi}\dl{\phi}
+    ]
+  \end{multline}
+  となるが， $m = 0$のとき，
+  \begin{gather}%
+    \int_0^{2\pi} V(\phi)\e^{-\i m\phi} \dl{\phi} =  0
+  \end{gather}%
+  であり，$m \neq 0$のときは
+  \begin{gather}%
+    \int_0^{2\pi} V(\phi) \e^{-\i m\phi} \dl{\phi} =
+      - \frac{\i V}{m} \ab(1-\e^{-\i \frac{m}{n}\pi})^2 \sum_{j=0}^{n-1}\ab(\e^{-\i \frac{2m}{n}\pi})^j
+  \end{gather}%
+  となるが，$\exp(-\i (m/n)\pi) = 1$つまり$m/(2n)$が整数となるときはゼロとなる．
+  また，
+  \begin{gather}%
+    \sum_{j=0}^{n-1} \ab(\e^{-\i\frac{2m}{n}\pi})^j 
+    = \frac{1 - \e^{-\i 2m\pi}}{1-\e^{\i \frac{2m}{n}\pi}}
+  \end{gather}%
+  となるので，$m/n$が整数となるときには右辺が$0 / 0$の形になるので，non-zeroとなることが
+  期待される．一方，それ以外の場合では$m$が整数であることより分子がゼロになるので，
+  この和はゼロである．
+  以上をまとめると，$m / n = \pm1, \pm3, \ldots$の場合のみが
+  non-zeroの結果を与えることがわかる．実際，このときは
+  \begin{gather}%  
+    \int_0^{2\pi} V(\phi) \e^{-\i m\phi} \dl{\phi} =
+    -\frac{\i V}{m}\ab(1-(-1))^2 \sum_{j=0}^{n-1} 1 = -4\i V \frac{n}{m}
+  \end{gather}%
+  である．
+  以上の結果を踏まえると，球内部でのポテンシャルを\eqref{eq:3-4_eq1}のように展開したとき，
+  係数$A_{lm}$は
+  \begin{gather}%
+    A_{lm} = 
+    \begin{dcases}%
+      \begin{multlined}
+        -\frac{4\i V}{a^l}\frac{n}{m} \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}} 
+        \int_{-1}^1 P_l^m (\cos\theta)\dl{(\cos\theta)} \\
+        \qqtext{if} m = \pm n, \pm 3n, \pm 5n, \ldots
+      \end{multlined}\\
+      0 \qqtext{otherwise}
+    \end{dcases}%
+  \end{gather}%
+
+\itemlabel{(b)}
+  $n = 1$として係数$A_{lm}$を$l = 3$まで計算する．$m = \pm 1, \pm 3, \ldots$に対して
+  $A_{lm} \neq 0$であることに注意する．
+  \begin{gather*}%
+    A_{1,\pm 1} = \frac{\i V}{a}\sqrt{\frac{3\pi}{2}},\qq
+    A_{2,\pm 1} = 0\\
+    A_{3,\pm 3} = \frac{\i V}{a^3} \sqrt{\frac{35\pi}{256}},\qq
+    A_{3,\pm 1} = \frac{\i V}{a^3} \sqrt{\frac{21\pi}{256}}
+  \end{gather*}%
+  と計算できるので，ポテンシャルは
+  \begin{multline}%
+    \Phi(r,\theta,\phi) = V\left[
+      \frac{3r}{2a} \sin\theta\sin\phi\right.  \\
+      \left.
+      +
+      \ab(\frac{r}{a})^3\ab\{
+        \frac{35}{64}\sin^3\theta\sin(3\phi) + 
+        \frac{21}{64}\sin\theta\ab(5\cos^2\theta-1)\sin\phi
+      \} + \cdots
+    \right]
+  \end{multline}%
+  とかける．ここで，$\cos\theta' = \sin\theta \sin\phi$とおけば，
+  \begin{gather}%
+    P_1(\cos\theta') = \sin\theta\sin\phi\\
+    P_3(\cos\theta') = -\frac{1}{8}\ab[5\sin^3\theta\sin(3\phi) 
+    + 3\sin\theta(5\cos^2-1)\sin\phi]
+  \end{gather}%
+  であるから，
+  \begin{gather}%
+    \Phi(r,\theta') = V\ab[\frac{3}{2} \frac ra P_1(\cos\theta') - 
+    \frac{7}{8}\ab(\frac ra)^3P_3(\cos\theta') + \cdots]
+  \end{gather}%
+  となり，これは，教科書本文中の式(3.36)と一致していることがわかる．
+
+
+
+
 
 

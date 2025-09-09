@@ -1,87 +1,61 @@
 \begin{enumerate}[label={\large 3.\arabic*}]
-  \item 方位角対称なポテンシャルをLegendre多項式で展開したときの一般形
-    \begin{gather}%
-      \label{eq:legendre_expand}
-      \Phi(r,\theta) = \sum_{l=0}^\infty \ab(A_l r^l + B_l r^{-(l+1)}) P_l\ab(\cos\theta)
-    \end{gather}%
-    に代入して，境界条件から各係数$A_l ,B_l$を決定する．
+    %--- 3.1 ---%
+  \item $z$軸について対称なポテンシャルをLegendre多項式で展開したときの一般形
+    に代入して，境界条件から係数を決定する．
+    %--- 3.2 ---%
   \item 
-    \begin{enumerate}[(a)]%  
-      \item  
-        \eqref{eq:legendre_expand}のように展開して，表面電荷密度による
+    (a): ポテンシャルを展開して，表面電荷密度による
         境界条件を考えれば良い．
-        また，Legendre多項式の直交関係式
-        \begin{gather}%
-          \label{eq:legendre_ortho}
-          \int_{-1}^1 \dl{x} P_{l'}\ab(x) P_l\ab(x) = \frac{2}{2l+1} \delta_{l'l}
-        \end{gather}%
-        および負の引数をとる場合の式
-        \begin{gather}%
-          P_l(-x) =  (-1)^l P_l(x)
-        \end{gather}%
-        を用いれば良い．
-      \item $\bs{E} = -\gr \Phi$を用いて原点での電場を計算できる．
+    (b):  $\bs{E} = -\gr \Phi$を用いて原点での電場を計算できる．
         また，$\hat{\bs{z}} = \cos\theta \hat{\bs{r}} - \sin\theta \hat{\bs{\theta}}$を
         用いると，結果を$\hat{\bs{z}}$のみで表すことができる．
-      \item (2)では$\beta = \pi - \al$として$\beta \to 0$の極限を考えるほうがやりやすい．
-    \end{enumerate}
-  \item 後で
+    (c): (2)では$\beta = \pi - \al$として$\beta \to 0$の極限を考えるほうがやりやすい．
+    %--- 3.3 ---%
   \item 
-    \begin{enumerate}[(a)]%  
-      \item  ポテンシャルを球面調和関数で展開する．
-        \begin{gather}%
-          \Phi(r,\theta,\phi) = \sum_{l=0}^\infty \sum_{m=-l}^{l} \ab(A_{lm} r^l + B_{lm}r^{-(l+1)}) Y_{lm}(\theta,\phi)
-        \end{gather}%
-        である．境界条件は$r=a$の球面上で考えれば良い．$\phi$の値でポテンシャルを場合分
+    （問題の意図を把握していないかもしれないが，）解くための一つの方法として，
+    まず，総電荷を$Q$として電荷の分布の様子を，disk表面のポテンシャルの条件から
+    決定をする．
+    その後，diskの軸上の点についてポテンシャルを計算することができるので，
+    これを計算したのち，本文\S 3.3と同じ方法で，全空間のポテンシャルを計算できる．
+    %--- 3.4 ---%
+  \item 
+    (a): ポテンシャルを球面調和関数で展開する．
+        境界条件は$r=a$の球面上で考えれば良い．$\phi$の値でポテンシャルを場合分
         けして考えると見通しが良い．
-      \item (a)の結果を用いて具体的な計算をするだけ．本文\S3.3中の式(3.36)との比較のときには，
+    (b): (a)の結果を用いて具体的な計算をするだけ．本文\S3.3中の式(3.36)との比較のときには，
         座標軸の取り方に注意をする必要がある．
         具体的には$\cos\theta' = \sin\theta \sin\phi$である．
-    \end{enumerate}%
+    %--- 3.5 ---%
   \item 本文中の式(3.70)を$r,a$でそれぞれ微分，差を考えて$\dl{\Omega'} V(\theta',\phi')$
     で積分をすればよい．
+    %--- 3.6 ---%
   \item ポテンシャルが具体的に計算できるので，本文中の式(3.70)を使って球面調和関数で展開し
     た後に，和を考えれば良い．
+    %--- 3.7 ---%
   \item 前問と同じように考えれば良い．
+    %--- 3.8 ---%
   \item $\log(\csc\theta) = \log(1/\sin\theta)$をLegendre多項式で展開する．
-    積分
-    \begin{gather}%
-      \int \dl{x} \log(1-x^2) = (1+x)\log(1+x) - (1-x)\log(1-x) - 2x
-    \end{gather}%
-    を使うと見通しが良い．
+    %--- 3.9 ---%
   \item 円筒座標系でのLaplacianは
     \begin{gather}%
       \gr^2 = \frac{1}{\rho}\diffp**{\rho}{\ab(\rho\diffp{}{\rho})} + \frac{1}{\rho^2} \diffp[2]{}{\phi} + \diffp[2]{}{z}
     \end{gather}%
     である．これを$z=0,L$での境界条件に注意して解けばよい．
+    %--- 3.10 ---%
   \item 前問の結果を用いる．(b)での極限を考えるときは，漸近形
     \begin{gather}%
       I_\nu(z) \sim \frac{1}{\nu !}\ab(\frac{z}{2})^\nu + \order{z^{\nu+1}} \qqtext{for} z \ll 1
     \end{gather}%
     を用いるとよい．三角関数の無限和は$\exp$での無限級数として考えると見通しが良い．
+    %--- 3.11 ---%
   \item あとで
-  \item Bessel関数に関する公式
-    \begin{gather}%
-      \int_0^\infty \dl{x} \e^{-\alpha x} J_0(bx) = \frac{1}{\sqrt{\alpha^2 + b^2}}\\
-      \int_0^\infty \dl{x} \e^{-\alpha x} \ab[J_0(bx)]^2 = \frac{2}{\pi \sqrt{\alpha^2 + 4b^2}} 
-      K\ab(\frac{2b}{\sqrt{\alpha^2 + 4b^2}})
-    \end{gather}%
-    が知られている．ここで，$K(k)$は第一種完全楕円積分
-    \begin{gather}%  
-      K(k) = \int_0^{\pi/2} \frac{\dl{\theta}}{\sqrt{1-k^2\sin^2\theta}}
-    \end{gather}%
-    である．
-  \item Legendre多項式の積分について
-    \begin{gather}%
-      \int_0^1 \dl{x} P_l(x) =
-      \begin{dcases}%
-        1 \qqtext{if} l = 0\\
-        \frac{(-1)^k(2k-1)!!}{2^{k+1} (k+1)!} \qqtext{if} l = 2k+1;\, k=0,1,\ldots\\
-        0 \qqtext{if}l = 2k;\, k = 1, 2, \ldots
-      \end{dcases}
-    \end{gather}
-    が知られている．
+    %--- 3.12 ---%
+  \item 計算を実行するだけ
+    %--- 3.13 ---%
+  \item 同様．
+    %--- 3.14 ---%
   \item 線電荷密度を求めてそれを体積電荷密度として書けば良い．
+    %--- 3.15 ---%
   \item あとで
   \item 
     \begin{enumerate}[(a)]%  
