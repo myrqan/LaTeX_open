@@ -565,6 +565,86 @@ $a \to 0$の極限では
     \frac{7}{8}\ab(\frac ra)^3P_3(\cos\theta') + \cdots]
   \end{gather}%
   となり，これは，教科書本文中の式(3.36)と一致していることがわかる．
+  図\ref{fig:3-4_n3}には$n = 3$の場合の図を描いた．
+  \begin{figure}[H]%  
+    \centering%  
+    \includegraphics[width=0.8\linewidth]{py/3-4_n3.png}%  
+    \caption{問題文と同じセットアップを行って，$n = 3$の場合について，$l = 20$の
+    項まででポテンシャルを描いた図．球（$z = 0$面で切断したときの円）の境界
+    の近くでは有限項で打ち切った事による誤差が見られるが，概ね期待されるポテンシャルの
+    形を得られていることがわかる．}%  
+    \label{fig:3-4_n3}%  
+  \end{figure}%
+
+  \hrulefill\\
+  \toi{3.5}
+  %--- problem 3.5 ---%
+  本文中の式(3.70)より，
+  \begin{gather}%
+    \frac{1}{\ab|\bs{x}-\bs{x}'|} = 4\pi \sum_{l=0}^\infty \sum_{m=-l}^l \frac{1}{2l+1}
+    \frac{r^l}{a^{l+1}} Y^*_{lm}(\theta',\phi') Y_{lm}(\theta,\phi)
+  \end{gather}%
+  である（ただし$|\bs{x}| = r < a = |\bs{x}'|$とした）．このとき，
+  \begin{gather*}%  
+    |\bs{x} - \bs{x}'| = \ab(r^2 + a^2 - 2ar\cos\gamma)^{1/2}
+  \end{gather*}%
+  である（$\gamma$は$\bs{x}, \bs{x}'$のなす角）から,
+  \begin{gather}%
+    \label{eq:3-5_eq1}
+    \frac{1}{\ab(r^2 + a^2 - 2ar \cos\gamma)^{1/2}} = 4\pi\sum_{l,m} \frac{1}{2l+1}
+    \frac{r^l}{a^{l+1}} Y^*_{lm}(\theta',\phi') Y_{lm}(\theta,\phi)
+  \end{gather}%
+  とかける．ここで，\eqref{eq:3-5_eq1}の両辺を$r$について微分すると，
+  \begin{gather}%
+    \label{eq:3-5_eq2}
+    \frac{ar\cos\gamma - r^2}{\ab(r^2+a^2-2ar\cos\gamma)^{3/2}} = 4\pi \sum_{l,m}
+    \frac{l}{2l+1} \frac{r^l}{a^{l+1}} Y^*_{lm}(\theta',\phi') Y_{lm}(\theta,\phi)
+  \end{gather}%
+  が得られ，同様に\eqref{eq:3-5_eq1}の両辺を$a$について微分すると，
+  \begin{gather}%
+    \label{eq:3-5_eq3}
+    \frac{ar\cos\gamma - a^2}{\ab(r^2 + a^2 -2ar\cos\gamma)^{3/2}} = 
+    -4\pi\sum_{l,m}\frac{l+1}{2l+1}\frac{r^l}{a^{l+1}}
+    Y^*_{l,m}(\theta',\phi') Y_{lm}(\theta,\phi)
+  \end{gather}%
+  が得られる．ここで，\eqref{eq:3-5_eq2}と\eqref{eq:3-5_eq3}の差を考えることで，
+  \begin{gather}%
+    \frac{a(a^2 - r^2)}{\ab(r^2 + a^2 - 2ar\cos\gamma)^{3/2}}
+    = 4\pi \sum_{l,m} \ab(\frac r a)^l Y^*_{lm}(\theta',\phi') Y_{lm}(\theta,\phi)
+  \end{gather}%
+  となる．この両辺に$V(\theta',\phi')$をかけて，$\dl{\Omega'}$で積分すると，
+  \begin{gather}%
+    \frac{a(a^2 - r^2)}{4\pi} \int  
+    \frac{V(\theta',\phi')\dl{\Omega'}}{\ab(r^2 + a^2 - 2ar\cos\gamma)^{1/2}} = 
+    \sum_{l,m} A_{lm} \ab(\frac ra)^l Y_{lm}(\theta,\phi)
+  \end{gather}%
+  となる．ただし，
+  \begin{gather}%
+    A_{lm} = \int \dl{\Omega'} V(\theta',\phi') Y^*_{lm}(\theta',\phi')
+  \end{gather}%
+  である．
+  
+  \hrulefill\\
+  \toi{3.6}
+  %--- problem 3.6 ---%
+\itemlabel{(a)}
+  点電荷によるポテンシャルは次のようにかける：
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{q}{4\pi \eps_0}
+    \ab[\frac{1}{\ab|\bs{x} - a\hat{\bs{z}}|}
+    - \frac{1}{\ab|\bs{x} + a \hat{\bs{z}}|}].
+  \end{gather}%
+  本文中の式(3.70)を利用して書き直すと，
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{q}{\eps_0} \sum_{l,m} \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}}
+    Y_{lm}(\theta,\phi) \ab[Y^*_{lm}(0,0) - Y^*_{lm}(\pi,0)]
+  \end{gather}%
+ここで，$Y^*_{lm}(0,0)-Y^*_{lm}(\pi,0) \neq 0$となるのは$m = 0$で$l$が奇数のときのみである
+ことに注意すると，
+\begin{gather}%
+  \Phi(\bs{x}) = \frac{q}{\eps_0} \sum_{l=1,3,\ldots}^{\infty} \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}} \sqrt{\frac{2l+1}{4\pi}}P_l(\cos\theta) 
+  \cdot \sqrt{\frac{2l+1}{4\pi}}\cdot2
+\end{gather}%
 
 
 
