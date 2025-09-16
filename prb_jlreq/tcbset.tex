@@ -75,3 +75,31 @@
     borderline west={10pt}{0pt}{blue!10!white}
   }
 }
+\definecolor{crimson}{rgb}{0.86, 0.08, 0.24}
+\definecolor{cosmiclatte}{rgb}{1.0, 0.97, 0.91}
+\definecolor{paleblue}{rgb}{0.69, 0.93, 0.93}
+\definecolor{palecerulean}{rgb}{0.61, 0.77, 0.89}
+\definecolor{palecerulean_r}{HTML}{c4e29b}
+\definecolor{chars}{HTML}{1f272d}
+
+\newtcolorbox{bx1}[2][]{
+  breakable,%
+  enhanced,%
+  arc = 0mm,%
+  outer arc = 0mm,%
+  bottomtitle=3pt,%
+  toptitle=3pt,%
+  boxsep = 0pt,%
+  before upper={\setlength{\parindent}{1\zh}},%
+  %colframe=black!70,%blue!5!green,%
+  %colback=black!2,%green!5,%
+  colframe=palecerulean,%
+  colback=cosmiclatte,%
+  fonttitle=\large\bfseries\gtfamily,%
+  %title={interior hidden},%
+  coltitle = chars,%
+  lefttitle = 0.13\linewidth,%
+  title={#2},#1,%
+  title code = {\path[draw=palecerulean_r,fill=palecerulean_r] (title.north west) --([xshift=0.1\linewidth]title.north west)--([xshift=0.07\linewidth]title.south west)--(title.south west)--cycle;\path[draw=palecerulean_r,fill=palecerulean_r] (title.north east) --([xshift=-0.07\linewidth]title.north east)--([xshift=-0.1\linewidth]title.south east)--(title.south east)--cycle;},
+  }
+

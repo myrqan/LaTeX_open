@@ -29,30 +29,19 @@
 \subsubsection{associated Legendre多項式に関するもの}
 \begin{itemize}%  
   \item 最初の数項の具体的な表式
-    \begin{align*}%  
-      &\hs{1em}P_0^0(x) = 1\\
-      &\begin{dcases}
-        P_{1}^{-1}(x) = \frac{1}{2}\ab(1-x^2)^{1/2}\\
-        P_1^0 (x) = x\\
-        P_1^1 (x) = -\ab(1-x^2)^{1/2}\\
-      \end{dcases}\\
-      &\begin{dcases}
-        P_2^{-2} (x) = \frac{1}{8}(1-x^2)\\
-        P_2^{-1}(x) = \frac{1}{2}x(1-x^2)^{1/2}\\
-        P_2^0(x) = \frac{1}{2}(3x^2-1)\\
-        P_2^1(x) = -3x(1-x^2)^{1/2}\\
-        P_2^2(x) = 2(1-x^2)
-      \end{dcases}\\
-      &\begin{dcases}%
-        P_3^{-3}(x) = \frac{1}{48} (1-x^2)^{3/2}\\
-        P_3^{-2}(x) = \frac{1}{8}x(1-x^2)\\
-        P_3^{-1}(x) = -\frac{1}{8}(1-5x^2)(1-x^2)^{1/2}\\
-        P_3^0(x) = \frac{1}{2}x(5x^2-3)\\
-        P_3^1(x) = \frac{3}{2}(1-5x^2)(1-x^2)^{1/2}\\
-        P_3^2(x) = 15x(1-x^2)\\
-        P_3^3(x) = -15(1-x^2)^{3/2}
-      \end{dcases}%
-    \end{align*}
+    \begin{table}[H]%  
+      \centering%  
+      \begin{tabular}{|l|l|l|l|}  
+        \hline
+        & & & $P_3^3(x) = -15(1-x^2)^{3/2}$\\\hline
+        & & $P_2^2(x) = 2(1-x^2)$& $P_3^2(x) = 15x(1-x^2)$\\\hline
+        & $P_1^1(x) = -(1-x^2)^{1/2}$& $P_2^1(x) = -3x(1-x^2)^{1/2}$& $P_3^1(x) = \frac{3}{2}(1-5x^2)(1-x^2)^{1/2}$\\\hline
+        $P_0^0(x) = 1$& $P_1^0(x) = x$& $P_2^0(x) = \frac{1}{2}(3x^2-1)$& $P_3^0(x) = \frac{1}{2}x(5x^2 - 3)$\\\hline
+        & $P_1^{-1}(x) = \frac{1}{2}(1-x^2)^{1/2}$& $P_2^{-1}(x) = \frac{1}{2} x(1-x^2)^{1/2}$& $P_3^{-1}(x) = -\frac{1}{8} (1-5x^2)(1-x^2)^{1/2}$\\\hline
+        & & $P_2^{-2}(x) = \frac{1}{8}(1-x^2)$& $P_3^{-2} (x) = \frac{1}{8} x (1-x^2)$\\\hline
+        & & & $P_3^{-3} (x) = \frac{1}{48}(1-x^2)^{3/2}$\\\hline
+      \end{tabular}% 
+    \end{table}%
 \end{itemize}%
 
 \subsubsection{Bessel関数に関するもの}

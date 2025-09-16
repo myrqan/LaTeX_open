@@ -1,8 +1,16 @@
-\toi{3.1}
-\begin{wrapfigure}[9]{r}{0.4\linewidth}%
-  \centering
-  \includegraphics[width=\linewidth]{fig/Jackson3-1.pdf}%  
-\end{wrapfigure}
+%\toi{3.1}
+\begin{bx1}{Problem 3.1}
+  \begin{wrapstuff}[type=figure,r,lines=7,width=0.23\linewidth]
+    \includegraphics[width=\linewidth]{fig/Jackson3-1.pdf}%  
+  \end{wrapstuff}
+  共通中心を持つ2つの球（それぞれの半径は$a, b$で与えられ，$b>a$を満たす）があり，それぞれは
+  共通の水平板によって2つの半球に分割されている．内部の球の上側と外側の球の下側のポテンシ
+  ャルは$V$に固定され，その他の半球のポテンシャルはゼロに固定されている．
+
+  このとき，$a \leq r \leq b$の領域におけるポテンシャルをLegendre多項式による展開として
+  決定せよ．このとき，少なくとも$l = 4$の項までを含めよ．ここで得られた結果と，
+  よく知られた結果である$b \to \infty$や$a \to 0$の場合と比較せよ．
+\end{bx1}
 半径$a, b$の球の間の領域のポテンシャルを考える．Legendre多項式による展開
 \begin{gather}%
   \Phi(r, \theta) = \sum_{l=0}^\infty \ab(A_l r^l + B_l r^{-(l+1)}) P_l (\cos\theta)
@@ -24,11 +32,11 @@
 \end{gather}%
 \eqref{eq:prob3-1_bc1}について，$P_{l'}(\cos\theta)\dl{(\cos\theta)}$をかけて$\theta\in[0,\pi]$
 で積分をすると，
-\begin{multline}%
+\begin{gather}%
   \int_{\cos\theta=1}^{\cos\theta=-1} \sum_{l=0}^\infty\ab(A_la^l + B_la^{-(l+1)})
-  P_l(\cos\theta) P_{l'}(\cos\theta) \dl{(\cos\theta)} \\
+  P_l(\cos\theta) P_{l'}(\cos\theta) \dl{(\cos\theta)} 
   =  V \int_{\cos\theta=1}^{\cos\theta=0} P_{l'}(\cos\theta) \dl{(\cos\theta)}
-\end{multline}%
+\end{gather}
 である．左辺の積分変数を$x$で書くと，
 \begin{gather}%
   \text{(L.H.S.)} = \int_{1}^{-1} \sum_{l=0}^\infty\ab(A_l a^l + B_l a^{-(l+1)})
@@ -57,25 +65,25 @@
 \end{gather}%
 がわかる．
 したがって，ポテンシャルの正確な形は
-\begin{multline}
+\begin{gather}
   \Phi(r,\theta) =
   V \sum_{l=0}^\infty \ab(
   \frac{(-1)^lb^{l+1}-a^{l+1}}{b^{2l+1}-a^{2l+1}} r^l +
   \frac{b^l-(-1)^la^l}{b^{2l+1}-a^{2l+1}}a^{l+1}b^{l+1} r^{-(l+1)}
-  )\\
+  )
   \times\frac{2l+1}{2}\ab(\int_0^1 \dl{x} P_l(x))
   P_l(\cos\theta)
-\end{multline}
+\end{gather}
 
 である．
 具体的に$l = 4$の項までを書き下せば，
-\begin{multline}
+\begin{gather}
   \Phi(r,\theta) = V \left[
-    \frac{1}{2} + \frac{3}{4}\frac{-(a^2+b^2)r+a^2b^2(a+b)r^{-2}}{b^3-a^3} P_1(\cos\theta)\right.\\
+    \frac{1}{2} + \frac{3}{4}\frac{-(a^2+b^2)r+a^2b^2(a+b)r^{-2}}{b^3-a^3} P_1(\cos\theta)\right.
     \left.
     -\frac{7}{16}\frac{-(a^4+b^4)r^3 + a^4b^4(a^3+b^3)r^{-4}}{b^7-a^7}P_3(\cos\theta) +\cdots
     \right]
-\end{multline}
+\end{gather}
 となる．
 
 $b \to \infty$の極限では$a/b \to 0, r/b\to 0$として，
@@ -117,39 +125,59 @@ $a \to 0$の極限では
 それぞれの場合について，ポテンシャルを描く
 と図\ref{fig:3-1_lima}，\ref{fig:3-1_limb}，\ref{fig:3-1_all}のようになる\footnote{
   描画のときに使用したコードは\texttt{.ipynb}形式で保存してある．
-  }．
-  \begin{figure*}[htbp]%  
-    \centering%  
-    \begin{minipage}{0.30\linewidth}
-      \centering
-      \includegraphics[width=\linewidth]{py/3-1_lima.png}%  
-      \caption{$a \to 0$としたとき}%  
-      \label{fig:3-1_lima}%  
-    \end{minipage}
-    \begin{minipage}{0.30\linewidth}
-      \centering
-      \includegraphics[width=\linewidth]{py/3-1_limb.png}%  
-      \caption{$b\to\infty$としたとき}%  
-      \label{fig:3-1_limb}%  
-    \end{minipage}
-    \begin{minipage}{0.30\linewidth}
-      \centering
-      \includegraphics[width=\linewidth]{py/3-1_all.png}
-      \caption{一般の場合についてのポテンシャル}
-      \label{fig:3-1_all}
-    \end{minipage}
-  \end{figure*}%
+}．
+\begin{figure}[H]%  
+  \centering%  
+  \begin{minipage}{0.30\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{py/3-1_lima.png}%  
+    \caption{$a \to 0$としたときのポテンシャル}%  
+    \label{fig:3-1_lima}%  
+  \end{minipage}
+  \begin{minipage}{0.30\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{py/3-1_limb.png}%  
+    \caption{$b\to\infty$としたときのポテンシャル}%  
+    \label{fig:3-1_limb}%  
+  \end{minipage}
+  \begin{minipage}{0.30\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{py/3-1_all.png}
+    \caption{一般の場合についてのポテンシャル}
+    \label{fig:3-1_all}
+  \end{minipage}
+\end{figure}%
 
-
-  \hrulefill\\
-  %--- 問3.2 ---%
-  \toi{3.2}
-  \begin{wrapfigure}[10]{r}{0.35\linewidth}
-    \centering%  
+\clearpage
+%--- 問3.2 ---%
+\begin{bx1}{Problem 3.2}
+  \begin{wrapfigure}{r}{0.3\linewidth}
+    \centering
     \includegraphics[width=\linewidth]{fig/Jackson3-2.pdf}%  
   \end{wrapfigure}%
-  極角$\theta$が$\theta < \alpha$を満たす部分には電荷が存在せず，その他の部分には
-  一様な電荷密度$\sigma_{\mr{c}} = Q /(4\pi R^2)$が存在するような球を考える．
+  半径$R$の球が，角度$\theta =  \alpha$の円錐によって定まる北極の領域（球帽，spherical cap）
+  を除いてその表面に一様な面電荷密度$Q / (4\pi R^2)$を持っている．
+  \begin{enumerate}[(a)]%  
+    \item  
+  球の内部でのポテンシャルが次のように表されることを示せ．ただし，$l = 0$に対して
+      $P_{l-1}(\cos\alpha) = -1$と約束する．
+      \begin{gather}%
+        \Phi = \frac{Q}{8\pi\eps_0} \sum_{l=0}^{\infty} \frac{1}{2l+1} \ab[
+          P_{l+1}(\cos\alpha) - P_{l-1}(\cos\alpha)
+        ] \frac{r^l}{R^{l+1}} P_l(\cos\theta).
+      \end{gather}%
+    また，外部領域におけるポテンシャルはどのようになるか？
+  \item 
+    原点における電場の大きさとその向きを決定せよ．
+  \item
+    北極における球帽が(1)十分に小さい極限；と(2)十分に大きく電荷が存在する部分
+      が南極のごく僅かな領域のみになる；これら2つの場合について，
+      (a)，(b)の結果の極限について議論せよ．
+  \end{enumerate}%
+\end{bx1}
+
+極角$\theta$が$\theta < \alpha$を満たす部分には電荷が存在せず，その他の部分には
+一様な電荷密度$\sigma_{\mr{c}} = Q /(4\pi R^2)$が存在するような球を考える．
 
 \itemlabel{(a)}
   ポテンシャルをLegendre多項式で展開して
@@ -343,7 +371,7 @@ $a \to 0$の極限では
   (a)で考えたポテンシャルを図示すると図\ref{fig:3-2_normal}のようになる．
   \begin{figure}[htbp]%  
     \centering%  
-    \includegraphics[width=0.8\linewidth]{py/3-2_normal.png}%  
+    \includegraphics[width=0.5\linewidth]{py/3-2_normal.png}%  
     \caption{$\alpha = \pi/4$としてポテンシャルを描いた様子．
     ポテンシャルの単位は$Q/(4\pi\eps_0)$としており，球（図中の灰色の実線）
     の半径を$R = 1$としている．
@@ -351,9 +379,24 @@ $a \to 0$の極限では
     \label{fig:3-2_normal}%  
   \end{figure}%
 
-  \hrulefill\\
-  \toi{3.3}
-  \itemlabel{(a)}
+  \clearpage
+\begin{bx1}{Problem 3.3}
+  薄く，平らで導電性の半径$R$の円形のディスクがその中心を$xy$平面の原点と
+  一致させて存在しており，そのポテンシャルは$V$に保たれている．
+  一定のポテンシャルをもつディスクの電荷密度が$(R^2 - \rho^2)^{-1/2}$に
+  比例するとする．ただし，$\rho$は原点からはかったディスク上の距離である．
+  このとき，
+  \begin{enumerate}[(a)]%  
+    \item $r > R$におけるポテンシャルが
+      \begin{gather}%
+        \Phi(r, \theta, \phi) = \frac{2V}{\pi} \frac{R}{r} \sum_{l=0}^\infty \frac{(-1)^l}{2l+1} \ab(\frac R r)^{2l} P_{2l}(\cos\theta)
+      \end{gather}%
+      で表されることを示せ．
+    \item $r < R$におけるポテンシャルを決定せよ．
+    \item ディスクのキャパシタンス（静電容量）はいくらか？
+  \end{enumerate}%
+\end{bx1}
+\itemlabel{(a)}
   空間内の電荷分布は
   \begin{gather}%
     \rho_{\mr{c}}(\bs{x}) = \frac{a}{\sqrt{R^2-\rho^2}} H(R-\rho) \delta(z)
@@ -439,9 +482,9 @@ $a \to 0$の極限では
   \end{gather}%
   であるから，capacitanceは$C = Q/V = 8\eps_0 R$
   である．
-  \begin{figure}[H]%  
+  \begin{figure}[htbp]%  
     \centering%  
-    \includegraphics[width=0.8\linewidth]{py/3-3_normal_w_circle.png}%  
+    \includegraphics[width=0.5\linewidth]{py/3-3_normal_w_circle.png}%  
     \caption{$V=1.0$，$R = 1.0$として等ポテンシャル面を描画した図；
     ポテンシャルが$V$に保たれているdiskは$z$軸上の$-1 < x <1$の範囲である．
     また，図中の黄色破線は$r = R$となる球面を表しており，この面を境にして
@@ -449,15 +492,28 @@ $a \to 0$の極限では
     \label{fig:3-3_normal_w_circle}%  
   \end{figure}%
 
-\hrulefill\\
-\afterpage{\clearpage}
-%---- problem 3.4 ---%
-\toi{3.4}
-\begin{wrapfigure}[12]{r}{0.3\linewidth} 
-  \centering
-  \includegraphics[width=\linewidth]{fig/Jackson3-4_1.pdf}\\
-  \includegraphics[width=\linewidth]{fig/Jackson3-4_2.pdf}
-\end{wrapfigure}%
+  \clearpage
+  %---- problem 3.4 ---%
+  \begin{bx1}{Problem 3.4}
+    内径が$a$である中空の導体球の表面がいくつかの平板の組によって
+    \emph{偶数}個の等しい部分に分けられている；平板の交線は$z$軸と一致しており，
+    平板は角度$\phi$の等しい間隔で分布しているとする．（各部分はりんごをくし切りにしたときの
+    皮のようなもの，あるいは連続する経線の間の地球の表面のようなものである．）これらの
+    各部分のポテンシャルは交互に$\pm V$であるとして一定であるとする．
+    \begin{enumerate}[(a)]%  
+      \item 球体内部のポテンシャルに対する級数展開を
+        一般の$2n$個に分けた区間について計算せよ．ただし，どの係数が非ゼロであるかを
+        正確に決定し，非ゼロの結果が得られる場合については，その結果を$\cos\theta$
+        についての積分で表示せよ．
+      \item $n = 1$の特別な場合（2つの半球）について，$l = 3$までの項を明示せよ．
+        また，座標軸を適当にとることで，3.3節の(3.36)の結果が得られることを確認せよ．
+    \end{enumerate}%
+  \end{bx1}
+  \begin{wrapfigure}[14]{r}{0.2\linewidth} 
+    \centering
+    \includegraphics[width=\linewidth]{fig/Jackson3-4_1.pdf}\\
+    \includegraphics[width=\linewidth]{fig/Jackson3-4_2.pdf}
+  \end{wrapfigure}%
 \itemlabel{(a)}
   球内部でのポテンシャルは，原点での特異性に気をつけると，
   \begin{gather}%  
@@ -467,7 +523,7 @@ $a \to 0$の極限では
   と書くことができる．
   境界条件は，
   \begin{multline}%
-    \Phi(r=a,\theta,\phi) \equiv V(\phi)\\=
+    \Phi(r=a,\theta,\phi) \equiv V(\phi)=
     \begin{dcases}%
       +V \qqtext{if} \frac{\pi}{n} \cdot 2j \leq \phi \leq \frac{\pi}{n}\cdot(2j+1)\\
       -V \qqtext{if} \frac{\pi}{n}\cdot(2j+1) \leq \phi \leq \frac{\pi}{n}\cdot (2j+2)
@@ -476,7 +532,7 @@ $a \to 0$の極限では
   \end{multline}%
   である．
   \begin{gather}%
-    V(\phi) = \sum_{l} \sum_{m} A_{lm} a^l Y_{lm{(\theta,\phi)}}
+    V(\phi) = \sum_{l} \sum_{m} A_{lm} a^l Y_{lm}(\theta,\phi)
   \end{gather}%
   に対して，両辺に$Y^*_{l'm'}(\theta,\phi)$をかけて，
   $\dl{\Omega} = \sin\theta\dl{\theta,\phi}$で積分を実行すると，
@@ -487,12 +543,12 @@ $a \to 0$の極限では
     P_{l}^m(\cos\theta)\sin\theta\dl{\theta} \int_0^{2\pi} V(\phi) \e^{-\i m\phi}\dl{\phi}
   \end{align}%
   である．$\phi$での積分について，
-  \begin{multline}
+  \begin{gather}
     \int_0^{2\pi} V(\phi) \e^{-\i m\phi} \dl{\phi} = V \sum_{j=0}^{n-1} \ab[
       \int_{\frac{\pi}{n}2j}^{\frac{\pi}{n}(2j+1)} \e^{-\i m\phi}\dl{\phi}
-       - \int_{\frac{\pi}{n}(2j+1)}^{\frac{\pi}{n}(2j+2)} \e^{-\i m\phi}\dl{\phi}
+      - \int_{\frac{\pi}{n}(2j+1)}^{\frac{\pi}{n}(2j+2)} \e^{-\i m\phi}\dl{\phi}
     ]
-  \end{multline}
+  \end{gather}
   となるが， $m = 0$のとき，
   \begin{gather}%
     \int_0^{2\pi} V(\phi)\e^{-\i m\phi} \dl{\phi} =  0
@@ -500,7 +556,7 @@ $a \to 0$の極限では
   であり，$m \neq 0$のときは
   \begin{gather}%
     \int_0^{2\pi} V(\phi) \e^{-\i m\phi} \dl{\phi} =
-      - \frac{\i V}{m} \ab(1-\e^{-\i \frac{m}{n}\pi})^2 \sum_{j=0}^{n-1}\ab(\e^{-\i \frac{2m}{n}\pi})^j
+    - \frac{\i V}{m} \ab(1-\e^{-\i \frac{m}{n}\pi})^2 \sum_{j=0}^{n-1}\ab(\e^{-\i \frac{2m}{n}\pi})^j
   \end{gather}%
   となるが，$\exp(-\i (m/n)\pi) = 1$つまり$m/(2n)$が整数となるときはゼロとなる．
   また，
@@ -542,17 +598,16 @@ $a \to 0$の極限では
     A_{3,\pm 1} = \frac{\i V}{a^3} \sqrt{\frac{21\pi}{256}}
   \end{gather*}%
   と計算できるので，ポテンシャルは
-  \begin{multline}%
+  \begin{gather}%
     \Phi(r,\theta,\phi) = V\left[
-      \frac{3r}{2a} \sin\theta\sin\phi\right.  \\
-      \left.
+      \frac{3r}{2a} \sin\theta\sin\phi
       +
       \ab(\frac{r}{a})^3\ab\{
         \frac{35}{64}\sin^3\theta\sin(3\phi) + 
         \frac{21}{64}\sin\theta\ab(5\cos^2\theta-1)\sin\phi
       \} + \cdots
-    \right]
-  \end{multline}%
+      \right]
+  \end{gather}%
   とかける．ここで，$\cos\theta' = \sin\theta \sin\phi$とおけば，
   \begin{gather}%
     P_1(\cos\theta') = \sin\theta\sin\phi\\
@@ -566,9 +621,9 @@ $a \to 0$の極限では
   \end{gather}%
   となり，これは，教科書本文中の式(3.36)と一致していることがわかる．
   図\ref{fig:3-4_n3}には$n = 3$の場合の図を描いた．
-  \begin{figure}[H]%  
+  \begin{figure}[htbp]%  
     \centering%  
-    \includegraphics[width=0.8\linewidth]{py/3-4_n3.png}%  
+    \includegraphics[width=0.5\linewidth]{py/3-4_n3.png}%  
     \caption{問題文と同じセットアップを行って，$n = 3$の場合について，$l = 20$の
     項まででポテンシャルを描いた図．球（$z = 0$面で切断したときの円）の境界
     の近くでは有限項で打ち切った事による誤差が見られるが，概ね期待されるポテンシャルの
@@ -576,9 +631,11 @@ $a \to 0$の極限では
     \label{fig:3-4_n3}%  
   \end{figure}%
 
-  \hrulefill\\
-  \toi{3.5}
+  \clearpage
   %--- problem 3.5 ---%
+  \begin{bx1}{Problem 3.5}
+    内径が$a$である中空の
+  \end{bx1}
   本文中の式(3.70)より，
   \begin{gather}%
     \frac{1}{\ab|\bs{x}-\bs{x}'|} = 4\pi \sum_{l=0}^\infty \sum_{m=-l}^l \frac{1}{2l+1}
@@ -623,7 +680,7 @@ $a \to 0$の極限では
     A_{lm} = \int \dl{\Omega'} V(\theta',\phi') Y^*_{lm}(\theta',\phi')
   \end{gather}%
   である．
-  
+
   \hrulefill\\
   \toi{3.6}
   %--- problem 3.6 ---%
@@ -639,12 +696,144 @@ $a \to 0$の極限では
     \Phi(\bs{x}) = \frac{q}{\eps_0} \sum_{l,m} \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}}
     Y_{lm}(\theta,\phi) \ab[Y^*_{lm}(0,0) - Y^*_{lm}(\pi,0)]
   \end{gather}%
-ここで，$Y^*_{lm}(0,0)-Y^*_{lm}(\pi,0) \neq 0$となるのは$m = 0$で$l$が奇数のときのみである
-ことに注意すると，
+  となるが，ここで，$Y^*_{lm}(0,0)-Y^*_{lm}(\pi,0) \neq 0$となるのは$m = 0$で
+  $l$が奇数のときのみであることに注意すると，
+  \begin{align}%
+    \Phi(\bs{x}) &= \frac{q}{\eps_0} \sum_{l=1,3,\ldots}^{\infty} \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}} \sqrt{\frac{2l+1}{4\pi}}P_l(\cos\theta) 
+    \cdot \sqrt{\frac{2l+1}{4\pi}}\cdot 2\notag\\
+    &= \frac{q}{2\pi\eps_0} \sum_{l=1,3,\ldots}^\infty \frac{r_<^l}{r_>^{l+1}} P_l(\cos\theta)
+  \end{align}%
+  と書き直される．ただし，$r_>, r_<$はそれぞれ$r, a$の大きい方，小さい方である．
+
+\itemlabel{(b)}
+  $a\to0$の極限を考えるので，球外部のポテンシャルを考えることにする
+  ［$r_< = a$および$r_> = r$
+  である］．
+  このとき，
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{q}{2\pi\eps_0}\sum_{l=1,3,\ldots}\frac{a^l}{r^{l+1}} P_l(\cos\theta)
+  \end{gather}%
+  であり，$qa \equiv p/2$を一定にして$a \to 0$の極限を考えると，
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{p}{4\pi\eps_0} \frac{1}{r^2}\cos\theta
+  \end{gather}%
+  となる．
+
+\itemlabel{(c)}
+  dipoleによるポテンシャルとの重ね合わせとして
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{p}{4\pi\eps_0} \frac{1}{r^2}\cos\theta + \sum_{l=0}^\infty A_l r^l P_l(\cos\theta)
+  \end{gather}%
+  と書く．$r = b$（grounded sphere）では$\theta$の値によらず$\Phi = 0$となるので
+  \begin{gather}%
+    \frac{p}{4\pi\eps_0} \frac{1}{b^2} \cos\theta + \sum_l A_l b^l P_l(\cos\theta) = 0
+  \end{gather}%
+  である．
+  $\cos\theta$についての恒等式と見ると，$P_l$の直交性より
+  $A_1 =-p/(4\pi\eps_0 b^3)$で$l \neq 1$に対して$ A_l = 0 $となる．
+  したがって，ポテンシャルは
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{p}{4\pi \eps_0} \ab(\frac{1}{r^2} - \frac{r}{b^3}) \cos\theta
+  \end{gather}%
+  と表される．
+
+  \hrulefill\\
+  \toi{3.7}
+  %--- problem 3.7 ---%
+\itemlabel{(a)}
+  3つの点電荷によるポテンシャルは
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{q}{4\pi \eps_0} \ab[
+      \frac{1}{\ab|\bs{x} - a\hat{\bs{z}}|} - \frac{2}{\bs{x}} + \frac{1}{\ab|\bs{x} + a \hat{\bs{z}}|}
+    ]
+  \end{gather}%
+  とかけるが，これをProblem 3.6と同様に球面調和関数として展開すると
+  \begin{align}%
+    \Phi(r, \theta) &= \frac{2q}{4\pi \eps_0} \sum_{l = 0, 2, 4, \ldots}^{\infty} \frac{r_<^l}{r_>^{l+1}} P_l(\cos\theta) - \frac{2q}{4\pi\eps_0}\frac{1}{r}\notag\\
+    &= 
+    \begin{dcases}%
+      \frac{2q}{4\pi\eps_0} \sum_{l=0,2,\ldots}^\infty \frac{r^l}{a^{l+1}} P_l(\cos\theta) - \frac{2q}{4\pi\eps_0} \frac{1}{r}\qqtext{for} r < a\\
+      \frac{2q}{4\pi\eps_0} \sum_{l=2, 4, \ldots}^\infty \frac{a^l}{r^{l+1}} P_l(\cos\theta)
+      \qqtext{for} r > a
+    \end{dcases}% 
+  \end{align}%
+  のように表すことができる．
+  
+$qa^2 \equiv Q$を一定にして$a \to \infty$にするときの極限を考えると，$r<a$のときの
+形を利用して，
 \begin{gather}%
-  \Phi(\bs{x}) = \frac{q}{\eps_0} \sum_{l=1,3,\ldots}^{\infty} \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}} \sqrt{\frac{2l+1}{4\pi}}P_l(\cos\theta) 
-  \cdot \sqrt{\frac{2l+1}{4\pi}}\cdot2
+  \Phi \to \frac{Q}{4\pi \eps_0} \frac{1}{r^2} \ab(3\cos^2 \theta - 1)
 \end{gather}%
+と表される．
+
+\itemlabel{(b)}
+  $a < r ( < b)$でのポテンシャルは線形の重ね合わせとして
+  \begin{gather}%
+    \Phi(r, \theta) = \sum_{l=0}^\infty A_l r^l P_l(\cos\theta) + \frac{2q}{4\pi \eps_0} \sum_{l = 2, 4, \ldots}^\infty \frac{a^l}{r^{l+1}}P_l(\cos\theta)
+  \end{gather}%
+  と書くことができる．$r = b$の球面上でポテンシャルがゼロになるので，
+  $l$が$0$あるいは奇数のときは$A_l = 0$，$l$が2以上の偶数の場合は
+  \begin{gather}%
+    A_l = -\frac{2q}{4\pi\eps_0} \frac{a^l}{b^{2l+1}}
+  \end{gather}%
+  である．
+  したがって，$a < r (< b)$で
+  \begin{gather}%
+    \Phi(r, \theta) = \frac{2q}{4\pi\eps_0} \sum_{l = 2, 4, \ldots} \ab(\frac ab)^l \ab(
+    \frac{b^l}{r^{l+1}} - \frac{r^l}{b^{l+1}}) P_l(\cos\theta)
+  \end{gather}%
+  と表される．一方，$r < a$では，
+  \begin{gather}%
+    \Phi(r, \theta) = \sum_{l=0}^\infty A_l r^l P_l(\cos\theta) + \frac{2q}{4\pi\eps_0} \sum_{l=2, 4, \ldots}\frac{r^l}{a^{l+1}} P_l(\cos\theta) - \frac{2q}{4\pi\eps_0} \frac{1}{r}
+  \end{gather}%
+  と書くことができ，$r = a$で$\Phi$が連続である条件より
+  \begin{gather}%  
+    \frac{2q}{4\pi\eps_0} \sum_{l=2, 4, \ldots}\ab(\frac ab)^l\ab(\frac{b^l}{a^{l+1}} - \frac{a^l}{b^{l+1}}) P_l(\cos\theta)= \sum_{l=0}^\infty A_l a^l P_l(\cos\theta) + \frac{2q}{4\pi\eps_0} \sum_{l=2, 4, \ldots} \frac{1}{a} P_l(\cos\theta) - \frac{2q}{4\pi\eps_0}\frac{1}{a}
+  \end{gather}%
+  となる．これより，$A_0$についての条件は
+  \begin{gather}%
+    A_0 - \frac{2q}{4\pi\eps_0} \frac{1}{a} = 0,
+  \end{gather}%
+  $l$が奇数であるものに対して$A_l = 0$であり，
+  $l$が2以上の偶数であるものに対しては
+  \begin{gather}%
+    \frac{2q}{4\pi\eps_0} \ab(\frac ab)^l\ab(\frac{b^l}{a^{l+1}} - \frac{a^l}{b^{l+1}}) = A_l a^l + \frac{2q}{4\pi\eps_0} \frac{1}{a}
+  \end{gather}%
+  より
+  \begin{gather}%
+    A_l = \frac{2q}{4\pi\eps_0}\frac{1}{a^l} \ab[\ab(\frac ab)^l\ab(\frac{b^l}{a^{l+1}} - \frac{a^l}{b^{l+1}}) - \frac 1a] 
+  \end{gather}%
+  となるので，ポテンシャルは
+  \begin{gather}%
+    \Phi(r, \theta) = \frac{2q}{4\pi\eps_0} \sum_{l = 2, 4, \ldots}  \ab(\frac{b^l}{a^{l+1}} - \frac{a^l}{b^{l+1}})\frac{r^l}{b^l} P_l(\cos\theta) + \frac{2q}{4\pi\eps_0} \ab(\frac 1a - \frac 1r)
+  \end{gather}%
+  である．
+
+ $qa^2 = Q$を一定にして$a \to 0$とする極限では，$r > a$のときを考えれば良く，
+ $l = 2$の項だけが残るのでポテンシャルは
+  \begin{gather}%
+    \Phi(r ,\theta) \to \frac{Q}{2\pi\eps_0} \ab(\frac{1}{r^3} - \frac{r^2}{b^5}) P_2(\cos\theta)
+  \end{gather}%
+  と表される．なお，$P_2(x) = (3x^2 - 1)/2$である．
+
+
+\hrulefill\\
+%--- problem 3.8 ---%
+\toi{3.8}
+\itemlabel{(a)}
+  $\log(\csc\theta) = \log(1/\sin\theta)$をLegendre多項式で展開して，
+  \begin{gather}%
+    \log\ab(\frac{1}{\sin\theta}) = \sum_{l=0}^\infty A_l P_l(\cos\theta)
+  \end{gather}%
+   のように表すことができるとする．このとき，係数$A_l$は
+   \begin{gather}%
+     A_l = \frac{2l+1}{2} \int_0^\pi \log\ab(\frac{1}{\sin\theta}) P_l(\cos\theta) \sin\theta \dl{\theta}
+   \end{gather}%
+   と表される．$\cos\theta = x$
+
+
+
+
 
 
 
