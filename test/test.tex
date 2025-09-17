@@ -7,13 +7,46 @@
 \fancyhead[R]{\thepage}%
 \fancyfoot{}%  
 
+\newcounter{myex}
+
+\newtcolorbox[auto counter,
+  %list inside=myex % 目次に出力するための識別子
+  ]{myexample}[2][]{%
+  enhanced,
+  colback=blue!5!white,
+  colframe=blue!75!black,
+  fonttitle=\bfseries,
+  % --- カウンターと目次の設定 ---
+  %use counter=myex, % myexカウンターを使用
+  title={例題~\thetcbcounter: #2}, % ボックスのタイトル
+  list entry={例題~\thetcbcounter: #2}, % 目次に表示するテキスト
+  add to list={toc}{subsection}, % 目次(toc)にsubsectionレベルで登録
+  % ------------------------------
+  #1 % オプションの引渡し
+}
 
 \usepackage{lipsum}
 
 \begin{document}
+
+\tableofcontents
+
 \section{Section}
 あいうえお
 かきくけこ
+
+\begin{myexample}{微分方程式を解く}
+  これは最初の例題です。
+  $$ f(x) = \int_0^x t^2 dt $$
+\end{myexample}
+
+\section{本編}
+\lipsum[2]
+
+\begin{myexample}{マクローリン展開}
+  これは2番目の例題です。
+  $$ e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} $$
+\end{myexample}
 
 \begin{bx1}{Problem 3.1}
   \lipsum[2]

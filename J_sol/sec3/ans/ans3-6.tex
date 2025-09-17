@@ -1,0 +1,69 @@
+\begin{bx1}
+  2つの点電荷$+q,-q$が$z$軸上の点$z = a$と$z = -a$にそれぞれ存在している．
+  \begin{enumerate}[(a)]%  
+    \item 
+      球面調和関数と$r$の冪による級数展開の形で
+      $r<a$および$r>a$におけるポテンシャルを決定せよ．
+    \item 
+      積$qa \equiv p / 2$を一定に保ちながら$a \to 0$としたときの$r \neq 0$におけるポテンシャル
+      を決定せよ．これは，定義より$z$軸に沿った双極子およびそのポテンシャルを表している．
+    \item (b)で考えた双極子が\emph{接地された}，原点を中心とする半径$b$の球殻で
+      取り囲まれているとする．このとき，線形の重ね合わせにより，
+      球殻内部におけるポテンシャルを決定せよ．
+  \end{enumerate}%
+\end{bx1}
+
+\itemlabel{(a)}
+  点電荷によるポテンシャルは次のようにかける：
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{q}{4\pi \eps_0}
+    \ab[\frac{1}{\ab|\bs{x} - a\hat{\bs{z}}|}
+    - \frac{1}{\ab|\bs{x} + a \hat{\bs{z}}|}].
+  \end{gather}%
+  本文中の式(3.70)を利用して書き直すと，
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{q}{\eps_0} \sum_{l,m} \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}}
+    Y_{lm}(\theta,\phi) \ab[Y^*_{lm}(0,0) - Y^*_{lm}(\pi,0)]
+  \end{gather}%
+  となるが，ここで，$Y^*_{lm}(0,0)-Y^*_{lm}(\pi,0) \neq 0$となるのは$m = 0$で
+  $l$が奇数のときのみであることに注意すると，
+  \begin{align}%
+    \Phi(\bs{x}) &= \frac{q}{\eps_0} \sum_{l=1,3,\ldots}^{\infty} \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}} \sqrt{\frac{2l+1}{4\pi}}P_l(\cos\theta) 
+    \cdot \sqrt{\frac{2l+1}{4\pi}}\cdot 2\notag\\
+    &= \frac{q}{2\pi\eps_0} \sum_{l=1,3,\ldots}^\infty \frac{r_<^l}{r_>^{l+1}} P_l(\cos\theta)
+  \end{align}%
+  と書き直される．ただし，$r_>, r_<$はそれぞれ$r, a$の大きい方，小さい方である．
+
+\itemlabel{(b)}
+  $a\to0$の極限を考えるので，球外部のポテンシャルを考えることにする
+  ［$r_< = a$および$r_> = r$
+  である］．
+  このとき，
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{q}{2\pi\eps_0}\sum_{l=1,3,\ldots}\frac{a^l}{r^{l+1}} P_l(\cos\theta)
+  \end{gather}%
+  であり，$qa \equiv p/2$を一定にして$a \to 0$の極限を考えると，
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{p}{4\pi\eps_0} \frac{1}{r^2}\cos\theta
+  \end{gather}%
+  となる．
+
+\itemlabel{(c)}
+  dipoleによるポテンシャルとの重ね合わせとして
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{p}{4\pi\eps_0} \frac{1}{r^2}\cos\theta + \sum_{l=0}^\infty A_l r^l P_l(\cos\theta)
+  \end{gather}%
+  と書く．$r = b$（grounded sphere）では$\theta$の値によらず$\Phi = 0$となるので
+  \begin{gather}%
+    \frac{p}{4\pi\eps_0} \frac{1}{b^2} \cos\theta + \sum_l A_l b^l P_l(\cos\theta) = 0
+  \end{gather}%
+  である．
+  $\cos\theta$についての恒等式と見ると，$P_l$の直交性より
+  $A_1 =-p/(4\pi\eps_0 b^3)$で$l \neq 1$に対して$ A_l = 0 $となる．
+  したがって，ポテンシャルは
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{p}{4\pi \eps_0} \ab(\frac{1}{r^2} - \frac{r}{b^3}) \cos\theta
+  \end{gather}%
+  と表される．
+
+\clearpage

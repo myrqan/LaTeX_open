@@ -1,0 +1,63 @@
+\begin{bx1}
+    内径が$a$である中空の球の表面におけるポテンシャルが$\Phi = V(\theta, \phi)$と
+    指定されている．次に示す，球内部におけるポテンシャルの2つの表式が等価であることを
+    証明せよ：
+    \begin{enumerate}[(a)]%  
+      \item  
+        \begin{gather}%
+          \Phi(\bs{x}) = \frac{a(a^2 - r^2)}{4\pi} \int \frac{V(\theta',\phi')}{(r^2 + a^2 - 2ar\cos\gamma)^{3/2}}\dl{\Omega'}
+        \end{gather}%
+        ただし$\cos\gamma = \cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi')$である．
+      \item
+        \begin{gather}%
+          \Phi(\bs{x}) = \sum_{l=0}^\infty \sum_{m=-l}^{l} A_{lm} \ab(\frac ra)^l Y_{lm}(\theta,\phi)
+        \end{gather}%
+        ただし$A_{lm} = \int \dl{\Omega'}Y^*_{lm}(\theta',\phi') Y_{lm}(\theta,\phi)$である．
+    \end{enumerate}%
+  \end{bx1}
+  本文中の式(3.70)より，
+  \begin{gather}%
+    \frac{1}{\ab|\bs{x}-\bs{x}'|} = 4\pi \sum_{l=0}^\infty \sum_{m=-l}^l \frac{1}{2l+1}
+    \frac{r^l}{a^{l+1}} Y^*_{lm}(\theta',\phi') Y_{lm}(\theta,\phi)
+  \end{gather}%
+  である（ただし$|\bs{x}| = r < a = |\bs{x}'|$とした）．このとき，
+  \begin{gather*}%  
+    |\bs{x} - \bs{x}'| = \ab(r^2 + a^2 - 2ar\cos\gamma)^{1/2}
+  \end{gather*}%
+  である（$\gamma$は$\bs{x}, \bs{x}'$のなす角）から,
+  \begin{gather}%
+    \label{eq:3-5_eq1}
+    \frac{1}{\ab(r^2 + a^2 - 2ar \cos\gamma)^{1/2}} = 4\pi\sum_{l,m} \frac{1}{2l+1}
+    \frac{r^l}{a^{l+1}} Y^*_{lm}(\theta',\phi') Y_{lm}(\theta,\phi)
+  \end{gather}%
+  とかける．ここで，\eqref{eq:3-5_eq1}の両辺を$r$について微分すると，
+  \begin{gather}%
+    \label{eq:3-5_eq2}
+    \frac{ar\cos\gamma - r^2}{\ab(r^2+a^2-2ar\cos\gamma)^{3/2}} = 4\pi \sum_{l,m}
+    \frac{l}{2l+1} \frac{r^l}{a^{l+1}} Y^*_{lm}(\theta',\phi') Y_{lm}(\theta,\phi)
+  \end{gather}%
+  が得られ，同様に\eqref{eq:3-5_eq1}の両辺を$a$について微分すると，
+  \begin{gather}%
+    \label{eq:3-5_eq3}
+    \frac{ar\cos\gamma - a^2}{\ab(r^2 + a^2 -2ar\cos\gamma)^{3/2}} = 
+    -4\pi\sum_{l,m}\frac{l+1}{2l+1}\frac{r^l}{a^{l+1}}
+    Y^*_{l,m}(\theta',\phi') Y_{lm}(\theta,\phi)
+  \end{gather}%
+  が得られる．ここで，\eqref{eq:3-5_eq2}と\eqref{eq:3-5_eq3}の差を考えることで，
+  \begin{gather}%
+    \frac{a(a^2 - r^2)}{\ab(r^2 + a^2 - 2ar\cos\gamma)^{3/2}}
+    = 4\pi \sum_{l,m} \ab(\frac r a)^l Y^*_{lm}(\theta',\phi') Y_{lm}(\theta,\phi)
+  \end{gather}%
+  となる．この両辺に$V(\theta',\phi')$をかけて，$\dl{\Omega'}$で積分すると，
+  \begin{gather}%
+    \frac{a(a^2 - r^2)}{4\pi} \int  
+    \frac{V(\theta',\phi')\dl{\Omega'}}{\ab(r^2 + a^2 - 2ar\cos\gamma)^{1/2}} = 
+    \sum_{l,m} A_{lm} \ab(\frac ra)^l Y_{lm}(\theta,\phi)
+  \end{gather}%
+  となる．ただし，
+  \begin{gather}%
+    A_{lm} = \int \dl{\Omega'} V(\theta',\phi') Y^*_{lm}(\theta',\phi')
+  \end{gather}%
+  である．
+
+\clearpage

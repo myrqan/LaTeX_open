@@ -82,7 +82,9 @@
 \definecolor{palecerulean_r}{HTML}{c4e29b}
 \definecolor{chars}{HTML}{1f272d}
 
-\newtcolorbox{bx1}[2][]{
+
+\newcounter{prob}
+\newtcolorbox[auto counter, list inside=prob]{bx1}[1][]{
   breakable,%
   enhanced,%
   arc = 0mm,%
@@ -99,7 +101,12 @@
   %title={interior hidden},%
   coltitle = chars,%
   lefttitle = 0.13\linewidth,%
-  title={#2},#1,%
-  title code = {\path[draw=palecerulean_r,fill=palecerulean_r] (title.north west) --([xshift=0.1\linewidth]title.north west)--([xshift=0.07\linewidth]title.south west)--(title.south west)--cycle;\path[draw=palecerulean_r,fill=palecerulean_r] (title.north east) --([xshift=-0.07\linewidth]title.north east)--([xshift=-0.1\linewidth]title.south east)--(title.south east)--cycle;},
+  %title={#2},#1,%
+  title code = {\path[draw=palecerulean_r,fill=palecerulean_r] (title.north west) --([xshift=0.1\linewidth]title.north west)--([xshift=0.07\linewidth]title.south west)--(title.south west)--cycle;\path[draw=palecerulean_r,fill=palecerulean_r] (title.north east) --([xshift=-0.07\linewidth]title.north east)--([xshift=-0.1\linewidth]title.south east)--(title.south east)--cycle;},%
+  %use counter=prob,%
+  title={Problem~\thesection.\thetcbcounter},%
+  list entry={Problem~\thesection.\thetcbcounter},%
+  add to list={toc}{subsubsection},%
+  #1
   }
 

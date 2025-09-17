@@ -1,0 +1,105 @@
+\begin{bx1}
+  接地された球内の直径に沿った，一様に帯電しているワイヤーによるポテンシャルの解として
+  得られる(3.136)には混乱させるような側面がある．ワイヤーに十分近い（すなわち，
+  $\rho = r\sin\theta \ll b$をみたす）ときにはポテンシャルは一様に帯電したワイヤー
+  のもつポテンシャルに等しくなければならない．すなわち，$\Phi = (Q/4\pi\eps_0b)\log(b/\rho) + \Phi_0$の形をもつ必要がある．解(3.136)では明示的な形でこのふるまいをしない．
+  \begin{enumerate}[(a)]%  
+    \item Legendreの微分方程式(3.10)および，いくつかの部分積分を実行することで
+      $\log(\csc\theta)$は球面調和関数によって適切な展開を実行することができ，
+      (3.136)が次の形でも書き表されることを示せ：
+      \begin{gather}%
+        \Phi(\bs{x})  = \frac{Q}{4\pi\eps_0 b}\ab[\log\ab(\frac{2b}{r\sin\theta}) - 1 - 
+        \sum_{j=1}^\infty\frac{4j+1}{2j(2j+1)} \ab(\frac rb)^{2j} P_{2j}(\cos\theta)
+        ]
+      \end{gather}%
+      この表式では，ワイヤーの近くでの振る舞いが明らかである．また，定数項
+      $\Phi_0 = -Q/(4\pi \eps_0 b)$の解釈を行え．なお，この表式では任意の$r / b < 1$
+      に対して，すべての角度でLegendre多項式は急速に収束する．
+    \item (3.38)の展開式を用いて
+      \begin{gather}%
+        \frac{1}{2} \ab(\frac{1}{\sin\theta/2} + \frac{1}{\cos\theta/2}) = 2 \sum_{j=0}^\infty P_{2j}(\cos\theta)
+      \end{gather}%
+      を証明せよ．さらに，球内部表面における面電荷密度の表式(3.137)が次のようにも
+      表されることを示せ：
+      \begin{gather}%
+        \sigma(\theta) = - \frac{Q}{4\pi b^2} \ab[\frac{1}{2}\ab(\frac{1}{\sin\theta/2} + \frac{1}{\cos\theta/2}) - \sum_{j=0}^\infty \frac{1}{2j+1}P_{2j}(\cos\theta)].
+      \end{gather}%
+      この表式では$\theta = 0, \pi$における（可積分な）特異性が明示的に示される．また，
+      級数は$\theta \to 0$で$\log(1/\theta)$の補正項を与える．
+  \end{enumerate}%
+  \tcblower
+  なお，(3.136)と(3.137)は以下のとおりであった．
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{Q}{4\pi\eps_0 b}\ab[\log \ab(\frac br) +\sum_{j=1}^\infty \frac{4j+1}{2j(2j+1)} \ab\{1- \ab(\frac rb)^{2j}\}P_{2j}(\cos\theta)] \tag{J - 3.136}\\
+    \sigma(\theta) = -\frac{Q}{4\pi b^2}\ab[1 + \sum_{j=0}^\infty \frac{4j+1}{2j+1}P_{2j}(\cos\theta)] \tag{J - 3.137}
+  \end{gather}%
+
+\end{bx1}
+
+\itemlabel{(a)}
+  $\log(\csc\theta) = \log(1/\sin\theta)$をLegendre多項式で展開して，
+  \begin{gather}%
+    \log\ab(\frac{1}{\sin\theta}) = \sum_{l=0}^\infty A_l P_l(\cos\theta)
+  \end{gather}%
+   のように表すことができるとする．このとき，係数$A_l$は
+   \begin{gather}%
+     A_l = \frac{2l+1}{2} \int_0^\pi \log\ab(\frac{1}{\sin\theta}) P_l(\cos\theta) \sin\theta \dl{\theta}
+   \end{gather}%
+   と表される．$\cos\theta = x$と置き換えて
+   \begin{gather}%
+     A_l = \frac{2l+1}{2} \int_{-1}^{1} \dl{x} \log\ab(\frac{1}{\sqrt{1-x^2}}) P_l(x)
+   \end{gather}%
+   計算を進める．
+
+   $l = 0$の場合は$P_0(x) = 1$で，\eqref{eq:2.736}を用いて計算ができて
+   \begin{gather}%
+     A_0 = \frac{1}{2} \int_{-1}^1 \dl{x} \log\frac{1}{\sqrt{1-x^2}}  = 1 - \log 2
+   \end{gather}%
+   となる．また，$l \geq 1$のときについてはLegendreの微分方程式
+   \eqref{eq:legedre_diffeq}の両辺に$\log(1/\sqrt{1-x^2})$をかけて$[-1,1]$で積分することで，
+   \begin{gather}%
+     A_l = -\frac{2l+1}{2l(l+1)} \int_{-1}^1 \diff**{x}{\ab[(1-x^2)\diff{P_l}{x}]} \log\ab(\frac{1}{\sqrt{1-x^2}}) \dl{x} = \frac{2l+1}{2l(l+1)}\ab[1 + (-1)^l]
+   \end{gather}%
+   を得る．したがって，$l=2j\,(j=1, 2, \ldots)$の場合のみがnon-zeroとなる．したがって，
+   \begin{gather}%
+     \log\ab(\frac{1}{\sin\theta}) = 1 - \log 2 + \sum_{j=1}^\infty \frac{4j+1}{2j(2j+1)} P_{2j}(\cos\theta)
+   \end{gather}%
+   と級数展開することができる．
+   これを用いて，(3.136)式を表示すると，
+   \begin{gather}%
+     \Phi(\bs{x}) = \frac{Q}{4\pi\eps_0 b}\ab[\log\ab(\frac{2b}{r\sin\theta}) - 1 - \sum_{j =1}^\infty \frac{4j+1}{2j(2j+1)}\ab(\frac rb)^{2j} P_{2j}(\cos\theta)]
+   \end{gather}%
+   となる．
+   また，定数項$\Phi_0 = -Q/(4\pi \eps_0 b)$は導体球の球面上に誘導された電荷
+   によるポテンシャルを表している．
+
+\itemlabel{(b)}
+  まず，(3.38)式は，$\gamma$を$\bs{x}, \bs{x'}$のなす角として
+  \begin{gather}%
+    \frac{1}{|\bs{x}-\bs{x}'|} = \sum_{l=0}^\infty \frac{r_<^l}{r_>^{l+1}}P_l(\cos\gamma)
+  \end{gather}%
+  という式であった．ここで，$\gamma = \theta$，$|\bs{x}| = |\bs{x}'| = 1$
+  とすると，
+  \begin{gather}%
+    \label{eq:pr3.8.1}
+    \frac{1}{2\cos\theta/2} = \sum_{l=0}^\infty P_l(\cos\theta)
+  \end{gather}%
+  が導かれる．$\gamma = \pi -\theta$とすると，
+  \begin{gather}%
+    \label{eq:pr3.8.2}
+    \frac{1}{2\sin\theta/2} = \sum_{l=0}^\infty (-1)^l P_l(\cos\theta)
+  \end{gather}%
+  となるので，2式\eqref{eq:pr3.8.1}，\eqref{eq:pr3.8.2}の和を考えることで
+  \begin{gather}%
+    \frac{1}{2}\ab(\frac{1}{\sin\theta/2} + \frac{1}{\cos\theta/2}) = 2 \sum_{j=0}^\infty P_{2j}(\cos\theta)
+  \end{gather}%
+  が得られる．
+
+  また，$(4j+1)/(2j+1) = 2 - 1/(2j+1)$であることに注意すれば
+  \begin{gather}%
+    \sigma(\theta) = -\frac{Q}{4\pi b^2} \ab[\frac{1}{2}\ab(\frac{1}{\sin\theta/2} + \frac{1}{\cos\theta/2}) - \sum_{j=0}^\infty \frac{1}{2j+1} P_{2j}(\cos\theta)]
+  \end{gather}%
+  も導かれる．
+
+
+\clearpage

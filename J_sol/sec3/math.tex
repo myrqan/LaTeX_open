@@ -1,6 +1,11 @@
 \subsubsection{Legendre多項式に関するもの}
 
 \begin{itemize}
+  \item Legendreの微分方程式
+    \begin{gather}%
+      \label{eq:legedre_diffeq}
+      \diff**{x}{\ab[(1-x^2)\diff{P_l}{x}]} + l(l+1) P_l = 0
+    \end{gather}%
   \item 母関数表示
     \begin{gather}%
       \frac{1}{\sqrt{1-2xt+t^2}} = \sum_{n=0}^\infty P_n(x) t^n
@@ -56,8 +61,10 @@
     \end{gather}%
   \item Bessel関数を含む積分
     \begin{gather}%  
+      \label{eq:6.611.1}
       \int_0^\infty \dl{x} \e^{-\alpha x} J_0(bx) = \frac{1}{\sqrt{\alpha^2 + b^2}}\\
-      \int_0^\infty \e^{\alpha x} \ab[J_0(bx)]^2 =
+      \label{eq:6.612.4}
+      \int_0^\infty \e^{-\alpha x} \ab[J_0(bx)]^2 =
       \frac{2}{\pi\sqrt{\alpha^2 + 4b^2}} K\ab(\frac{2b}{\sqrt{\alpha^2 + 4b^2}}) 
     \end{gather}%
     ここで，$K(k)$は第一種完全楕円積分
@@ -72,7 +79,7 @@
   \int_0^{\pi/2} \frac{\sin(x) \dl{x}}{\sqrt{1+p^2\sin^2(x)}} 
   = \frac{1}{p}\arctan(p)\\
   \label{eq:2.736}
-  \int \dl{x} \log \ab|x^2 - a^2|  = x \log\ab|x^2-a^2| - 2x + a \log \ab|\frac{x+a}{x-a}|\\
+  \int \dl{x} \log \ab|x^2 - a^2|  = x \log\ab|x^2-a^2| - 2x + a \log \ab|\frac{x+a}{x-a}|
 \end{gather}
 
 \subsubsection{級数展開}

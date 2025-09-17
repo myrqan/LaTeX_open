@@ -1,0 +1,98 @@
+\begin{bx1}
+  3つの点電荷$(q, -2q, q)$がこの順番で間隔$a$をあけて$z$軸上に存在している．
+  真ん中の$-2q$の電荷を中心とする，接地された半径$b(>a)$の導体球殻が存在している．
+  \begin{enumerate}[(a)]%  
+    \item  
+      接地された球が存在しないときの，3つの点電荷によるポテンシャルを書き下せ．
+      また，$qa^2 = Q$を有限の値としながら$a \to 0$の極限を考えるときの極限形
+      を求めよ．特に．後半の部分の解については球座標を用いて解答せよ．
+    \item 
+      接地された球の影響により$r < b$のポテンシャルは変化するが，これは
+      $r = b$の球内部に誘導された表面電荷によるもの，あるいは$r > b$に存在する
+      鏡像電荷によるものとみなすことができる．線形の重ね合わせを用いることで，
+      境界条件を満たすようにして，$r < a$と$r > a$に対する球内部でのポテンシャル
+      を求めよ．また，$a \to 0$の極限で
+      \begin{gather}%
+        \Phi(r, \theta,\phi)  \to \frac{Q}{2\pi\eps_0r^3} \ab(1 - \frac{r^3}{b^5})P_2(\cos\theta)
+      \end{gather}%
+      となることを示せ．
+  \end{enumerate}%
+\end{bx1}
+
+\itemlabel{(a)}
+  3つの点電荷によるポテンシャルは
+  \begin{gather}%
+    \Phi(\bs{x}) = \frac{q}{4\pi \eps_0} \ab[
+      \frac{1}{\ab|\bs{x} - a\hat{\bs{z}}|} - \frac{2}{\bs{x}} + \frac{1}{\ab|\bs{x} + a \hat{\bs{z}}|}
+    ]
+  \end{gather}%
+  とかけるが，これをProblem 3.6と同様に球面調和関数として展開すると
+  \begin{align}%
+    \Phi(r, \theta) &= \frac{2q}{4\pi \eps_0} \sum_{l = 0, 2, 4, \ldots}^{\infty} \frac{r_<^l}{r_>^{l+1}} P_l(\cos\theta) - \frac{2q}{4\pi\eps_0}\frac{1}{r}\notag\\
+    &= 
+    \begin{dcases}%
+      \frac{2q}{4\pi\eps_0} \sum_{l=0,2,\ldots}^\infty \frac{r^l}{a^{l+1}} P_l(\cos\theta) - \frac{2q}{4\pi\eps_0} \frac{1}{r}\qqtext{for} r < a\\
+      \frac{2q}{4\pi\eps_0} \sum_{l=2, 4, \ldots}^\infty \frac{a^l}{r^{l+1}} P_l(\cos\theta)
+      \qqtext{for} r > a
+    \end{dcases}% 
+  \end{align}%
+  のように表すことができる．
+  
+$qa^2 \equiv Q$を一定にして$a \to \infty$にするときの極限を考えると，$r<a$のときの
+形を利用して，
+\begin{gather}%
+  \Phi \to \frac{Q}{4\pi \eps_0} \frac{1}{r^2} \ab(3\cos^2 \theta - 1)
+\end{gather}%
+と表される．
+
+\itemlabel{(b)}
+  $a < r ( < b)$でのポテンシャルは線形の重ね合わせとして
+  \begin{gather}%
+    \Phi(r, \theta) = \sum_{l=0}^\infty A_l r^l P_l(\cos\theta) + \frac{2q}{4\pi \eps_0} \sum_{l = 2, 4, \ldots}^\infty \frac{a^l}{r^{l+1}}P_l(\cos\theta)
+  \end{gather}%
+  と書くことができる．$r = b$の球面上でポテンシャルがゼロになるので，
+  $l$が$0$あるいは奇数のときは$A_l = 0$，$l$が2以上の偶数の場合は
+  \begin{gather}%
+    A_l = -\frac{2q}{4\pi\eps_0} \frac{a^l}{b^{2l+1}}
+  \end{gather}%
+  である．
+  したがって，$a < r (< b)$で
+  \begin{gather}%
+    \Phi(r, \theta) = \frac{2q}{4\pi\eps_0} \sum_{l = 2, 4, \ldots} \ab(\frac ab)^l \ab(
+    \frac{b^l}{r^{l+1}} - \frac{r^l}{b^{l+1}}) P_l(\cos\theta)
+  \end{gather}%
+  と表される．一方，$r < a$では，
+  \begin{gather}%
+    \Phi(r, \theta) = \sum_{l=0}^\infty A_l r^l P_l(\cos\theta) + \frac{2q}{4\pi\eps_0} \sum_{l=2, 4, \ldots}\frac{r^l}{a^{l+1}} P_l(\cos\theta) - \frac{2q}{4\pi\eps_0} \frac{1}{r}
+  \end{gather}%
+  と書くことができ，$r = a$で$\Phi$が連続である条件より
+  \begin{gather}%  
+    \frac{2q}{4\pi\eps_0} \sum_{l=2, 4, \ldots}\ab(\frac ab)^l\ab(\frac{b^l}{a^{l+1}} - \frac{a^l}{b^{l+1}}) P_l(\cos\theta)= \sum_{l=0}^\infty A_l a^l P_l(\cos\theta) + \frac{2q}{4\pi\eps_0} \sum_{l=2, 4, \ldots} \frac{1}{a} P_l(\cos\theta) - \frac{2q}{4\pi\eps_0}\frac{1}{a}
+  \end{gather}%
+  となる．これより，$A_0$についての条件は
+  \begin{gather}%
+    A_0 - \frac{2q}{4\pi\eps_0} \frac{1}{a} = 0,
+  \end{gather}%
+  $l$が奇数であるものに対して$A_l = 0$であり，
+  $l$が2以上の偶数であるものに対しては
+  \begin{gather}%
+    \frac{2q}{4\pi\eps_0} \ab(\frac ab)^l\ab(\frac{b^l}{a^{l+1}} - \frac{a^l}{b^{l+1}}) = A_l a^l + \frac{2q}{4\pi\eps_0} \frac{1}{a}
+  \end{gather}%
+  より
+  \begin{gather}%
+    A_l = \frac{2q}{4\pi\eps_0}\frac{1}{a^l} \ab[\ab(\frac ab)^l\ab(\frac{b^l}{a^{l+1}} - \frac{a^l}{b^{l+1}}) - \frac 1a] 
+  \end{gather}%
+  となるので，ポテンシャルは
+  \begin{gather}%
+    \Phi(r, \theta) = \frac{2q}{4\pi\eps_0} \sum_{l = 2, 4, \ldots}  \ab(\frac{b^l}{a^{l+1}} - \frac{a^l}{b^{l+1}})\frac{r^l}{b^l} P_l(\cos\theta) + \frac{2q}{4\pi\eps_0} \ab(\frac 1a - \frac 1r)
+  \end{gather}%
+  である．
+
+ $qa^2 = Q$を一定にして$a \to 0$とする極限では，$r > a$のときを考えれば良く，
+ $l = 2$の項だけが残るのでポテンシャルは
+  \begin{gather}%
+    \Phi(r ,\theta) \to \frac{Q}{2\pi\eps_0} \ab(\frac{1}{r^3} - \frac{r^2}{b^5}) P_2(\cos\theta)
+  \end{gather}%
+  と表される．なお，$P_2(x) = (3x^2 - 1)/2$である．
+
+\clearpage

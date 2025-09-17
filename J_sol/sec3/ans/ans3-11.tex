@@ -1,0 +1,47 @@
+\begin{bx1}
+  任意の関数$f(\rho)$は，以下に示す\emph{同次（homogeneous）}境界条件
+  に基づいて，$0 \leq \rho \leq a$における変形ベッセル=フーリエ級数
+  （modified Bessel--Fourier series）で表すことができる：
+  \begin{align}%
+    \text{At} \qq \rho = 0, &\qq \rho J_{\nu}(k\rho) \diff{J_\nu(k\rho)}{\rho} = 0\\
+    \text{At} \qq \rho = a, &\qq \diff**{\rho}{\log[J_\nu(k\rho)]} = -\frac{\lambda}{a} \qq \ab(\lambda \in \R).
+  \end{align}%
+  1つ目の条件は$\nu$を制限している．2つ目の条件は固有値$k = y_{\nu n}/a$を与えている．
+  ここで$y_{\nu n}$は，$x \ab(\difs{J_\nu(x)}{x}) + \lambda J_\nu(x) = 0$の$n$番目の
+  （$x$の）正の解である．
+  \begin{enumerate}[(a)]%  
+    \item
+      異なる固有値を持つベッセル関数が通常の意味で直交することを示せ．
+    \item
+      規格化積分を求め，任意の関数$f(\rho)$がこの区間で変形ベッセル=フーリエ級数
+      として次のように与えられることを示せ：
+      \begin{gather}%
+        f(\rho) = \sum_{n=1}^\infty A_n J_\nu\ab(\frac{y_{\nu n} \rho}{a}).
+      \end{gather}%
+      ただし，係数$A_n$は次の式によって与えられる：
+      \begin{gather}%
+        A_n = \frac{2}{a^2}\ab[
+          \ab(1-\frac{\nu^2}{y_{\nu n}^2})J_\nu^2(y_{\nu n}) + \ab(
+          \diff{J_\nu(y_{\nu n})}{y_{\nu n}}
+          )^2
+        ]^{-1}
+        \int_0^a f(\rho) \rho J_\nu\ab(\frac{y_{\nu n}\rho}{a})\dl{\rho}.
+      \end{gather}%
+      この表式では$\lambda$への依存性は明らかではないが，$[\cdot]$の中身について，
+      次のように表すこともできる：
+      \begin{align}%
+        \ab(1-\frac{\nu^2}{y_{\nu n}^2})J_\nu^2(y_{\nu n}) + \ab(
+        \diff{J_\nu(y_{\nu n})}{y_{\nu n}}
+        )^2
+        & = 
+        \ab(1+\frac{\lambda^2 - \nu^2}{y_{\nu n}^2}) J_\nu^2(y_{\nu n})\\
+        &= \ab(1 + \frac{y_{\nu n}^2 - \nu^2}{\lambda^2}) \ab[\diff{J_\nu(y_{\nu n})}{y_{\nu n}}]^2\\
+        &= J_\nu^2(y_{\nu n}) - J_{\nu - 1}(y_{\nu n}) J_{\nu+1}(y_{\nu n}).
+      \end{align}%
+      このとき，$\lambda\to\infty$では（本文中の）(3.96)と(3.97)の結果を再現する．
+      また，$\lambda = 0$とすると，また別の単純な表式で表すことができる．
+  \end{enumerate}%
+\end{bx1}
+
+
+\clearpage

@@ -1,0 +1,31 @@
+\begin{bx1}
+半径$b$の中空の正円柱は$z$軸をその軸に持ち，その両端が$z =0$と$z = L$に存在する．
+（両側の）底面におけるポテンシャルはゼロに保たれており，円筒面におけるポテンシャルは
+$V(\phi,z)$で与えられるとする．円筒座標系において，適切な変数分離の手法を用いることにより，
+円筒内部の任意の点におけるポテンシャルの級数表示を求めよ．
+\end{bx1}
+円筒座標系においてポテンシャルが満たすべき表式は
+\begin{gather}%
+  \frac{1}{\rho} \diffp**{\rho}{\ab(\rho\diffp{\Phi}{\rho})} + \frac{1}{\rho^2} \diffp[2]{\Phi}{\phi} + \diffp[2]{\Phi}{z} = 0
+\end{gather}%
+である．変数分離によって，これは次の3つの方程式に帰着される：
+\begin{gather}%  
+  \begin{dcases}%
+    \diff[2]{R}{\rho} + \frac{1}{\rho} \diff{R}{\rho} - \ab(k^2 + \frac{\nu^2}{\rho^2})R = 0\\
+    \diff[2]{Q}{\phi} + \nu^2 Q = 0\\
+    \diff[2]{Z}{z} + k^2 Z = 0
+  \end{dcases}%
+\end{gather}%
+$Q$については，$\phi$の1価性より$\nu\in \Z$として$Q = \e^{\i \nu \phi}$であり，
+$Z$については$z = 0, L$での境界条件より$k = n\pi/L$として，$Z = \sin\ab(n \pi z/L)$である．
+ただし$n = 1, 2, \ldots$である．また，$R$について一般解は
+\begin{gather}%
+  R(\rho) = C_{\nu k} I_\nu(k\rho) + D_{\nu k} K_\nu(k\rho)
+\end{gather}%
+である．ただし，$I_\nu, K_\nu$は第1種，第2種の変形ベッセル関数（modified Bessel function of the 1st and 2nd kind）である．原点$\rho = 0$で有限の値をとることより，$D_{\nu k} = 0$であるから，
+境界条件を満たす$\Phi$は一般に
+\begin{gather}%
+  \Phi(\rho, \phi ,z) = \sum_{\nu \in \Z} \sum_{n = 1}^\infty C_{\nu n} I_\nu \ab(\frac{n \pi}{L}\rho) \e^{\i \nu \phi} \sin\ab(\frac{n \pi}{L} z)
+\end{gather}%
+とかける．
+\clearpage
