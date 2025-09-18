@@ -1,0 +1,42 @@
+\begin{bx1}
+  ポテンシャルがゼロに保たれた，2つの無限に広がる平行平板間に存在する点電荷$q$を考える．
+  円筒座標系で平板が$z = 0$と$z = L$に存在し，点電荷は$z$軸上の$z = z_0 \, (0 < z_0 < L)$
+  に存在するとする．問題3.18と比較して，問題1.12のグリーンの相反定理
+  （Green's reciprocation theorem）を用いよ．
+  \begin{enumerate}[(a)]%  
+    \item
+      $z = L$の平板において，$z$軸を中心とする半径$a$の円内部に誘導される電荷が次の式で
+      与えられることを示せ：
+      \begin{gather}%
+        Q_L(a) = -\frac{q}{V} \Phi(z_0, 0).
+      \end{gather}%
+      ここで，$\Phi(z_0, 0)$は問題3.18において$z = z_0, \rho = 0$で計算した
+      ポテンシャルである．また，上側の平面に誘導される総電荷を求めよ．この結果を
+      （方法とその結果において）問題1.13と比較せよ．
+    \item 
+      上側の平面に誘導された電荷密度は次のように書けることを示せ：
+      \begin{gather}%
+        \sigma(\rho) = -\frac{q}{2\pi} \int_0^\infty \dl{k} \frac{\sinh(kz_0)}{\sinh(kL)} kJ_0(k\rho).
+      \end{gather}%
+      また，この積分は変形ベッセル関数$K_0(n\pi \rho/L)$を含む無限級数とし
+      て表現することもでき
+      \footnote{
+        \cite{gradshteyn2014}の式(6.666)：
+        \begin{gather}%
+          \int_0^\infty  x^{\nu+1} \frac{\sinh(\alpha x)}{\sinh(\pi x)} J_\nu(\beta x) \dl{x}
+          = \frac{2}{\pi} \sum_{n=1}^\infty (-1)^{n-1} n^{\nu+1} \sin(\pi\alpha) K_\nu(n \beta) 
+          \qq [|\Re(\alpha)| < \pi,\, \Re(\nu) > -1]
+        \end{gather}%
+      }，動径方向の距離が大きいときに誘導された電荷密度が
+      $\rho^{-1/2}\e^{-\pi\rho/L}$で減少することがわかる．
+    \item 
+      $\rho = 0$における電荷密度が，次の級数として書けることを示せ：
+      \begin{gather}
+        \sigma(0) = -\frac{q}{2\pi L^2}\sum_{\substack{n>0\\n:\,\text{odd}}} \ab[
+          \ab(n-\frac{z_o}{L})^{-2} - \ab(n+ \frac{z_0}{L})^{-2}
+        ].
+      \end{gather}
+  \end{enumerate}%
+
+\end{bx1}
+\clearpage
