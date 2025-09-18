@@ -1,0 +1,19 @@
+\begin{bx1}
+  $z = 0$と$z = L$にある平板の間の無限に広がる領域に対する
+  ディリクレのグリーン関数ではポテンシャルがゼロに保たれた
+  平行導体平板の，その間の領域で点電荷の存在や電荷の分布を可能にしている．
+  \begin{enumerate}[(a)]%  
+    \item
+      円筒座標系を用いることで，グリーン関数が次のように表されることを証明せよ：
+      \begin{gather}%
+        G(\bs{x}, \bs{x}') = \frac{4}{L} \sum_{n=1}^\infty\sum_{m=-\infty}^\infty \e^{\i m(\phi - \phi')} \sin\ab(\frac{n\pi z}{L}) \sin\ab(\frac{n\pi z'}{L}) I_M\ab(\frac{n\pi}{L}\rho_<)K_m\ab(\frac{n\pi}{L}\rho_>).
+      \end{gather}%
+    \item 
+      グリーン関数が次のようにも表されることを証明せよ：
+      \begin{gather}%
+        G(\bs{x}, \bs{x}') = 2 \sum_{m=-\infty}^\infty \int_0^\infty \dl{k} \e^{\i m(\phi - \phi')} J_m(k\rho) J_m(k\rho') \frac{\sinh(kz_<)\sinh[k(L-z_>)]}{\sinh(kL)}.
+      \end{gather}%
+  \end{enumerate}%
+
+\end{bx1}
+\clearpage

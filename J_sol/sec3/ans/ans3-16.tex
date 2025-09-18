@@ -1,0 +1,32 @@
+\begin{bx1}
+  \begin{enumerate}[(a)]%  
+    \item ベッセルの微分方程式から出発して，適切な極限を考えることにより，(3.108)式の
+      一般化を証明せよ：
+      \begin{gather}%
+        \frac{1}{k} \delta(k - k') = \int_0^\infty \rho J_\nu(k\rho) J_\nu(k'\rho) \dl{\rho}
+      \end{gather}%
+      あるいはこれと等価な
+      \begin{gather}%
+        \frac{1}{\rho} \delta(\rho -\rho') = \int_0^\infty k J_\nu(k\rho) J_\nu(k\rho') \dl{k}.
+      \end{gather}%
+      ただし$\Re(\nu) > -1$とする．
+    \item 
+      次の展開表式を得よ：
+      \begin{gather}%
+        \frac{1}{\ab|\bs{x} - \bs{x}'|} = \sum_{m=-\infty}^\infty \int_0^\infty \dl{k} \e^{\i m(\phi-\phi')} J_m(k\rho) J_m(k\rho') \e^{-k(z_> - z_<)}.
+      \end{gather}%
+    \item
+      適切な極限を考えることにより，以下の展開表式を証明せよ：
+      \begin{gather}%
+        \frac{1}{\sqrt{\rho^2 + z^2}} = \int_0^\infty \e^{-k|z|} J_0(k\rho)\dl{\rho},\\
+        J_0\ab(k\sqrt{\rho^2 + (\rho')^2- 2\rho \rho'\cos\phi}) = \sum_{m=-\infty}^\infty \e^{\i m\phi}J_m(k\rho) J_m(k\rho'),\\
+        \e^{\i k\rho\cos\phi} = \sum_{m=-\infty}^\infty \i^m \e^{\i m\phi} J_m(k\rho).
+      \end{gather}%
+    \item
+      最後の結果から，ベッセル関数の積分表示を得よ：
+      \begin{gather}%
+        J_m(x) = \frac{1}{2\pi\i^m} \int_0^{2\pi} \e^{\i x \cos\phi - \i m \phi}\dl{\phi}.
+      \end{gather}%
+  \end{enumerate}%
+\end{bx1}
+\clearpage
